@@ -10,11 +10,8 @@ resource "oci_core_instance" "h2o" {
   }
   metadata {
     ssh_authorized_keys = "${var.ssh_public_key}"
-    user_data           = "${base64encode(format("%s\n%s\n%s\n%s\n%s\n",
+    user_data           = "${base64encode(format("%s\n%s\n",
       "#!/usr/bin/env bash",
-      "version=${var.h2o["version"]}",
-      "adminUsername=${var.h2o["adminUsername"]}",
-      "adminPassword=${var.h2o["adminPassword"]}",
       file("../scripts/server.sh")
     ))}"
   }
@@ -31,4 +28,4 @@ data "oci_core_vnic" "h2o_vnic" {
   vnic_id = "${lookup(data.oci_core_vnic_attachments.h2o_vnic_attachments.vnic_attachments[0],"vnic_id")}"
 }
 
-output "URL" { value = "http://${data.oci_core_vnic.h2o_vnic.public_ip_address}:8091" }
+output "URL" { value = "${data.oci_core_vnic.h2o_vnic.public_ip_address}" }
