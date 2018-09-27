@@ -1,5 +1,5 @@
 # oci-h2o
-[simple](simple) is a Terraform module that will deploy H2O on OCI. Instructions on how to use it are below.
+[simple](simple) is a Terraform module that will deploy H2O Driverless AI on OCI. Instructions on how to use it are below.
 
 ## Prerequisites
 First off you'll need to do some pre deploy setup.  That's all detailed [here](https://github.com/cloud-partners/oci-prerequisites).
