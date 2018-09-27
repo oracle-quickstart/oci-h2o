@@ -12,7 +12,7 @@ resource "oci_core_instance" "h2o" {
     ssh_authorized_keys = "${var.ssh_public_key}"
     user_data           = "${base64encode(format("%s\n%s\n",
       "#!/usr/bin/env bash",
-      file("../scripts/server.sh")
+      file("../scripts/node.sh")
     ))}"
   }
   count = "${var.h2o["node_count"]}"
