@@ -1,5 +1,3 @@
-# Important Note - Doesn't Work Yet!
-
 # oci-h2o
 [simple](simple) is a Terraform module that will deploy H2O Driverless AI on OCI. Instructions on how to use it are below.
 
@@ -10,7 +8,7 @@ First off you'll need to do some pre deploy setup.  That's all detailed [here](h
 Now, you'll want a local copy of this repo.  You can make that with the commands:
 
     git clone https://github.com/cloud-partners/oci-h2o.git
-    cd oci-h2o/simple
+    cd oci-h2o/gpu
     ls
 
 That should give you this:
@@ -46,9 +44,11 @@ When the apply is complete, the infrastructure will be deployed, but cloud-init 
 
 ## Connect to the Cluster
 
-To do
+The apply prints the URL of H2O Driverless AI when it completes.  Logging into that we see:
 
-http://docs.h2o.ai/driverless-ai/latest-stable/docs/userguide/launching.html
+![](./images/08%20-%20h2o.png)
+
+The documentation [here](http://docs.h2o.ai/driverless-ai/latest-stable/docs/userguide/launching.html) provides a walkthrough and some good next steps.
 
 ## SSH to a Node
 These machines are using Oracle Enterprise Linux (OEL).  The default login is opc.  You can SSH into the machine with a command like this:
