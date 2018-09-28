@@ -20,7 +20,7 @@ resource "oci_core_instance" "h2o" {
 
 data "oci_core_vnic_attachments" "h2o_vnic_attachments" {
   compartment_id      = "${var.tenancy_ocid}"
-  availability_domain = "${lookup(data.oci_identity_availability_domains.availability_domains.availability_domains[2],"name")}"
+  availability_domain = "${lookup(data.oci_identity_availability_domains.availability_domains.availability_domains[0],"name")}"
   instance_id         = "${oci_core_instance.h2o.*.id[0]}"
 }
 

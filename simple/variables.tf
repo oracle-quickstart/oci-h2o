@@ -22,7 +22,7 @@ variable "ssh_public_key" {}
 variable "h2o" {
   type = "map"
   default = {
-    shape = "BM.GPU3.8"
+    shape = "BM.GPU2.2"
     node_count = 1
   }
 }
