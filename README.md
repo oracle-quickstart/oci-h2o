@@ -59,6 +59,8 @@ These machines are using Oracle Enterprise Linux (OEL).  The default login is op
 
 ![](./images/07%20-%20ssh.png)
 
+H2O is installed under `/opt/h2o`.  Logs from the install are under `/var/log/messages` and viewable with root privileges.
+
 ## View the Cluster in the Console
 You can also login to the web console [here](https://console.us-phoenix-1.oraclecloud.com/a/compute/instances) to view the IaaS that is running the cluster.
 
