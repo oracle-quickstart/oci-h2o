@@ -30,4 +30,3 @@ data "oci_core_vnic" "h2o_vnic" {
 }
 
 output "Driverless AI URL" { value = "http://${data.oci_core_vnic.h2o_vnic.public_ip_address}:12345" }
-output "Documentation" { value = "https://s3.amazonaws.com/artifacts.h2o.ai/releases/ai/h2o/dai/rel-1.3.1-12/docs/userguide/launching.html" }
