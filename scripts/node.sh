@@ -27,6 +27,5 @@ nvidia-smi -pm 1
 #######################################################
 ################ Start H2O Driverless AI ##############
 #######################################################
+sleep 1m
 systemctl start dai
-
-#http://h2o-release.s3.amazonaws.com/h2o/rel-lambert/5/docs-website/deployment/multinode.html
