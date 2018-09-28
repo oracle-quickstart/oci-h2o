@@ -23,7 +23,7 @@ variable "h2o" {
   type = "map"
   default = {
     shape = "BM.GPU2.2"
-    node_count = 1
+    node_count = 3
   }
 }
 

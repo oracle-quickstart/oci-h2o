@@ -48,6 +48,8 @@ When the apply is complete, the infrastructure will be deployed, but cloud-init 
 
 To do
 
+http://docs.h2o.ai/driverless-ai/latest-stable/docs/userguide/launching.html
+
 ## SSH to a Node
 These machines are using Oracle Enterprise Linux (OEL).  The default login is opc.  You can SSH into the machine with a command like this:
 

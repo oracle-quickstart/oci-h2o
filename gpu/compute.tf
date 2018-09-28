@@ -28,4 +28,4 @@ data "oci_core_vnic" "h2o_vnic" {
   vnic_id = "${lookup(data.oci_core_vnic_attachments.h2o_vnic_attachments.vnic_attachments[0],"vnic_id")}"
 }
 
-output "URL" { value = "${data.oci_core_vnic.h2o_vnic.public_ip_address}" }
+output "URL" { value = "http://${data.oci_core_vnic.h2o_vnic.public_ip_address}:12345" }
