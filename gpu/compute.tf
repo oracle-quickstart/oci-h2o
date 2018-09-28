@@ -28,5 +28,4 @@ data "oci_core_vnic" "h2o_vnic" {
   vnic_id = "${lookup(data.oci_core_vnic_attachments.h2o_vnic_attachments.vnic_attachments[0],"vnic_id")}"
 }
 
-output "DRIVERLESS_AI_PROCSY_URL" { value = "http://${data.oci_core_vnic.h2o_vnic.public_ip_address}:8080" }
-output "DRIVERLESS_AI_H2O_URL" { value = "http://${data.oci_core_vnic.h2o_vnic.public_ip_address}:54321" }
+output "DRIVERLESS_AI_H2O_URL" { value = "http://${data.oci_core_vnic.h2o_vnic.public_ip_address}:12345" }
