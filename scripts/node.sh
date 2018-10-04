@@ -1,5 +1,8 @@
 echo "Running node.sh"
 
+# Disable IBRS (Meltdown/Spectre Mitigation)
+echo 0 > /sys/kernel/debug/x86/ibrs_enabled
+
 #######################################################
 ################# Turn Off the Firewall ###############
 #######################################################
