@@ -24,7 +24,7 @@ variable "h2o" {
   default = {
     shape = "BM.GPU2.2"
     node_count = 1
-    key = "mObktdzmllPEOAvB4eDl-P7bY4B1zne84J9bisUMOM70uslsDi0yCN3_nZWgO3S4w3dir7v-hzUKD82tNlNHVswsPUQs0IWH5G-kU1YBltCx7V_tyv3GmLA_Wch9NzJSz31ZtIqjJ4e_WrlYlqZ_WwOjnq5KgIalOQYWs-ICskdpxC1v_Jsgic3UNJ0fbKEmOfk-1dkvOEs9p2JdqGUTZv963dNbcYC9W6HWKfuOJ8CYjsghJ-hdVLXq4NrK4pYb73vQiE4zjzIzrvReMDenW8X7CKLyC0kr-h6y8eyN4Y3F4Gv8WFt6DSeBIInF5TVeYidmcQQ6sBbTwbcHB1vx9WxpY2Vuc2VfdmVyc2lvbjoxCnNlcmlhbF9udW1iZXI6MjkwMjUKbGljZW5zZWVfb3JnYW5pemF0aW9uOk9yYWNsZQpsaWNlbnNlZV9lbWFpbDpqb3NlcGgucG9jemF0ZWtAb3JhY2xlLmNvbQpsaWNlbnNlZV91c2VyX2lkOjI5MDI1CmlzX2gyb19pbnRlcm5hbF91c2U6ZmFsc2UKY3JlYXRlZF9ieV9lbWFpbDprYXlAaDJvLmFpCmNyZWF0aW9uX2RhdGU6MjAxOC8xMi8wNQpwcm9kdWN0OkRyaXZlcmxlc3NBSQpsaWNlbnNlX3R5cGU6dHJpYWwKZXhwaXJhdGlvbl9kYXRlOjIwMTgvMTIvMjYK"
+    key = "mObktdzmllPEOAvB4eDl"
   }
 }
 
