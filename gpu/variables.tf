@@ -24,11 +24,7 @@ variable "h2o" {
   default = {
     shape = "BM.GPU2.2"
     node_count = 1
-<<<<<<< HEAD
     key = "aRgbv1OsX69tXfVu7N6WIht9PV-712SfBgjgp6TnF1eDZaxzPME0Ad7ZXvNwFyN_NhstKzM_AcjlkoKsU5hHAlfpwY-7XuNdHQ5dkjNav8aYyo8F9aNWqfdCvmKeIwpgtEoeuqDuxCPE0ZjSk21RqJFl9ZrTz4hG9jzT-D6yCHogK-q4S6CMEN2epVkqARsez2pgr-RQYsMO4_jRjDdz70-M0hA37D_bSwMXzT0IbtObRTeH80uac6P9eyDcHk_PKjf1kVr3wAQkYTlU1hdnTtEMsonqRwq_42IelioluKyKxgiwPeQNu-f6Q1al4nYOgA9mcNXy5cafOScxrqpBO2xpY2Vuc2VfdmVyc2lvbjoxCnNlcmlhbF9udW1iZXI6Mjk1NTYKbGljZW5zZWVfb3JnYW5pemF0aW9uOk5BCmxpY2Vuc2VlX2VtYWlsOmJlbi5sYWNrZXlAb3V0bG9vay5jb20KbGljZW5zZWVfdXNlcl9pZDoyOTU1Ngppc19oMm9faW50ZXJuYWxfdXNlOmZhbHNlCmNyZWF0ZWRfYnlfZW1haWw6a2F5QGgyby5haQpjcmVhdGlvbl9kYXRlOjIwMTgvMTIvMjcKcHJvZHVjdDpEcml2ZXJsZXNzQUkKbGljZW5zZV90eXBlOnRyaWFsCmV4cGlyYXRpb25fZGF0ZToyMDE5LzAxLzE3Cg=="
-=======
-    key = "mObktdzmllPEOAvB4eDl"
->>>>>>> 1e6760cdaa9afefae39db971340017cda69ebb7a
   }
 }
 
