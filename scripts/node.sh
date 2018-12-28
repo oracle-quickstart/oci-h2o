@@ -12,8 +12,8 @@ chkconfig firewalld off
 #######################################################
 echo "Installing H2O Driverless AI..."
 cd /
-curl -O https://s3.amazonaws.com/artifacts.h2o.ai/releases/ai/h2o/dai/rel-1.3.1-12/x86_64-centos7/dai-1.3.1-1.x86_64.rpm
-rpm -i dai-1.3.1-1.x86_64.rpm
+curl -O https://s3.amazonaws.com/artifacts.h2o.ai/releases/ai/h2o/dai/rel-1.4.2-9/x86_64-centos7/dai-1.4.2-1.x86_64.rpm
+rpm -i dai-1.4.2-1.x86_64.rpm
 
 mkdir -p /opt/h2oai/dai/home/.driverlessai/
 echo $key > /opt/h2oai/dai/home/.driverlessai/license.sig
