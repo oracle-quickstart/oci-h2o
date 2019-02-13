@@ -1,23 +1,23 @@
 data "oci_identity_availability_domains" "availability_domains" {
-  compartment_id = "${var.tenancy_ocid}"
+  compartment_id = "${var.compartment_ocid}"
 }
 
 resource "oci_core_virtual_network" "virtual_network" {
   display_name   = "virtual_network"
-  compartment_id = "${var.tenancy_ocid}"
+  compartment_id = "${var.compartment_ocid}"
   cidr_block     = "10.0.0.0/16"
   dns_label      = "h2o"
 }
 
 resource "oci_core_internet_gateway" "internet_gateway" {
   display_name   = "internet_gateway"
-  compartment_id = "${var.tenancy_ocid}"
+  compartment_id = "${var.compartment_ocid}"
   vcn_id         = "${oci_core_virtual_network.virtual_network.id}"
 }
 
 resource "oci_core_route_table" "route_table" {
   display_name   = "route_table"
-  compartment_id = "${var.tenancy_ocid}"
+  compartment_id = "${var.compartment_ocid}"
   vcn_id         = "${oci_core_virtual_network.virtual_network.id}"
 
   route_rules {
@@ -28,23 +28,40 @@ resource "oci_core_route_table" "route_table" {
 
 resource "oci_core_security_list" "security_list" {
   display_name   = "security_list"
-  compartment_id = "${var.tenancy_ocid}"
+  compartment_id = "${var.compartment_ocid}"
   vcn_id         = "${oci_core_virtual_network.virtual_network.id}"
 
-  egress_security_rules = [{
-    protocol    = "All"
-    destination = "0.0.0.0/0"
-  }]
+   egress_security_rules = [
+    {
+      protocol    = "6"
+      destination = "0.0.0.0/0"
+    },
+  ]
 
-  ingress_security_rules = [{
-    protocol = "All"
+  ingress_security_rules {
+    protocol = "6"
     source   = "0.0.0.0/0"
-  }]
+
+    tcp_options {
+      max = "22"
+      min = "22"
+    }
+  }
+
+  ingress_security_rules {
+    protocol = "6"
+    source   = "0.0.0.0/0"
+
+    tcp_options {
+      max = "12345"
+      min = "12345"
+    }
+  }
 }
 
 resource "oci_core_subnet" "subnet" {
   display_name        = "subnet"
-  compartment_id      = "${var.tenancy_ocid}"
+  compartment_id      = "${var.compartment_ocid}"
   availability_domain = "${lookup(data.oci_identity_availability_domains.availability_domains.availability_domains[0], "name")}"
   cidr_block          = "10.0.0.0/16"
   vcn_id              = "${oci_core_virtual_network.virtual_network.id}"
