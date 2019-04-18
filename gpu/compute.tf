@@ -16,6 +16,9 @@ resource "oci_core_instance" "h2o" {
       file("../scripts/node.sh")
     ))}"
   }
+  freeform_tags = {
+    "quick-start" = "{\"Deployment\":\"TF\", \"Publisher\":\"H2O\", \"Offer\":\"H2O\",\"Licence\":\"byol\"}"
+  }
   count = "${var.h2o["node_count"]}"
 }
 
