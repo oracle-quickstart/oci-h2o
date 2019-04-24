@@ -31,7 +31,7 @@ resource "oci_core_security_list" "security_list" {
   compartment_id = "${var.compartment_ocid}"
   vcn_id         = "${oci_core_virtual_network.virtual_network.id}"
 
-   egress_security_rules = [
+  egress_security_rules = [
     {
       protocol    = "6"
       destination = "0.0.0.0/0"
