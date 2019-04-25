@@ -21,10 +21,21 @@ mkdir -p /opt/h2oai/dai/home/.driverlessai/
 echo $key > /opt/h2oai/dai/home/.driverlessai/license.sig
 
 #######################################################
+################### Gather metadata ###################
+#######################################################
+json=$(curl -sSL http://169.254.169.254/opc/v1/instance/)
+shape=$(echo $json | jq -r .shape)
+
+#######################################################
 ################### GPU Configuration #################
 #######################################################
-nvidia-persistenced --user dai
-nvidia-smi -pm 1
+if [[ $shape == *"GPU"* ]]; then
+  echo "Running on GPU shape, calling nvidia setup..."
+  nvidia-persistenced --user dai
+  nvidia-smi -pm 1
+else
+  echo "Running on non-GPU shape"
+fi
 
 #######################################################
 ################ Start H2O Driverless AI ##############
