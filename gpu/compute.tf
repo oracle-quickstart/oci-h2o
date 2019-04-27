@@ -46,5 +46,5 @@ data "oci_core_vnic" "h2o_vnic" {
 }
 
 output "Driverless AI URL" {
-  value = "http://${data.oci_core_vnic.h2o_vnic.public_ip_address}:12345"
+  value = "https://${data.oci_core_vnic.h2o_vnic.public_ip_address}:12345"
 }
