@@ -19,11 +19,13 @@ resource "oci_core_instance" "h2o" {
   metadata {
     ssh_authorized_keys = "${var.ssh_public_key}"
 
-    user_data = "${base64encode(format("%s\n%s\n%s\n",
+    user_data = "${base64encode(join("\n", list(
       "#!/usr/bin/env bash",
-      "key=${var.h2o["key"]}",
+      "KEY=${var.h2o["key"]}",
+      "DEFAULT_USER=\"${var.h2o["user"]}\"",
+      "DEFAULT_PW=\"${var.h2o["password"]}\"",
       file("../scripts/node.sh")
-    ))}"
+    )))}"
   }
 
   freeform_tags = {

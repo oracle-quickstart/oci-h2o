@@ -18,7 +18,7 @@ rpm -i dai-1.6.1-1.x86_64.rpm
 
 echo 0 > /proc/sys/vm/overcommit_memory
 mkdir -p /opt/h2oai/dai/home/.driverlessai/
-echo $key > /opt/h2oai/dai/home/.driverlessai/license.sig
+echo $KEY > /opt/h2oai/dai/home/.driverlessai/license.sig
 
 #######################################################
 ################### Gather metadata ###################
@@ -44,7 +44,7 @@ file="/etc/dai/config.toml"
 
 echo "Setup htpasswd file"
 yum install -y httpd-tools
-htpasswd -bcB /etc/dai/htpasswd admin mysecret
+htpasswd -bcB /etc/dai/htpasswd $DEFAULT_USER $DEFAULT_PW
 chown dai:dai /etc/dai/htpasswd
 chmod 600 /etc/dai/htpasswd
 
