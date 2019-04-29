@@ -1,15 +1,15 @@
 # oci-h2o
-[simple](simple) is a Terraform module that will deploy H2O Driverless AI on OCI. Instructions on how to use it are below.  In addition, here's a video walkthrough:
+[gpu](gpu) is a Terraform module that will deploy H2O Driverless AI (DAI) on OCI. Instructions on how to use it are below.  In addition, here's a video walkthrough:
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/wFhR3gip4ko/0.jpg)](https://www.youtube.com/watch?v=wFhR3gip4ko)
 
 ## Prerequisites
-First off you'll need to do some pre deploy setup.  That's all detailed [here](https://github.com/cloud-partners/oci-prerequisites).
+First off you'll need to do some pre deploy setup.  That's all detailed [here](https://github.com/oci-quickstart/oci-prerequisites).
 
 ## Clone the Module
 Now, you'll want a local copy of this repo.  You can make that with the commands:
 
-    git clone https://github.com/cloud-partners/oci-h2o.git
+    git clone https://github.com/oci-quickstart/oci-h2o.git
     cd oci-h2o/gpu
     ls
 
@@ -34,7 +34,7 @@ That gives:
 
 ![](./images/03%20-%20terraform%20plan.png)
 
-If that's good, we can go ahead and apply the deploy:
+The next command will deploy H2O DAI using the values in the `variables.tf` file. If that's good, we can go ahead and apply the deploy:
 
     terraform apply
 
@@ -42,15 +42,17 @@ You'll need to enter `yes` when prompted.  The apply should take about seven min
 
 ![](./images/04%20-%20terraform%20apply.png)
 
-When the apply is complete, the infrastructure will be deployed, but cloud-init scripts will still be running.  Those will wrap up asynchronously.  So, it'll be a few more minutes before your cluster is accessible.  Now is a good time to get a coffee.
+When the `apply` is complete, the infrastructure will be deployed, but the cloud-init scripts will still be running.  Those will wrap up asynchronously.  So, it'll be a few more minutes before your cluster is accessible.  Now is a good time to get a coffee.
 
 ## Connect to the Cluster
 
-The apply prints the URL of H2O Driverless AI when it completes.  Logging into that we see:
+The `apply` prints the URL of H2O Driverless AI when it completes.  The deployment creates a self-signed certificate, so you'll need to confirm the exception.
+
+Logging into that we see:
 
 ![](./images/05%20-%20agreement.png)
 
-After accepting the agreement, we can see the login screen:
+After accepting the agreement, we can see the login screen. Use the login defined in the `variables.tf` file:
 
 ![](./images/06%20-%20login.png)
 
