@@ -1,5 +1,7 @@
-# oci-h2o
-[gpu](gpu) is a Terraform module that will deploy H2O Driverless AI (DAI) on OCI. Instructions on how to use it are below.  In addition, here's a video walkthrough:
+# oci-quickstart-h2o
+This is a Terraform module that deploys [H2O.ai Driverless AI](https://www.h2o.ai/products/) on [Oracle Cloud Infrastructure (OCI)](https://cloud.oracle.com/en_US/cloud-infrastructure).  It is developed jointly by Oracle and H2O.ai.
+
+Instructions on how to use it are below.  In addition, here's a video walkthrough:
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/wFhR3gip4ko/0.jpg)](https://www.youtube.com/watch?v=wFhR3gip4ko)
 
@@ -9,8 +11,8 @@ First off you'll need to do some pre deploy setup.  That's all detailed [here](h
 ## Clone the Module
 Now, you'll want a local copy of this repo.  You can make that with the commands:
 
-    git clone https://github.com/oci-quickstart/oci-h2o.git
-    cd oci-h2o/gpu
+    git clone https://github.com/oracle/oci-quickstart-h2o.git
+    cd oci-quickstart-h2o/gpu
     ls
 
 That should give you this:
