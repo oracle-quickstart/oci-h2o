@@ -12,7 +12,7 @@ First off you'll need to do some pre deploy setup.  That's all detailed [here](h
 Now, you'll want a local copy of this repo.  You can make that with the commands:
 
     git clone https://github.com/oracle/oci-quickstart-h2o.git
-    cd oci-quickstart-h2o/gpu
+    cd oci-quickstart-h2o/terraform
     ls
 
 That should give you this:
