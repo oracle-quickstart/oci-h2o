@@ -8,6 +8,8 @@ Instructions on how to use it are below.  In addition, here's a video walkthroug
 ## Prerequisites
 First off you'll need to do some pre deploy setup.  That's all detailed [here](https://github.com/oracle/oci-quickstart-prerequisites).
 
+DAI requires a license key. If you don't already have a key, you can get a [trial key](https://www.h2o.ai/try-driverless-ai/). You can deploy these templates before you get a key, but you'll be prompted for a key at first login.
+
 ## Clone the Module
 Now, you'll want a local copy of this repo.  You can make that with the commands:
 
@@ -36,7 +38,14 @@ That gives:
 
 ![](./images/03%20-%20terraform%20plan.png)
 
-The next command will deploy H2O DAI using the values in the `variables.tf` file. If that's good, we can go ahead and apply the deploy:
+The next command will deploy H2O DAI using the values in the `variables.tf` file:
+- `key`: Set to the value of your key. If empty, you will be prompted to enter your key at first login.
+- `h20.shape`: Default `BM.GPU2.2`, these templates support both CPU and GPU (higher performance) shapes.
+- `h20.ad_number`: Default `0`, choose a value where you have quota for the desired shape.
+- `h20.user`: Default `admin`, these templates set up local authentication using file `/etc/dai/htpasswd`
+- `h20.password`: Default `admin`
+
+If that's good, we can go ahead and apply the deploy:
 
     terraform apply
 
