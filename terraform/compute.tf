@@ -21,14 +21,14 @@ resource "oci_core_instance" "h2o" {
 
     user_data = "${base64encode(join("\n", list(
       "#!/usr/bin/env bash",
-      "KEY=${var.h2o["key"]}",
+      "KEY=${var.key}",
       "DEFAULT_USER=\"${var.h2o["user"]}\"",
       "DEFAULT_PW=\"${var.h2o["password"]}\"",
       file("../scripts/node.sh")
     )))}"
   }
 
-  count = "${var.h2o["node_count"]}"
+  count = 1
 }
 
 data "oci_core_vnic_attachments" "h2o_vnic_attachments" {

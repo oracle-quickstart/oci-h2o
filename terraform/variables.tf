@@ -18,22 +18,27 @@ variable "ssh_public_key" {}
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Optional variables
-# The defaults here will give you a cluster.  You can also modify these.
+# The defaults here will give you an instance of H2O DAI.  You can also modify these.
 # ---------------------------------------------------------------------------------------------------------------------
+
+variable "key" {
+  type = "string"
+
+  # Set to the value of your key. If empty, you will be prompted to enter your key at first login.
+  default = ""
+}
 
 variable "h2o" {
   type = "map"
 
   default = {
-    shape      = "BM.GPU2.2"
-    node_count = 1
+    shape = "BM.GPU2.2"
 
     # Which availability domain to deploy to depending on quota, zero based
-    ad_number = 1
-    key       = "jJdNPBVnnmRn29CWuVJG59z7JplktGOwm9cTJUAx39QZT84BDDCuNN7a8OqpKSosB8mIiRzO1m5jSB0chRcOyMYk4PPNgF48VBPZk4i9B09aNOPzPY_4ntxznEP3prNrQfQlePFJH9hlNgEOGd9g9r5hpRijdwoLlT811MvDr4ikzK6LUQodOHo5ChIE2KMHxrLgc8MsupBexQuH3Wnv5y01OhU2TTfzh-vkqsCgj3T5abwtxG065FJnHe4Kd5sjBoryMSH2fzCrMmwWduPUt4UYGe3B5thJPUNHVlNXTU0-UKBgQ4DjFQc9DOS3V-jV36DX_Sw3hVxm00QayOaJKGxpY2Vuc2VfdmVyc2lvbjoxCnNlcmlhbF9udW1iZXI6MzM0OTYKbGljZW5zZWVfb3JnYW5pemF0aW9uOk9yYWNsZQpsaWNlbnNlZV9lbWFpbDpvZ3V6LnBhc3Rpcm1hY2lAb3JhY2xlLmNvbQpsaWNlbnNlZV91c2VyX2lkOjMzNDk2CmlzX2gyb19pbnRlcm5hbF91c2U6ZmFsc2UKY3JlYXRlZF9ieV9lbWFpbDprYXlAaDJvLmFpCmNyZWF0aW9uX2RhdGU6MjAxOS8wNC8yOQpwcm9kdWN0OkRyaXZlcmxlc3NBSQpsaWNlbnNlX3R5cGU6dHJpYWwKZXhwaXJhdGlvbl9kYXRlOjIwMTkvMDUvMjAK"
+    ad_number = 0
 
     # Default login user/pw
-    user = "admin"
+    user     = "admin"
     password = "admin"
   }
 }
