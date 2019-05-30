@@ -24,6 +24,7 @@ resource "oci_core_instance" "h2o" {
       "KEY=${var.key}",
       "DEFAULT_USER=\"${var.h2o["user"]}\"",
       "DEFAULT_PW=\"${var.h2o["password"]}\"",
+      "DISK_COUNT=\"${var.h2o["diskSizeGB"] > 0 ? 1 : 0}\"",
       file("../scripts/node.sh")
     )))}"
   }
@@ -39,6 +40,22 @@ data "oci_core_vnic_attachments" "h2o_vnic_attachments" {
 
 data "oci_core_vnic" "h2o_vnic" {
   vnic_id = "${lookup(data.oci_core_vnic_attachments.h2o_vnic_attachments.vnic_attachments[0],"vnic_id")}"
+}
+
+resource "oci_core_volume" "h2o" {
+  count               = "${var.h2o["diskSizeGB"] > 0 ? 1 : 0}"
+  availability_domain = "${lookup(data.oci_identity_availability_domains.availability_domains.availability_domains[var.h2o["ad_number"]],"name")}"
+  compartment_id      = "${var.compartment_ocid}"
+  display_name        = "h2o"
+  size_in_gbs         = "${var.h2o["diskSizeGB"]}"
+}
+
+resource "oci_core_volume_attachment" "h2o" {
+  count           = "${var.h2o["diskSizeGB"] > 0 ? 1 : 0}"
+  attachment_type = "iscsi"
+  compartment_id  = "${var.compartment_ocid}"
+  instance_id     = "${oci_core_instance.h2o.*.id[0]}"
+  volume_id       = "${oci_core_volume.h2o.*.id[0]}"
 }
 
 output "Driverless AI URL" {

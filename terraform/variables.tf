@@ -37,6 +37,10 @@ variable "h2o" {
     # Which availability domain to deploy to depending on quota, zero based
     ad_number = 0
 
+    # Size of block volume in GB for data, min 50.
+    # If set to 0 volume will not be created/mounted
+    diskSizeGB = 0
+
     # Default login user/pw
     user     = "admin"
     password = "admin"
