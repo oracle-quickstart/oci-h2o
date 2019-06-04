@@ -40,6 +40,25 @@ if [[ $shape == *"GPU"* ]]; then
   echo "Running on GPU shape, calling nvidia setup..."
   nvidia-persistenced --user dai
   nvidia-smi -pm 1
+
+  echo "Creating nvidia-persistenced-dai.service in /usr/lib/systemd/system"
+  cat << EOF > /usr/lib/systemd/system/nvidia-persistenced-dai.service
+[Unit]
+Description=NVIDIA Persistence Daemon as user dai
+Wants=syslog.target
+
+[Service]
+Type=forking
+PIDFile=/var/run/nvidia-persistenced/nvidia-persistenced-dai.pid
+Restart=always
+ExecStart=/usr/bin/nvidia-persistenced --verbose --user dai
+ExecStopPost=/bin/rm -rf /var/run/nvidia-persistenced
+
+[Install]
+WantedBy=multi-user.target
+EOF
+  echo "Enabling nvidia-persistenced-dai.service"
+  systemctl enable nvidia-persistenced-dai.service
 else
   echo "Running on non-GPU shape, no nvidia gpu setup"
 fi
