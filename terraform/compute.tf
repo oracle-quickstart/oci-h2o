@@ -12,7 +12,7 @@ resource "oci_core_instance" "h2o" {
   subnet_id           = "${oci_core_subnet.subnet.id}"
 
   source_details {
-    source_id   = "${local.shape_type == "gpu" ? var.images["${var.region}-gpu"] : var.images[var.region]}"
+    source_id   = "${local.shape_type == "gpu" ? var.platform-images["${var.region}-gpu"] : var.platform-images[var.region]}"
     source_type = "image"
   }
 

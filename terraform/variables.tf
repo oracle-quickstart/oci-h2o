@@ -59,7 +59,7 @@ variable "h2o" {
 # https://docs.cloud.oracle.com/iaas/images/image/2c504562-5b82-427a-b72f-6122fa9d9a21/
 # Oracle-Linux-7.6-2019.03.22-1
 
-variable "images" {
+variable "platform-images" {
   type = "map"
 
   default = {
