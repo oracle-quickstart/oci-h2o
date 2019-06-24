@@ -22,48 +22,28 @@ variable "ssh_public_key" {}
 # ---------------------------------------------------------------------------------------------------------------------
 
 variable "key" {
+  type = "string"
+
+  # Set to the value of your key. If empty, you will be prompted to enter your key at first login.
   default = ""
-  description = "Set to the value of your license key. If empty, you will be prompted to enter your key at first login."
 }
-
-variable "shape" {
-  default = "BM.GPU2.2"
-  description = "Instance shape to deploy."
-}
-
-variable "ad_number" {
-  default = 0
-  description = "Which availability domain to deploy to depending on quota, zero based."
-}
-
-variable "ad" {
-  default = "${lookup(data.oci_identity_availability_domains.availability_domains.availability_domains[var.ad_number],"name")}"
-}
-variable "diskSizeGB" {
-  default = 0
-  description = "Size of block volume in GB for data, min 50. If set to 0 volume will not be created/mounted."
-}
-
-variable "user" {
-  default = "admin"
-  description = "Default login user."
-}
-
-variable "password" {
-  default = "admin"
-  description = "Password for default user."
-}
-
-
-# TEST
-variable "availability_domain" {}
-variable "compartment_ocid2" {}
 
 variable "h2o" {
   type = "map"
 
   default = {
-    val = "unused"
+    shape = "BM.GPU2.2"
+
+    # Which availability domain to deploy to depending on quota, zero based
+    ad_number = 0
+
+    # Size of block volume in GB for data, min 50.
+    # If set to 0 volume will not be created/mounted
+    diskSizeGB = 0
+
+    # Default login user/pw
+    user     = "admin"
+    password = "admin"
   }
 }
 

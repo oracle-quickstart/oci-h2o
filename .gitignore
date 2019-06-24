@@ -4,3 +4,7 @@ terraform.tfstate.backup
 .terraform.tfstate.lock.info
 
 *scratch*
+
+*.DS_Store
+util/tmp*
+util/*.zip

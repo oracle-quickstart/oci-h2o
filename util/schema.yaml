@@ -1,0 +1,57 @@
+title: "Top Level Title"
+schemaVersion: 1.0.0
+version: "20190612"
+locale: "en"
+groupings:
+  - title: "Hidden General Configuration"
+    visible: true
+    variables:
+    - tenancy_ocid
+    - compartment_ocid
+    - region
+    # QS specific platform image var
+    - platform-images
+
+  - title: "H2O.ai DAI Configuration"
+    visible: true
+    variables:
+    - shape
+    - ssh_public_key
+    - ad_number
+    - diskSizeGB
+    - key
+    - user
+    - password
+    - availability_domain
+
+variables:
+
+  compartment_ocid2:
+    type: oci:identity:compartment:id
+    # type: string
+    required: true
+    title: "FortiGate Compartment"
+    description: "The compartment in which to create FortiGate instance(s)"
+
+  availability_domain:
+    type: oci:identity:availabilitydomain:name
+    dependsOn:
+      compartmentId: ${compartment_ocid}
+    required: true
+    default: 0
+    title: "Availability Domain"
+    description: "Availability Domain"
+
+  shape:
+    type: oci:core:instanceshape:name
+    default: "BM.GPU2.2"
+    title: "Compute Shape"
+    required: true
+    dependsOn:
+      compartmentId: ${compartment_ocid}
+      #imageId: ${mp_listing_resource_id}
+
+  password:
+    description: "Description in schema.yaml"
+    type: password
+    required: true
