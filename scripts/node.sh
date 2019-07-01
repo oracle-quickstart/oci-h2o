@@ -13,12 +13,11 @@ chkconfig firewalld off
 #######################################################
 echo "Installing H2O Driverless AI..."
 cd ~opc
-curl -O http://artifacts.h2o.ai.s3.amazonaws.com/releases/ai/h2o/dai/rel-1.6.2-9/x86_64-centos7/dai-1.6.2-1.x86_64.rpm
-rpm -i dai-1.6.2-1.x86_64.rpm
+curl -O https://s3.amazonaws.com/artifacts.h2o.ai/releases/ai/h2o/dai/rel-1.6.3-8/x86_64-centos7/dai-1.6.3-1.x86_64.rpm
+rpm -i dai-1.6.3-1.x86_64.rpm
 
 echo 0 > /proc/sys/vm/overcommit_memory
 mkdir -p /opt/h2oai/dai/home/.driverlessai/
-chown dai:dai /opt/h2oai/dai/home/.driverlessai
 if [ -z "$KEY" ]
 then
       echo "KEY is empty, not writing file"
@@ -26,6 +25,7 @@ else
       echo "Writing KEY to license.sig"
       echo $KEY > /opt/h2oai/dai/home/.driverlessai/license.sig
 fi
+chown -R dai:dai /opt/h2oai/dai/home/.driverlessai
 
 #######################################################
 ################### Gather metadata ###################

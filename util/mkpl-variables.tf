@@ -1,25 +1,33 @@
 # ---------------------------------------------------------------------------------------------------------------------
-# Environmental variables
-# You probably want to define these as environmental variables.
-# Instructions on that are here: https://github.com/cloud-partners/oci-prerequisites
+# Marketplace variables
 # ---------------------------------------------------------------------------------------------------------------------
 
-# Required by the OCI Provider
+variable "mp_listing_id" {
+  default = "ocid1.appcataloglisting.oc1..aaaaaaaaqvaab7wp7j32a7npi2fz5zrfub5izsd6xtfi5pp4wbsg4y7uktja"
+}
+variable "mp_listing_resource_id" {
+  default = "ocid1.image.oc1..aaaaaaaatkwy3262nt2wxvmdnkecwwswvpqi6keewzjwvsjyogxuhnlqjxea"
+}
+variable "mp_listing_resource_version" {
+ default = "1.1"
+}
+
+variable "use_marketplace_image" {
+  default = true
+}
+
 variable "tenancy_ocid" {}
-
 variable "compartment_ocid" {}
-variable "user_ocid" {}
-variable "fingerprint" {}
-variable "private_key_path" {}
 variable "region" {}
-
-# Key used to SSH to OCI VMs
-variable "ssh_public_key" {}
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Optional variables
 # The defaults here will give you an instance of H2O DAI.  You can also modify these.
 # ---------------------------------------------------------------------------------------------------------------------
+
+variable "ssh_public_key" {
+  description = "Key used to SSH to OCI VMs."
+}
 
 variable "key" {
   default = ""
@@ -39,7 +47,7 @@ variable "ad_number" {
 
 variable "disk_size_gb" {
   default = 0
-  description = "Size of block volume in GB for data, min 50. If set to 0 volume will not be created/mounted."
+  description = "Size of block volume in GB for data, min 50. If <50 volume will not be created/mounted."
 }
 
 variable "user" {
@@ -64,12 +72,7 @@ variable "ad_name" {
   default = ""
 }
 
-# Not used for normal terraform apply, added for marketplace deployments.
-
-variable "mp_listing_resource_id" {
-  default = ""
-}
-
+# Variable not read in a mkpl deploy.
 
 # Both GPU and non-GPU platform images
 #
