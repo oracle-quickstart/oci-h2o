@@ -4,7 +4,7 @@ version: "20190612"
 locale: "en"
 groupings:
   - title: "Hidden General Configuration"
-    visible: true
+    visible: false
     variables:
     - tenancy_ocid
     - compartment_ocid
@@ -40,7 +40,7 @@ variables:
   shape:
     descirption: "Shape for DAI instance. GPU shapes give higher performance."
     type: oci:core:instanceshape:name
-    default: "BM.GPU2.2"
+    default: "VM.GPU3.1"
     title: "Compute Shape"
     required: true
     dependsOn:
