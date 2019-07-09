@@ -40,11 +40,11 @@ That gives:
 
 The next command will deploy H2O DAI using the values in the `variables.tf` file:
 - `key`: Set to the value of your key. If empty, you will be prompted to enter your key at first login.
-- `h20.shape`: Default `BM.GPU2.2`, these templates support both CPU and GPU (higher performance) shapes.
-- `h20.ad_number`: Default `0`, choose a value where you have quota for the desired shape.
-- `h2o.disk_size_gb`: Default `0`, size of block volume in GB for data, min 50. If set to 0 volume will not be created/mounted
-- `h20.user`: Default `admin`, these templates set up local authentication using file `/etc/dai/htpasswd`
-- `h20.password`: Default `admin`
+- `shape`: Default `BM.GPU2.2`, these templates support both CPU and GPU (higher performance) shapes.
+- `ad_number`: Default `0`, choose a value where you have quota for the desired shape.
+- `disk_size_gb`: Default `0`, size of block volume in GB for data, min 50. If set to 0 volume will not be created/mounted
+- `user`: Default `admin`, these templates set up local authentication using file `/etc/dai/htpasswd`
+- `password`: Default `admin`
 
 If that's good, we can go ahead and apply the deploy:
 
