@@ -27,7 +27,7 @@ variable "key" {
 }
 
 variable "shape" {
-  default = "BM.GPU2.2"
+  default = "VM.GPU3.1"
   description = "Instance shape to deploy."
 }
 
@@ -35,7 +35,6 @@ variable "ad_number" {
   default = 1
   description = "Which availability domain to deploy to depending on quota, zero based."
 }
-
 
 variable "disk_size_gb" {
   default = 0
