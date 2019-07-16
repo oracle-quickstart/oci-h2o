@@ -39,8 +39,9 @@ variable "shape" {
   description = "Instance shape to deploy."
 }
 
+# Must be negative to be ignored to allow for schema.yaml/GUI selection of ad_name
 variable "ad_number" {
-  default = 1
+  default = -1
   description = "Which availability domain to deploy to depending on quota, zero based."
 }
 
