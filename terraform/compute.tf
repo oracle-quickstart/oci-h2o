@@ -63,7 +63,6 @@ resource "oci_core_volume" "h2o" {
 resource "oci_core_volume_attachment" "h2o" {
   count           = "${var.disk_size_gb >= 50 ? 1 : 0}"
   attachment_type = "iscsi"
-  compartment_id  = "${var.compartment_ocid}"
   instance_id     = "${oci_core_instance.h2o.*.id[0]}"
   volume_id       = "${oci_core_volume.h2o.*.id[0]}"
 }
