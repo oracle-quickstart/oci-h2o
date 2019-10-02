@@ -3,7 +3,7 @@ package test
 import (
 	"testing"
 	//"crypto/tls"
-	//"time"
+	"time"
 	"github.com/gruntwork-io/terratest/modules/terraform"
 	//"github.com/stretchr/testify/assert"
 	//http_helper "github.com/gruntwork-io/terratest/modules/http-helper"
