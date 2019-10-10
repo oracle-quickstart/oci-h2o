@@ -26,7 +26,7 @@ jobs:
         TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
       working-directory: ./terraform
       run: |
-        go test -v terraform-h2o-quickstart_test.go
+        go test -v $HOME/go/src/terratest/test/terraform-h2o-quickstart_test.go
   create-mp-image:
     name: create-image
     runs-on: ubuntu-latest
