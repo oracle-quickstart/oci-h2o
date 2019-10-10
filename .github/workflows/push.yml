@@ -11,8 +11,8 @@ jobs:
     - uses: actions/checkout@master
     - name: install-go
       run: |
-        echo "This is supposed to run go installation"
         sh devops/prepare-job.sh
+        terraform
     - name: run-terratest
       env:
         TF_ACTION_WORKING_DIR: terraform
