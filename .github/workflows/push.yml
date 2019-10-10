@@ -1,0 +1,44 @@
+on: push
+name: Terraform
+jobs:
+  filter-to-pr-open-synced:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: filter-to-pr-open-synced
+      uses: actions/bin/filter@master
+      with:
+        args: action 'opened|synchronize'
+    - name: terraform-fmt
+      uses: hashicorp/terraform-github-actions/fmt@v0.4.2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        TF_ACTION_WORKING_DIR: ./terraform
+    - name: terraform-init
+      uses: hashicorp/terraform-github-actions/init@v0.4.2
+      env:
+        TF_ACTION_WORKING_DIR: ./terraform
+        TF_VAR_compartment_ocid: ${{ secrets.TF_VAR_compartment_ocid }}
+        TF_VAR_fingerprint: ${{ secrets.TF_VAR_fingerprint }}
+        TF_VAR_private_key: ${{ secrets.TF_VAR_private_key }}
+        TF_VAR_tenancy_ocid: ${{ secrets.TF_VAR_tenancy_ocid }}
+        TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
+    - name: terraform-validate
+      uses: hashicorp/terraform-github-actions/validate@v0.4.2
+      env:
+        TF_ACTION_WORKING_DIR: ./terraform
+        TF_VAR_compartment_ocid: ${{ secrets.TF_VAR_compartment_ocid }}
+        TF_VAR_fingerprint: ${{ secrets.TF_VAR_fingerprint }}
+        TF_VAR_private_key: ${{ secrets.TF_VAR_private_key }}
+        TF_VAR_tenancy_ocid: ${{ secrets.TF_VAR_tenancy_ocid }}
+        TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
+    - name: terraform-plan
+      uses: hashicorp/terraform-github-actions/plan@v0.4.2
+      env:
+        TF_ACTION_WORKING_DIR: .
+        TF_ACTION_WORKSPACE: default
+        TF_VAR_compartment_ocid: ${{ secrets.TF_VAR_compartment_ocid }}
+        TF_VAR_fingerprint: ${{ secrets.TF_VAR_fingerprint }}
+        TF_VAR_private_key: ${{ secrets.TF_VAR_private_key }}
+        TF_VAR_tenancy_ocid: ${{ secrets.TF_VAR_tenancy_ocid }}
+        TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
