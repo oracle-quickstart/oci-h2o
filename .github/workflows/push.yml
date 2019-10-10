@@ -12,6 +12,7 @@ jobs:
     - name: install-go
       run: |
         echo "This is supposed to run go installation"
+        sh devops/prepare-job.sh
     - name: run-terratest
       env:
         TF_ACTION_WORKING_DIR: ./terraform
