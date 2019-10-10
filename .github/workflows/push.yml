@@ -12,11 +12,10 @@ jobs:
     - name: install-go
       run: |
         sh devops/prepare-job.sh
-        pwd
         terraform -version
     - name: run-terratest
       env:
-        TF_ACTION_WORKING_DIR: ~/work/oci-quickstart-h2o/terraform/
+        TF_ACTION_WORKING_DIR: ~/work/oci-quickstart-h2o/oci-quickstart-h2o/terraform/
         TF_VAR_compartment_ocid: ${{ secrets.TF_VAR_compartment_ocid }}
         TF_VAR_fingerprint: ${{ secrets.TF_VAR_fingerprint }}
         TF_VAR_private_key: ${{ secrets.TF_VAR_private_key }}
