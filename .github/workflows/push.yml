@@ -3,7 +3,7 @@ name: OCI-Marketplace
 jobs:
   test-terraform-code: 
     name: tf-job-name
-    runs-on: hashicorp/terraform:0.12.10
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
     - name: install-go
@@ -14,7 +14,9 @@ jobs:
         TF_VAR_private_key: ${{ secrets.TF_VAR_private_key }}
         TF_VAR_tenancy_ocid: ${{ secrets.TF_VAR_tenancy_ocid }}
         TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
-      echo "This is supposed to run go installation"
+      run: |
+        echo "This is supposed to run go installation"
   create-mp-image:
     name: create-image
+    needs: test-terraform-code
     
