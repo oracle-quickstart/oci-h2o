@@ -1,5 +1,5 @@
 # oci-quickstart-h2o
-This is a Terraform module that deploys [H2O.ai Driverless AI](https://www.h2o.ai/products/) on [Oracle Cloud Infrastructure (OCI)](https://cloud.oracle.com/en_US/cloud-infrastructure).  It is developed jointly by Oracle and H2O.ai. For instructions on how to use this material and details on getting support from the vendor that maintains this material, please contact them directly.
+This is a Terraform module that deploys [H2O.ai Driverless AI](https://www.h2o.ai/products/) on [Oracle Cloud Infrastructure (OCI)](https://cloud.oracle.com/en_US/cloud-infrastructure).  It is developed jointly by Oracle and H2O.ai.
 
 Instructions on how to use it are below.  In addition, here's a video walkthrough:
 
