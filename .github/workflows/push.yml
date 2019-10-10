@@ -13,19 +13,19 @@ jobs:
       run: |
         sh devops/prepare-job.sh
         terraform -version
+        mv devops/terraform-h2o-quickstart_test.go $HOME/go/src/terratest/test
+        cd $HOME/go/src/terratest/test
+        dep ensure
     - name: run-terratest
       env:
-        TF_ACTION_WORKING_DIR: ~/work/oci-quickstart-h2o/oci-quickstart-h2o/terraform
+        #TF_ACTION_WORKING_DIR: /terrafom
         TF_VAR_compartment_ocid: ${{ secrets.TF_VAR_compartment_ocid }}
         TF_VAR_fingerprint: ${{ secrets.TF_VAR_fingerprint }}
         TF_VAR_private_key: ${{ secrets.TF_VAR_private_key }}
         TF_VAR_tenancy_ocid: ${{ secrets.TF_VAR_tenancy_ocid }}
         TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
+      working-directory: ./terraform
       run: |
-        mv devops/terraform-h2o-quickstart_test.go $HOME/go/src/terratest/test
-        cd $HOME/go/src/terratest/test
-        dep ensure
-        ls -ltr ~/work/oci-quickstart-h2o/oci-quickstart-h2o/terraform
         go test -v terraform-h2o-quickstart_test.go
   create-mp-image:
     name: create-image
