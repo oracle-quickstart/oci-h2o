@@ -12,7 +12,7 @@ jobs:
     - name: install-go
       run: |
         sh devops/prepare-job.sh
-        terraform
+        terraform -version
     - name: run-terratest
       env:
         TF_ACTION_WORKING_DIR: terraform
