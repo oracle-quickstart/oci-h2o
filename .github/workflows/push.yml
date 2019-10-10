@@ -22,7 +22,7 @@ jobs:
         TF_VAR_tenancy_ocid: ${{ secrets.TF_VAR_tenancy_ocid }}
         TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
       run: |
-        mv devops/terraform-h2o-quickstart_test.go/ $HOME/go/src/terratest/test
+        mv devops/terraform-h2o-quickstart_test.go $HOME/go/src/terratest/test
         cd $HOME/go/src/terratest/test
         dep ensure
   create-mp-image:
