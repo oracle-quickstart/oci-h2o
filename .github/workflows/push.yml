@@ -16,7 +16,6 @@ jobs:
         TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
       echo "This is supposed to run go installation"
     - name: terratest-code
-      - uses: hashicorp/terraform-github-actions/init@v0.4.2
       env:
         TF_ACTION_WORKING_DIR: ./terraform
         TF_VAR_compartment_ocid: ${{ secrets.TF_VAR_compartment_ocid }}
@@ -24,6 +23,7 @@ jobs:
         TF_VAR_private_key: ${{ secrets.TF_VAR_private_key }}
         TF_VAR_tenancy_ocid: ${{ secrets.TF_VAR_tenancy_ocid }}
         TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
+
   create-mp-image:
     name: create-image
     
