@@ -1,5 +1,7 @@
-on: [push, pull_request]
-branches: development
+on: 
+  push:
+    branches: 
+      - 'development'
 name: OCI-Marketplace
 jobs:
   test-terraform-code: 
