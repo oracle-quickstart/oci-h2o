@@ -13,7 +13,6 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$GOROOT/bin:$GOPATH/bin:/usr/bin:$PATH
 cd $HOME/go/src/terratest/test
-mv oci_test.go ./
 
 cat  << EOF > Gopkg.toml
 [[constraint]]
