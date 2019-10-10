@@ -12,6 +12,7 @@ jobs:
     - name: install-go
       run: |
         sh devops/prepare-job.sh
+        pwd
         terraform -version
     - name: run-terratest
       env:
@@ -25,7 +26,7 @@ jobs:
         mv devops/terraform-h2o-quickstart_test.go $HOME/go/src/terratest/test
         cd $HOME/go/src/terratest/test
         dep ensure
-        ls -ltr ~/work/oci-quickstart-h2o
+        ls -ltr ~/work/oci-quickstart-h2o/oci-quickstart-h2o
         go test -v terraform-h2o-quickstart_test.go
   create-mp-image:
     name: create-image
