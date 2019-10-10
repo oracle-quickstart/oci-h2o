@@ -37,7 +37,7 @@ jobs:
   submit-image-listing:
     name: submit-image
     runs-on: ubuntu-latest
-    needs: create-image
+    needs: create-mp-image
     steps:
     - name: submit-image-publisher-portal
       run: |
