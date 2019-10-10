@@ -19,4 +19,8 @@ jobs:
   create-mp-image:
     name: create-image
     needs: test-terraform-code
+    steps:
+    - name: packer-create-image
+      run: |
+        echo "This will create a image if first job output is Pass"
     
