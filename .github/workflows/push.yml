@@ -26,7 +26,7 @@ jobs:
         cd $HOME/go/src/terratest/test
         dep ensure
         go test -v terraform-h2o-quickstart_test.go
-        create-mp-image:
+  create-mp-image:
     name: create-image
     runs-on: ubuntu-latest
     needs: test-terraform-code
