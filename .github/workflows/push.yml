@@ -8,7 +8,7 @@ jobs:
     name: tf-job-name
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@development
+    - uses: actions/checkout@master
     - name: install-go
       run: |
         echo "This is supposed to run go installation"
