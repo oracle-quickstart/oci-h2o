@@ -17,17 +17,21 @@ jobs:
         cd $HOME/go/src/terratest/test
         dep ensure
     - name: run-terratest
+      working-directory: terraform
       env:
-        TF_ACTION_WORKING_DIR: $PWD
+        TF_ACTION_WORKING_DIR: ${{PWD}}
         TF_VAR_compartment_ocid: ${{ secrets.TF_VAR_compartment_ocid }}
         TF_VAR_fingerprint: ${{ secrets.TF_VAR_fingerprint }}
         TF_VAR_private_key: ${{ secrets.TF_VAR_private_key }}
         TF_VAR_tenancy_ocid: ${{ secrets.TF_VAR_tenancy_ocid }}
         TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
-      working-directory: terraform
       run: |
         #echo "this is the environment:"
         #env
+        echo "PWD:""
+        echo $PWD
+        echo "TF_ACTION_WORKING_DIR:"
+        echo $TF_ACTION_WORKING_DIR
         go test -v $HOME/go/src/terratest/test/terraform-h2o-quickstart_test.go
   create-mp-image:
     name: create-image
