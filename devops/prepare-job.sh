@@ -20,6 +20,8 @@ cat  << EOF > Gopkg.toml
   version = "0.19.1"
 EOF
 
+mv devops/terraform-h2o-quickstart_test.go $HOME/go/src/terratest/test
+cd $HOME/go/src/terratest/test
 dep ensure
 
 #Installing terraform
