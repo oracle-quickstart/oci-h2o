@@ -12,11 +12,7 @@ jobs:
     - name: install-dependencies
       run: |
         sh devops/prepare-job.sh
-        #mv devops/terraform-h2o-quickstart_test.go $HOME/go/src/terratest/test
-        #cd $HOME/go/src/terratest/test
-        #dep ensure
     - name: run-terratest
-      working-directory: terraform
       env:
         TF_VAR_compartment_ocid: ${{ secrets.TF_VAR_compartment_ocid }}
         TF_VAR_fingerprint: ${{ secrets.TF_VAR_fingerprint }}
@@ -24,20 +20,26 @@ jobs:
         TF_VAR_tenancy_ocid: ${{ secrets.TF_VAR_tenancy_ocid }}
         TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
       run: |
+      working-directory: terraform
         export TF_ACTION_WORKING_DIR=$PWD
         terraform init
         terraform 0.12upgrade -yes
-        #go test -v $HOME/go/src/terratest/test/terraform-h2o-quickstart_test.go
-  create-mp-image:
-    if: success()
-    name: packer-create-image
-    runs-on: ubuntu-latest
-    needs: test-terraform-code
-    steps:
+        go test -v $HOME/go/src/terratest/test/terraform-h2o-quickstart_test.go
     - name: packer-create-image
+      if: success()
+      env:
       run: |
         echo "Use Packer to create OCI image with cleanup-script and partner bits (from scripts dir in repo)"
         packer build devops/marketplace-image.json
+  create-mp-image:
+    if: failure()
+    name: notification-for-errors
+    runs-on: ubuntu-latest
+    needs: test-terraform-code
+    steps:
+    - name: send-notification
+      run: |
+        echo "This will send a notification if the job for testing and image creation fails."
   submit-image-listing:
     if: success()
     name: submit-image
