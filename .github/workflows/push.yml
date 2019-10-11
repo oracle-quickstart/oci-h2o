@@ -22,6 +22,8 @@ jobs:
       run: |
       working-directory: terraform
         export TF_ACTION_WORKING_DIR=$PWD
+        which terraform
+        env
         terraform init
         terraform 0.12upgrade -yes
         go test -v $HOME/go/src/terratest/test/terraform-h2o-quickstart_test.go
