@@ -7,12 +7,6 @@ jobs:
   test-terraform-code: 
     name: test-terraform-code
     runs-on: ubuntu-latest
-    env:
-        TF_VAR_compartment_ocid: ${{ secrets.TF_VAR_compartment_ocid }}
-        TF_VAR_fingerprint: ${{ secrets.TF_VAR_fingerprint }}
-        TF_VAR_private_key: ${{ secrets.TF_VAR_private_key }}
-        TF_VAR_tenancy_ocid: ${{ secrets.TF_VAR_tenancy_ocid }}
-        TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
     steps:
     - uses: actions/checkout@master
     - name: install-dependencies
