@@ -12,15 +12,13 @@ import (
 )
 
 
-
 // An example of how to test the simple Terraform module in examples/terraform-basic-example using Terratest.
-func TestTerraformBasicExample(t *testing.T) {
+func TestQuickstartTerraformCode(t *testing.T) {
 	t.Parallel()
 
 	//instanceText := "test"
 	//expectedList := []string{expectedText}
 	//expectedMap := map[string]string{"expected": expectedText}
-	//fmt.Println("PWD:", os.Getenv("PWD"))
 
 	//for _, pair := range os.Environ() {
 	//	fmt.Println(pair)
@@ -29,13 +27,12 @@ func TestTerraformBasicExample(t *testing.T) {
 	terraformOptions := &terraform.Options{
 		// The path to where our Terraform code is located
 		TerraformDir: os.Getenv("TF_ACTION_WORKING_DIR"),
-		//TerraformDir: "",
 
 		// Variables to pass to our Terraform code using -var options
 		Vars: map[string]interface{}{
 		//	"example": expectedText,
 
-			// We also can see how lists and maps translate between terratest and terraform.
+		// We also can see how lists and maps translate between terratest and terraform.
 		//	"example_list": expectedList,
 		//	"example_map":  expectedMap,
 		},
