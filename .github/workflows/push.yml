@@ -34,7 +34,7 @@ jobs:
     if: success()
     name: submit-image
     runs-on: ubuntu-latest
-    needs: create-mp-image
+    needs: test-terraform-code
     steps:
     - name: submit-image-publisher-portal
       run: |
