@@ -2,7 +2,7 @@ package test
 
 import (
 	"testing"
-	"os"
+	//"os"
 	//"crypto/tls"
 	//"time"
 	"github.com/gruntwork-io/terratest/modules/terraform"
