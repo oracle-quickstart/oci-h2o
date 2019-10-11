@@ -12,6 +12,7 @@ mkdir -p $HOME/go/src/terratest/test
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$GOROOT/bin:$GOPATH/bin:/usr/bin:$PATH
+mv ./devops/terraform-h2o-quickstart_test.go $HOME/go/src/terratest/test
 cd $HOME/go/src/terratest/test
 
 cat  << EOF > Gopkg.toml
@@ -20,8 +21,6 @@ cat  << EOF > Gopkg.toml
   version = "0.19.1"
 EOF
 
-mv devops/terraform-h2o-quickstart_test.go $HOME/go/src/terratest/test
-cd $HOME/go/src/terratest/test
 dep ensure
 
 #Installing terraform
