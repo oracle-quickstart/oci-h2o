@@ -19,11 +19,9 @@ jobs:
         TF_VAR_private_key: ${{ secrets.TF_VAR_private_key }}
         TF_VAR_tenancy_ocid: ${{ secrets.TF_VAR_tenancy_ocid }}
         TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
-      run: |
       working-directory: terraform
+      run: |
         export TF_ACTION_WORKING_DIR=$PWD
-        which terraform
-        env
         terraform init
         terraform 0.12upgrade -yes
         go test -v $HOME/go/src/terratest/test/terraform-h2o-quickstart_test.go
