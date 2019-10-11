@@ -11,6 +11,8 @@ import (
 	//http_helper "github.com/gruntwork-io/terratest/modules/http-helper"
 )
 
+fmt.Println("PWD:", os.Getenv("PWD"))
+
 // An example of how to test the simple Terraform module in examples/terraform-basic-example using Terratest.
 func TestTerraformBasicExample(t *testing.T) {
 	t.Parallel()
@@ -22,7 +24,6 @@ func TestTerraformBasicExample(t *testing.T) {
 	terraformOptions := &terraform.Options{
 		// The path to where our Terraform code is located
 		TerraformDir: os.Getenv("PWD"),
-		fmt.Println("PWD:", os.Getenv("PWD")),
 		//TerraformDir: "",
 
 		// Variables to pass to our Terraform code using -var options
