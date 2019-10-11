@@ -9,12 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: install-go
+    - name: install-dependencies
       run: |
         sh devops/prepare-job.sh
-        mv devops/terraform-h2o-quickstart_test.go $HOME/go/src/terratest/test
-        cd $HOME/go/src/terratest/test
-        dep ensure
+        #mv devops/terraform-h2o-quickstart_test.go $HOME/go/src/terratest/test
+        #cd $HOME/go/src/terratest/test
+        #dep ensure
     - name: run-terratest
       working-directory: terraform
       env:
@@ -25,7 +25,7 @@ jobs:
         TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
       run: |
         export TF_ACTION_WORKING_DIR=$PWD
-        terraform 0.12upgrade -yes
+        #terraform 0.12upgrade -yes
         go test -v $HOME/go/src/terratest/test/terraform-h2o-quickstart_test.go
   create-mp-image:
     if: success()
