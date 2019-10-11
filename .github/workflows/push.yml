@@ -12,7 +12,7 @@ jobs:
     - name: install-go
       run: |
         sh devops/prepare-job.sh
-        #mv devops/terraform-h2o-quickstart_test.go $HOME/go/src/terratest/test
+        mv devops/terraform-h2o-quickstart_test.go $HOME/go/src/terratest/test
         cd $HOME/go/src/terratest/test
         dep ensure
     - name: run-terratest
