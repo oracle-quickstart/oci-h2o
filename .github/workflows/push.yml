@@ -26,8 +26,6 @@ jobs:
         TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
       working-directory: terraform
       run: |
-        ls -ltr
-        echo $HOME
         echo "this is the environment:"
         env
         go test -v $HOME/go/src/terratest/test/terraform-h2o-quickstart_test.go

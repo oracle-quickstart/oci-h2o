@@ -3,6 +3,7 @@ package test
 import (
 	"testing"
 	"os"
+	"fmt"
 	//"crypto/tls"
 	//"time"
 	"github.com/gruntwork-io/terratest/modules/terraform"
@@ -21,6 +22,7 @@ func TestTerraformBasicExample(t *testing.T) {
 	terraformOptions := &terraform.Options{
 		// The path to where our Terraform code is located
 		TerraformDir: os.Getenv("PWD"),
+		fmt.Println("PWD:", os.Getenv("PWD")),
 		//TerraformDir: "",
 
 		// Variables to pass to our Terraform code using -var options
