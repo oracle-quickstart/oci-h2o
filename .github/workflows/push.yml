@@ -28,9 +28,9 @@ jobs:
       run: |
         #echo "this is the environment:"
         #env
-        echo "PWD:"
+        #echo "PWD:"
         echo $PWD
-        echo "TF_ACTION_WORKING_DIR:"
+        #echo "TF_ACTION_WORKING_DIR:"
         echo $TF_ACTION_WORKING_DIR
         go test -v $HOME/go/src/terratest/test/terraform-h2o-quickstart_test.go
   create-mp-image:
