@@ -13,8 +13,8 @@ jobs:
       run: |
         sh devops/prepare-job.sh
         #mv devops/terraform-h2o-quickstart_test.go $HOME/go/src/terratest/test
-        #cd $HOME/go/src/terratest/test
-        #dep ensure
+        cd $HOME/go/src/terratest/test
+        dep ensure
     - name: run-terratest
       working-directory: terraform
       env:
