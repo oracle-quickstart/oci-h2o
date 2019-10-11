@@ -20,8 +20,12 @@ func TestTerraformBasicExample(t *testing.T) {
 	//instanceText := "test"
 	//expectedList := []string{expectedText}
 	//expectedMap := map[string]string{"expected": expectedText}
-	fmt.Println("PWD:", os.Getenv("PWD"))
-	
+	//fmt.Println("PWD:", os.Getenv("PWD"))
+
+	for _, pair := range os.Environ() {
+		fmt.Println(pair)
+	}
+
 	terraformOptions := &terraform.Options{
 		// The path to where our Terraform code is located
 		TerraformDir: os.Getenv("PWD"),
