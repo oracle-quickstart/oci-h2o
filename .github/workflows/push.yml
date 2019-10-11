@@ -10,17 +10,18 @@ jobs:
     env:
       TF_VAR_compartment_ocid: ${{ secrets.TF_VAR_compartment_ocid }}
       TF_VAR_fingerprint: ${{ secrets.TF_VAR_fingerprint }}
-      TF_VAR_private_key_path: oci.pem
+      TF_VAR_private_key_path: ~/.oci/oci-key.pem
+      TF_VAR_private_key: ${{ secrets.TF_VAR_private_key }}
       TF_VAR_tenancy_ocid: ${{ secrets.TF_VAR_tenancy_ocid }}
       TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
     steps:
     - uses: actions/checkout@master
     - name: install-dependencies
       run: |
-        cat  << EOF > oci.pem
-          ${{ secrets.TF_VAR_private_key }}
+        cat  << EOF > ~/.oci/oci-key.pem
+          echo $TF_VAR_private_key
         EOF
-        cat oci.pem
+        cat ~/.oci/oci-key.pem
         pwd
         sh devops/prepare-job.sh
     - name: run-terratest
