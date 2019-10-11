@@ -32,7 +32,7 @@ func TestQuickstartTerraformCode(t *testing.T) {
 		Vars: map[string]interface{}{
 		//	"example": expectedText,
 			"region": us-ashburn-1,
-			"ssh_public_key": ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDKNF77nMzrf1+wUGJmPe3ZLDD0/xXe4v3QJT0SAeZzlgOEwJFyc7O2a2Fe4pq+g0JIZkNL/ta2KV5YaT6hmbSZRqpjqdld8B6flm7xt7J2MRMPOAADy4eClJNBklnPzhStGzQmV/o0McxIJZbMPUCDK8R6e4yAMva1AX40Ub4+qX2mu48x7229mmSvKM8rzCGYZcu02RC1w7iGg37TVLKn0c0ds18bXkN8zlHhNBMfbSFJ/dZ8lHtPqwjCbL/UFH832tMrUA8D9BvYlfo6/qe2VvsnMxBS+JDu372NbubNh6Caeo7/I/6n3jL0TuJlOEd+TUX0vc39H6+KHaNm3WrX RDOBRINE-RO+RDOBRINE@RDOBRINE-RO
+			"ssh_public_key": ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDKNF77nMzrf1+wUGJmPe3ZLDD0/xXe4v3QJT0SAeZzlgOEwJFyc7O2a2Fe4pq+g0JIZkNL/ta2KV5YaT6hmbSZRqpjqdld8B6flm7xt7J2MRMPOAADy4eClJNBklnPzhStGzQmV/o0McxIJZbMPUCDK8R6e4yAMva1AX40Ub4+qX2mu48x7229mmSvKM8rzCGYZcu02RC1w7iGg37TVLKn0c0ds18bXkN8zlHhNBMfbSFJ/dZ8lHtPqwjCbL/UFH832tMrUA8D9BvYlfo6/qe2VvsnMxBS+JDu372NbubNh6Caeo7/I/6n3jL0TuJlOEd+TUX0vc39H6+KHaNm3WrX,
 			"private_key_path": /home/runner
 
 		// We also can see how lists and maps translate between terratest and terraform.
