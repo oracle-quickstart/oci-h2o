@@ -27,6 +27,9 @@ jobs:
       working-directory: terraform
       run: |
         ls -ltr
+        echo $HOME
+        echo "this is the environment:"
+        env
         go test -v $HOME/go/src/terratest/test/terraform-h2o-quickstart_test.go
   create-mp-image:
     name: create-image
