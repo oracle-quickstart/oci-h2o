@@ -3,7 +3,7 @@ package test
 import (
 	"testing"
 	"os"
-	"fmt"
+	//"fmt"
 	//"crypto/tls"
 	//"time"
 	"github.com/gruntwork-io/terratest/modules/terraform"
