@@ -33,7 +33,7 @@ func TestTerraformBasicExample(t *testing.T) {
 		},
 
 		// Variables to pass to our Terraform code using -var-file options
-		VarFiles: []string{"varfile.tfvars"},
+		//VarFiles: []string{"varfile.tfvars"},
 
 		// Disable colors in Terraform commands so its easier to parse stdout/stderr
 		NoColor: true,
