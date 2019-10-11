@@ -7,18 +7,18 @@ jobs:
   test-terraform-code: 
     name: test-terraform-code
     runs-on: ubuntu-latest
+    env:
+        TF_VAR_compartment_ocid: ${{ secrets.TF_VAR_compartment_ocid }}
+        TF_VAR_fingerprint: ${{ secrets.TF_VAR_fingerprint }}
+        TF_VAR_private_key: ${{ secrets.TF_VAR_private_key }}
+        TF_VAR_tenancy_ocid: ${{ secrets.TF_VAR_tenancy_ocid }}
+        TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
     steps:
     - uses: actions/checkout@master
     - name: install-dependencies
       run: |
         sh devops/prepare-job.sh
     - name: run-terratest
-      env:
-        TF_VAR_compartment_ocid: ${{ secrets.TF_VAR_compartment_ocid }}
-        TF_VAR_fingerprint: ${{ secrets.TF_VAR_fingerprint }}
-        TF_VAR_private_key: ${{ secrets.TF_VAR_private_key }}
-        TF_VAR_tenancy_ocid: ${{ secrets.TF_VAR_tenancy_ocid }}
-        TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
       run: |
       working-directory: terraform
         export TF_ACTION_WORKING_DIR=$PWD
@@ -27,7 +27,6 @@ jobs:
         go test -v $HOME/go/src/terratest/test/terraform-h2o-quickstart_test.go
     - name: packer-create-image
       if: success()
-      env:
       run: |
         echo "Use Packer to create OCI image with cleanup-script and partner bits (from scripts dir in repo)"
         packer build devops/marketplace-image.json
