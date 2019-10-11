@@ -25,8 +25,8 @@ jobs:
         TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
       run: |
         export TF_ACTION_WORKING_DIR=$PWD
-        #terraform 0.12upgrade -yes
-        go test -v $HOME/go/src/terratest/test/terraform-h2o-quickstart_test.go
+        terraform 0.12upgrade -yes
+        #go test -v $HOME/go/src/terratest/test/terraform-h2o-quickstart_test.go
   create-mp-image:
     if: success()
     name: packer-create-image
@@ -36,6 +36,7 @@ jobs:
     - name: packer-create-image
       run: |
         echo "Use Packer to create OCI image with cleanup-script and partner bits (from scripts dir in repo)"
+        packer build devops/marketplace-image.json
   submit-image-listing:
     if: success()
     name: submit-image

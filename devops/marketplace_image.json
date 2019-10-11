@@ -22,10 +22,8 @@
 		{
 	"type": "shell",
 	"inline": [
-		"sleep 30",
-        	"#!/usr/bin/env bash",
-		"sudo yum install oci-utils -y",
-	        "sudo /usr/libexec/oci-image-cleanup -f"
+        "#!/usr/bin/env bash",
+	    "sudo /usr/libexec/oci-image-cleanup -f"
 	]
 		
 		}
