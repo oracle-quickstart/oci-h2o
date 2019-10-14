@@ -72,5 +72,5 @@ output "Driverless_AI_URL" {
 }
 
 output "InstanceOCID" {
-  value = data.oci_core_instance.id
+  value = "${oci_core_instance.h2o.*.id}"
 }
