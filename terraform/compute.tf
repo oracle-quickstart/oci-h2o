@@ -70,3 +70,7 @@ resource "oci_core_volume_attachment" "h2o" {
 output "Driverless_AI_URL" {
   value = "https://${data.oci_core_vnic.h2o_vnic.public_ip_address}:12345"
 }
+
+output "InstanceOCID" {
+  value = data.oci_core_instance.id
+}
