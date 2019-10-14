@@ -24,12 +24,14 @@ jobs:
         export TF_ACTION_WORKING_DIR=$PWD
         terraform init
         terraform 0.12upgrade -yes
-        #go test -v $HOME/go/src/terratest/test/terraform-h2o-quickstart_test.go
+        go test -v $HOME/go/src/terratest/test/terraform-h2o-quickstart_test.go
     - name: packer-create-image
       if: success()
+      uses: actions/upload-artifact@v1
       run: |
         echo "Use Packer to create OCI image with cleanup-script and partner bits (from scripts dir in repo)"
-        packer build devops/marketplace-image.json
+        packer build devops/marketplace-image.json > output.txt
+        
   submit-image-listing:
     if: success()
     name: submit-image
