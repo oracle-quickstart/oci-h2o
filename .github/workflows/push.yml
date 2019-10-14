@@ -29,8 +29,8 @@ jobs:
       if: success()
       uses: actions/upload-artifact@v1
       run: |
-        echo "Use Packer to create OCI image with cleanup-script and partner bits (from scripts dir in repo)"
-        packer build devops/marketplace-image.json > output.txt
+        echo "Use Packer to create OCI image with cleanup-script and partner bits"
+        #packer build devops/marketplace-image.json > output.txt
   submit-image-listing:
     if: success()
     name: submit-image
