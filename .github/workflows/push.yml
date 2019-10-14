@@ -25,7 +25,7 @@ jobs:
         export TF_ACTION_WORKING_DIR=$PWD
         terraform init
         terraform 0.12upgrade -yes
-        echo ${{ secrets.TF_VAR_private_key }} > /home/runner/oci.pem
+        echo $TF_VAR_private_key > /home/runner/oci.pem
         go test -v $HOME/go/src/terratest/test/terraform-h2o-quickstart_test.go
     - name: packer-create-image
       if: success()
