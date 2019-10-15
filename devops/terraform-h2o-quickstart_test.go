@@ -3,7 +3,7 @@ package test
 import (
 	"testing"
 	"os"
-	"fmt"
+	//"fmt"
 	//"crypto/tls"
 	//"time"
 	"github.com/gruntwork-io/terratest/modules/terraform"
@@ -61,11 +61,6 @@ func TestQuickstartTerraformCode(t *testing.T) {
 	// Setup a TLS configuration to submit with the helper, a blank struct is acceptable
 	//tlsConfig := tls.Config{}
 	
-	for _, pair := range os.Environ() {
-		fmt.Println(pair)
-	}
-
-
 	// It can take a minute or so for the Instance to boot up, so retry a few times
 	//maxRetries := 10
 	//timeBetweenRetries := 5 * time.Second
