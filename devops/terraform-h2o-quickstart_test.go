@@ -56,7 +56,8 @@ func TestQuickstartTerraformCode(t *testing.T) {
 
 	// Run `terraform output` to get the values of output variables
 	//driverlessAiUrl := terraform.Output(t, terraformOptions, "Driverless_AI_URL")
-	
+	//ImageOCID := terraform.Output(t, terraformOptions, "ImageOCID"),
+	os.Setenv("IMAGE-OCID", terraform.Output(t, terraformOptions, "ImageOCID")) 
 	// Setup a TLS configuration to submit with the helper, a blank struct is acceptable
 	//tlsConfig := tls.Config{}
 	

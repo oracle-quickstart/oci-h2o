@@ -70,18 +70,17 @@ resource "oci_core_volume_attachment" "h2o" {
 resource "oci_core_image" "h2o_image" {
     #Required
     compartment_id = "${var.compartment_ocid}"
-    instance_id = "${oci_core_instance.h2o.*.id}"
+    instance_id = "${oci_core_instance.h2o.*.id[0]}"
 
     #Optional
     #display_name = "${var.image_display_name}"
     #launch_mode = "${var.image_launch_mode}"
 }
 
-
 output "Driverless_AI_URL" {
   value = "https://${data.oci_core_vnic.h2o_vnic.public_ip_address}:12345"
 }
 
-output "InstanceOCID" {
-  value = "${oci_core_image.h2o_image.*.id}"
+output "ImageOCID" {
+  value = "${oci_core_image.h2o_image.id}"
 }
