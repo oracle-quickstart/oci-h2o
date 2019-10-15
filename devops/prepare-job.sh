@@ -30,7 +30,7 @@ unzip terraform_0.12.10_linux_amd64.zip
 sudo mv terraform /usr/bin
 
 #Installing Packer
-export VER="1.4.1"
+export VER="1.4.4"
 wget https://releases.hashicorp.com/packer/${VER}/packer_${VER}_linux_amd64.zip
 unzip packer_${VER}_linux_amd64.zip
 sudo mv packer /usr/bin
