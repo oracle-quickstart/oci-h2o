@@ -19,7 +19,7 @@ jobs:
     - name: install-dependencies
       run: |
         sh devops/prepare-job.sh
-    - name: run-terratest
+    - name: tf-apply-and-verify-assertions
       working-directory: terraform
       run: |
         export TF_ACTION_WORKING_DIR=$PWD
@@ -27,7 +27,7 @@ jobs:
         terraform 0.12upgrade -yes
         echo "${{ secrets.TF_VAR_private_key }}" > /home/runner/oci.pem
         go test -v $HOME/go/src/terratest/test/terraform-h2o-quickstart_test.go -timeout 20m
-    - name: packer-create-image
+    - name: create-marketplace-ready-image
       if: success()
       #uses: actions/upload-artifact@v1
       run: |
@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: test-terraform-code
     steps:
-    - name: submit-image-publisher-portal
+    - name: submit-image-to-publisher-portal
       run: |
         echo "This will submit the image to Publisher Portal"
     
