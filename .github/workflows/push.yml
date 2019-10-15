@@ -33,7 +33,7 @@ jobs:
       #uses: actions/upload-artifact@v1
       run: |
         echo "Use Packer to create OCI image with cleanup-script and partner bits"
-        echo ${{ IMAGE_OCID }}
+        echo $IMAGE_OCID
         env
         packer version
     - name: tf-destroy
