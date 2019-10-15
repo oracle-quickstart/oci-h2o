@@ -38,7 +38,7 @@ jobs:
       if: success()
       working-directory: terraform
       run: |
-        terraform destroy -var region="us-ashburn-1" -var ssh_public_key="ssh-rsa AAAAB3NzaC1yc2EAAAKHaNm3WrX"
+        terraform destroy -var region="us-ashburn-1" -var ssh_public_key="ssh-rsa AAAAB3NzaC1yc2EAAAKHaNm3WrX" -yes
   submit-image-listing:
     if: success()
     name: submit-image
