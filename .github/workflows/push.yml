@@ -33,9 +33,8 @@ jobs:
       #uses: actions/upload-artifact@v1
       run: |
         echo "Use Packer to create OCI image with cleanup-script"
-        echo $IMAGE_OCID
-        env
         packer version
+        #packer build /home/runner/packer-template.json
     - name: tf-destroy
       if: success()
       working-directory: terraform

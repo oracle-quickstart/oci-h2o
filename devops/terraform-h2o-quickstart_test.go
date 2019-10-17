@@ -60,10 +60,10 @@ func TestQuickstartTerraformCode(t *testing.T) {
     
 	ImageName := os.Getenv("GITHUB_REPOSITORY")
 	//PackerDir:= fmt.Sprintf("%s/../devops", os.Getenv("TF_ACTION_WORKING_DIR"))
-	PackerDir := "../devops"
+	PackerDir := "/home/runner/work/oci-quickstart-h2o/oci-quickstart-h2o/devops/marketplace_image.json"
 	shellCommand := shell.Command{
-			//Command: fmt.Sprintf("/usr/bin/jq '.builders[].base_image_ocid |= \"%s\" | .builders[].image_name |= \"%s\"' %s/marketplace_image.json", ImageOCID, ImageName, PackerDir),
-			Command: fmt.Sprintf("ls ../devops \n %s %s %s", ImageOCID, ImageName, PackerDir),
+		Command: fmt.Sprintf("/usr/bin/jq '.builders[].base_image_ocid |= \"%s\" | .builders[].image_name |= \"%s\"' %s >> /home/runner/packer-template.json", ImageOCID, ImageName, PackerDir),
+
 	}
 
 	shell.RunCommand(t, shellCommand)
