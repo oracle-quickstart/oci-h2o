@@ -28,7 +28,7 @@ func TestQuickstartTerraformCode(t *testing.T) {
 	terraformOptions := &terraform.Options{
 		// The path to where our Terraform code is located
 		TerraformDir: os.Getenv("TF_ACTION_WORKING_DIR"),
-
+		PackerDir: fmt.Sprintf("%s/../devops", TerraformDir),
 		// Variables to pass to our Terraform code using -var options
 		Vars: map[string]interface{}{
 		//	"example": expectedText,
@@ -52,7 +52,7 @@ func TestQuickstartTerraformCode(t *testing.T) {
 	ImageName := os.Getenv("GITHUB_REPOSITORY")
 	
 	shellCommand := shell.Command{
-			Command: fmt.Sprintf("/usr/bin/jq '.builders[].base_image_ocid |= %s | .builders[].image_name |= %s' marketplace-image.json", ImageOCID, ImageName),
+			Command: fmt.Sprintf("/usr/bin/jq '.builders[].base_image_ocid |= %s | .builders[].image_name |= %s' %s/marketplace-image.json", ImageOCID, ImageName, PackerDir),
 
 		
 	}
