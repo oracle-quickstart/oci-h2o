@@ -55,9 +55,9 @@ func TestQuickstartTerraformCode(t *testing.T) {
 	//terraform.InitAndApply(t, terraformOptions)
 
 	// Run `terraform output` to get the values of output variables
-	///ImageOCID := terraform.Output(t, terraformOptions, "ImageOCID")
+	ImageOCID := terraform.Output(t, terraformOptions, "ImageOCID")
 	//driverlessAiUrl := terraform.Output(t, terraformOptions, "Driverless_AI_URL") 
-
+    fmt.Sprintf(ImageOCID)
 	///ImageName := os.Getenv("GITHUB_REPOSITORY")
 	//PackerDir:= fmt.Sprintf("%s/../devops", os.Getenv("TF_ACTION_WORKING_DIR"))
 	///PackerDir := "../devops"
