@@ -63,7 +63,7 @@ func TestQuickstartTerraformCode(t *testing.T) {
 	PackerDir := "../devops"
 	shellCommand := shell.Command{
 			//Command: fmt.Sprintf("/usr/bin/jq '.builders[].base_image_ocid |= \"%s\" | .builders[].image_name |= \"%s\"' %s/marketplace_image.json", ImageOCID, ImageName, PackerDir),
-			Command: "ls ../devops",
+			Command: fmt.Sprintf("ls ../devops"),
 	}
 
 	shell.RunCommand(t, shellCommand)
