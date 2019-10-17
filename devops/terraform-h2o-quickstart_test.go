@@ -52,7 +52,7 @@ func TestQuickstartTerraformCode(t *testing.T) {
 	//defer terraform.Destroy(t, terraformOptions)
 
 	// This will run `terraform init` and `terraform apply` and fail the test if there are any errors
-	terraform.InitAndApply(t, terraformOptions)
+	//terraform.InitAndApply(t, terraformOptions)
 
 	// Run `terraform output` to get the values of output variables
 	ImageOCID := terraform.Output(t, terraformOptions, "ImageOCID")
