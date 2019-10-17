@@ -18,11 +18,11 @@ func TestQuickstartTerraformCode(t *testing.T) {
 	t.Parallel()
 
 	ImageOCID := terraform.Output(t, terraformOptions, "ImageOCID"),
-	ImageName := os.Getenv("GITHUB_REPOSITORY"),
+	ImageName : os.Getenv("GITHUB_REPOSITORY"),
 	PackerDir:= fmt.Sprintf("%s/../devops", os.Getenv("TF_ACTION_WORKING_DIR"),
 
 	shellCommand := shell.Command{
-			Command: fmt.Sprintf("/usr/bin/jq '.builders[].base_image_ocid |= %s | .builders[].image_name |= %s' %s/marketplace-image.json", ImageOCID, ImageName, PackerDir),	
+			Command: fmt.Sprintf("/usr/bin/jq '.builders[].base_image_ocid |= %s | .builders[].image_name |= %s' %s/marketplace-image.json", ImageOCID, ImageName, PackerDir)
 	}
 	// Command is a simpler struct for defining commands than Go's built-in Cmd.
 
