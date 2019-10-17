@@ -7,6 +7,7 @@ import (
 	//"crypto/tls"
 	//"time"
 	"github.com/gruntwork-io/terratest/modules/terraform"
+	"github.com/gruntwork-io/terratest/modules/shell"
 	//"github.com/stretchr/testify/assert"
 	//http_helper "github.com/gruntwork-io/terratest/modules/http-helper"
 )
@@ -47,7 +48,15 @@ func TestQuickstartTerraformCode(t *testing.T) {
 		// Disable colors in Terraform commands so its easier to parse stdout/stderr
 		NoColor: true,
 	}
+	ImageOCID := terraform.Output(t, terraformOptions, "ImageOCID"),
+	ImageName := os.Getenv("GITHUB_REPOSITORY")
+	
+	shellCommand := shell.Command{
+			Command: fmt.Sprintf("/usr/bin/jq '.builders[].base_image_ocid |= %s | .builders[].image_name |= %s' marketplace-image.json", ImageOCID, ImageName),
 
+		
+	}
+	// Command is a simpler struct for defining commands than Go's built-in Cmd.
 	// At the end of the test, run `terraform destroy` to clean up any resources that were created
 	//defer terraform.Destroy(t, terraformOptions)
 
@@ -55,9 +64,9 @@ func TestQuickstartTerraformCode(t *testing.T) {
 	terraform.InitAndApply(t, terraformOptions)
 
 	// Run `terraform output` to get the values of output variables
-	//driverlessAiUrl := terraform.Output(t, terraformOptions, "Driverless_AI_URL")
-	//ImageOCID := terraform.Output(t, terraformOptions, "ImageOCID"),
-	os.Setenv("IMAGE_OCID", terraform.Output(t, terraformOptions, "ImageOCID")) 
+	//driverlessAiUrl := terraform.Output(t, terraformOptions, "Driverless_AI_URL") 
+	
+	shell.RunCommandE(t, command)
 	// Setup a TLS configuration to submit with the helper, a blank struct is acceptable
 	//tlsConfig := tls.Config{}
 	
