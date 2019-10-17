@@ -48,8 +48,8 @@ func TestQuickstartTerraformCode(t *testing.T) {
 		// Disable colors in Terraform commands so its easier to parse stdout/stderr
 		NoColor: true,
 	}
-	ImageOCID := terraform.Output(t, terraformOptions, "ImageOCID"),
-	ImageName := os.Getenv("GITHUB_REPOSITORY")
+	ImageOCID : terraform.Output(t, terraformOptions, "ImageOCID"),
+	ImageName : os.Getenv("GITHUB_REPOSITORY"),
 	
 	shellCommand := shell.Command{
 			Command: fmt.Sprintf("/usr/bin/jq '.builders[].base_image_ocid |= %s | .builders[].image_name |= %s' %s/marketplace-image.json", ImageOCID, ImageName, PackerDir),
