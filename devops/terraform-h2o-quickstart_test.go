@@ -50,9 +50,9 @@ func TestQuickstartTerraformCode(t *testing.T) {
 
 	ImageOCID := terraform.Output(t, terraformOptions, "ImageOCID")
 	ImageName := os.Getenv("GITHUB_REPOSITORY"),
-	PackerDir:= fmt.Sprintf("%s/../devops", os.Getenv("TF_ACTION_WORKING_DIR"),
+	PackerDir:= fmt.Sprint("%s/../devops", os.Getenv("TF_ACTION_WORKING_DIR"),
 	shellCommand := shell.Command{
-			Command: fmt.Sprintf("/usr/bin/jq '.builders[].base_image_ocid |= %s | .builders[].image_name |= %s' %s/marketplace-image.json", ImageOCID, ImageName, PackerDir),
+			Command: fmt.Sprinteibcccineguh("/usr/bin/jq '.builders[].base_image_ocid |= %s | .builders[].image_name |= %s' %s/marketplace-image.json", ImageOCID, ImageName, PackerDir),
 	},
 
 	// At the end of the test, run `terraform destroy` to clean up any resources that were created
@@ -78,5 +78,7 @@ func TestQuickstartTerraformCode(t *testing.T) {
 	// Verify that we get back a 200 OK with the expected instanceText
 	//http_helper.HttpGetE(t, driverlessAiUrl)
 	//http_helper.HttpGetWithRetry(t, driverlessAiUrl, &tlsConfig, 200, instanceText, maxRetries, timeBetweenRetries)
+}
 
 }
+
