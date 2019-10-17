@@ -17,15 +17,6 @@ import (
 func TestQuickstartTerraformCode(t *testing.T) {
 	t.Parallel()
 
-	ImageOCID := terraform.Output(t, terraformOptions, "ImageOCID")
-	ImageName := os.Getenv("GITHUB_REPOSITORY")
-	PackerDir:= fmt.Sprintf("%s/../devops", os.Getenv("TF_ACTION_WORKING_DIR")
-
-	shellCommand := shell.Command{
-			Command: fmt.Sprintf("/usr/bin/jq '.builders[].base_image_ocid |= %s | .builders[].image_name |= %s' %s/marketplace-image.json", ImageOCID, ImageName, PackerDir)
-	}
-	// Command is a simpler struct for defining commands than Go's built-in Cmd.
-
 	//instanceText := "test"
 	//expectedList := []string{expectedText}
 	//expectedMap := map[string]string{"expected": expectedText}
@@ -65,8 +56,15 @@ func TestQuickstartTerraformCode(t *testing.T) {
 
 	// Run `terraform output` to get the values of output variables
 	//driverlessAiUrl := terraform.Output(t, terraformOptions, "Driverless_AI_URL") 
-	
-	shell.RunCommandE(t, command)
+	ImageOCID := terraform.Output(t, terraformOptions, "ImageOCID")
+	ImageName := os.Getenv("GITHUB_REPOSITORY")
+	PackerDir:= fmt.Sprintf("%s/../devops", os.Getenv("TF_ACTION_WORKING_DIR")
+	shellCommand := shell.Command{
+			Command: fmt.Sprintf("/usr/bin/jq '.builders[].base_image_ocid |= %s | .builders[].image_name |= %s' %s/marketplace-image.json", ImageOCID, ImageName, PackerDir)
+	}
+	// Command is a simpler struct for defining commands than Go's built-in Cmd.
+
+	shell.RunCommandE(t, shellCommand)
 	// Setup a TLS configuration to submit with the helper, a blank struct is acceptable
 	//tlsConfig := tls.Config{}
 	
