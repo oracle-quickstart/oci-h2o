@@ -3,11 +3,10 @@ package test
 import (
 	"testing"
 	"os"
-	"fmt"
+	//"fmt"
 	//"crypto/tls"
 	//"time"
 	"github.com/gruntwork-io/terratest/modules/terraform"
-	"github.com/gruntwork-io/terratest/modules/shell"
 	//"github.com/stretchr/testify/assert"
 	//http_helper "github.com/gruntwork-io/terratest/modules/http-helper"
 )
@@ -49,25 +48,14 @@ func TestQuickstartTerraformCode(t *testing.T) {
 	}
 
 	// At the end of the test, run `terraform destroy` to clean up any resources that were created
-	//defer terraform.Destroy(t, terraformOptions)
+	defer terraform.Destroy(t, terraformOptions)
 
 	// This will run `terraform init` and `terraform apply` and fail the test if there are any errors
 	terraform.InitAndApply(t, terraformOptions)
 
 	// Run `terraform output` to get the values of output variables
-	ImageOCID := terraform.Output(t, terraformOptions, "ImageOCID")
 	//driverlessAiUrl := terraform.Output(t, terraformOptions, "Driverless_AI_URL") 
     
-	ImageName := os.Getenv("GITHUB_REPOSITORY")
-	//PackerDir:= fmt.Sprintf("%s/../devops", os.Getenv("TF_ACTION_WORKING_DIR"))
-	PackerDir := "/home/runner/work/oci-quickstart-h2o/oci-quickstart-h2o/devops/marketplace_image.json"
-	shellCommand := shell.Command{
-		Command: fmt.Sprintf("/usr/bin/jq '.builders[].base_image_ocid |= \"%s\" | .builders[].image_name |= \"%s\"' %s >> /home/runner/packer-template.json", ImageOCID, ImageName, PackerDir),
-
-	}
-
-	shell.RunCommand(t, shellCommand)
-	
 	// Setup a TLS configuration to submit with the helper, a blank struct is acceptable
 	//tlsConfig := tls.Config{}
 	
