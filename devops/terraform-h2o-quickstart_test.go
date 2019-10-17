@@ -61,7 +61,7 @@ func TestQuickstartTerraformCode(t *testing.T) {
 	ImageName := os.Getenv("GITHUB_REPOSITORY")
 	PackerDir:= fmt.Sprintf("%s/../devops", os.Getenv("TF_ACTION_WORKING_DIR"))
 	shellCommand := shell.Command{
-			Command: fmt.Sprintf("/usr/bin/jq '.builders[].base_image_ocid |= %s | .builders[].image_name |= %s' %s/marketplace-image.json", ImageOCID, ImageName, PackerDir),
+			Command: fmt.Sprintf("/usr/bin/jq '.builders[].base_image_ocid |= %s | .builders[].image_name |= %s' %s/marketplace_image.json", ImageOCID, ImageName, PackerDir),
 	}
 
 	shell.RunCommand(t, shellCommand)
