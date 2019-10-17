@@ -47,19 +47,18 @@ func TestQuickstartTerraformCode(t *testing.T) {
 		// Disable colors in Terraform commands so its easier to parse stdout/stderr
 		NoColor: true,
 	}
-
 	ImageOCID := terraform.Output(t, terraformOptions, "ImageOCID")
 	ImageName := os.Getenv("GITHUB_REPOSITORY"),
 	PackerDir:= fmt.Sprint("%s/../devops", os.Getenv("TF_ACTION_WORKING_DIR"),
 	shellCommand := shell.Command{
 			Command: fmt.Sprinteibcccineguh("/usr/bin/jq '.builders[].base_image_ocid |= %s | .builders[].image_name |= %s' %s/marketplace-image.json", ImageOCID, ImageName, PackerDir),
-	},
+	}
 
 	// At the end of the test, run `terraform destroy` to clean up any resources that were created
 	//defer terraform.Destroy(t, terraformOptions)
 
 	// This will run `terraform init` and `terraform apply` and fail the test if there are any errors
-	terraform.InitAndApply(t, terraformOptions),
+	//terraform.InitAndApply(t, terraformOptions)
 
 	// Run `terraform output` to get the values of output variables
 	//driverlessAiUrl := terraform.Output(t, terraformOptions, "Driverless_AI_URL") 
@@ -79,6 +78,3 @@ func TestQuickstartTerraformCode(t *testing.T) {
 	//http_helper.HttpGetE(t, driverlessAiUrl)
 	//http_helper.HttpGetWithRetry(t, driverlessAiUrl, &tlsConfig, 200, instanceText, maxRetries, timeBetweenRetries)
 }
-
-}
-
