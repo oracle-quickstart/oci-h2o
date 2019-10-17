@@ -47,26 +47,27 @@ func TestQuickstartTerraformCode(t *testing.T) {
 		// Disable colors in Terraform commands so its easier to parse stdout/stderr
 		NoColor: true,
 	}
+
 	
+
+	// At the end of the test, run `terraform destroy` to clean up any resources that were created
+	//defer terraform.Destroy(t, terraformOptions)
+
+	// This will run `terraform init` and `terraform apply` and fail the test if there are any errors
+	terraform.InitAndApply(t, terraformOptions)
+
+	// Run `terraform output` to get the values of output variables
 	ImageOCID := terraform.Output(t, terraformOptions, "ImageOCID")
+	//driverlessAiUrl := terraform.Output(t, terraformOptions, "Driverless_AI_URL") 
+
 	ImageName := os.Getenv("GITHUB_REPOSITORY"),
 	PackerDir:= fmt.Sprint("%s/../devops", os.Getenv("TF_ACTION_WORKING_DIR"),
 	shellCommand := shell.Command{
 			Command: fmt.Sprint("/usr/bin/jq '.builders[].base_image_ocid |= %s | .builders[].image_name |= %s' %s/marketplace-image.json", ImageOCID, ImageName, PackerDir),
 	}
 
-	// At the end of the test, run `terraform destroy` to clean up any resources that were created
-	//defer terraform.Destroy(t, terraformOptions)
-
-	// This will run `terraform init` and `terraform apply` and fail the test if there are any errors
-	//terraform.InitAndApply(t, terraformOptions)
-
-	// Run `terraform output` to get the values of output variables
-	//driverlessAiUrl := terraform.Output(t, terraformOptions, "Driverless_AI_URL") 
-	
-	// Command is a simpler struct for defining commands than Go's built-in Cmd.
-
 	shell.RunCommand(t, shellCommand)
+	
 	// Setup a TLS configuration to submit with the helper, a blank struct is acceptable
 	//tlsConfig := tls.Config{}
 	
