@@ -15,7 +15,7 @@ jobs:
       TF_VAR_tenancy_ocid: ${{ secrets.TF_VAR_tenancy_ocid }}
       TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@development
     - name: install-dependencies
       run: |
         sh devops/prepare-job.sh
@@ -26,6 +26,7 @@ jobs:
         terraform init
         terraform 0.12upgrade -yes
         echo "${{ secrets.TF_VAR_private_key }}" > /home/runner/oci.pem
+        ls /home/runner/work/oci-quickstart-h2o/oci-quickstart-h2o/terraform/../devops/marketplace-image.json
         go test -v $HOME/go/src/terratest/test/terraform-h2o-quickstart_test.go -timeout 20m
         env
     - name: create-marketplace-ready-image
