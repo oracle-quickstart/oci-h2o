@@ -3,7 +3,7 @@ package test
 import (
 	"testing"
 	"os"
-	//"fmt"
+	"fmt"
 	//"crypto/tls"
 	//"time"
 	"github.com/gruntwork-io/terratest/modules/terraform"
@@ -17,6 +17,15 @@ import (
 func TestQuickstartTerraformCode(t *testing.T) {
 	t.Parallel()
 
+	ImageOCID := terraform.Output(t, terraformOptions, "ImageOCID"),
+	ImageName := os.Getenv("GITHUB_REPOSITORY"),
+	PackerDir:= fmt.Sprintf("%s/../devops", os.Getenv("TF_ACTION_WORKING_DIR"),
+
+	shellCommand := shell.Command{
+			Command: fmt.Sprintf("/usr/bin/jq '.builders[].base_image_ocid |= %s | .builders[].image_name |= %s' %s/marketplace-image.json", ImageOCID, ImageName, PackerDir),	
+	}
+	// Command is a simpler struct for defining commands than Go's built-in Cmd.
+
 	//instanceText := "test"
 	//expectedList := []string{expectedText}
 	//expectedMap := map[string]string{"expected": expectedText}
@@ -28,7 +37,6 @@ func TestQuickstartTerraformCode(t *testing.T) {
 	terraformOptions := &terraform.Options{
 		// The path to where our Terraform code is located
 		TerraformDir: os.Getenv("TF_ACTION_WORKING_DIR"),
-		PackerDir: fmt.Sprintf("%s/../devops", TerraformDir),
 		// Variables to pass to our Terraform code using -var options
 		Vars: map[string]interface{}{
 		//	"example": expectedText,
@@ -48,15 +56,7 @@ func TestQuickstartTerraformCode(t *testing.T) {
 		// Disable colors in Terraform commands so its easier to parse stdout/stderr
 		NoColor: true,
 	}
-	ImageOCID : terraform.Output(t, terraformOptions, "ImageOCID"),
-	ImageName : os.Getenv("GITHUB_REPOSITORY"),
-	
-	shellCommand := shell.Command{
-			Command: fmt.Sprintf("/usr/bin/jq '.builders[].base_image_ocid |= %s | .builders[].image_name |= %s' %s/marketplace-image.json", ImageOCID, ImageName, PackerDir),
 
-		
-	}
-	// Command is a simpler struct for defining commands than Go's built-in Cmd.
 	// At the end of the test, run `terraform destroy` to clean up any resources that were created
 	//defer terraform.Destroy(t, terraformOptions)
 
