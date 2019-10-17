@@ -18,7 +18,7 @@ func TestQuickstartTerraformCode(t *testing.T) {
 	t.Parallel()
 
 	ImageOCID := terraform.Output(t, terraformOptions, "ImageOCID")
-	ImageName : os.Getenv("GITHUB_REPOSITORY")
+	ImageName := os.Getenv("GITHUB_REPOSITORY")
 	PackerDir:= fmt.Sprintf("%s/../devops", os.Getenv("TF_ACTION_WORKING_DIR")
 
 	shellCommand := shell.Command{
