@@ -52,18 +52,18 @@ func TestQuickstartTerraformCode(t *testing.T) {
 	//defer terraform.Destroy(t, terraformOptions)
 
 	// This will run `terraform init` and `terraform apply` and fail the test if there are any errors
-	//terraform.InitAndApply(t, terraformOptions)
+	terraform.InitAndApply(t, terraformOptions)
 
 	// Run `terraform output` to get the values of output variables
 	ImageOCID := terraform.Output(t, terraformOptions, "ImageOCID")
 	//driverlessAiUrl := terraform.Output(t, terraformOptions, "Driverless_AI_URL") 
-    fmt.Sprintf(ImageOCID)
-	///ImageName := os.Getenv("GITHUB_REPOSITORY")
+    
+	ImageName := os.Getenv("GITHUB_REPOSITORY")
 	//PackerDir:= fmt.Sprintf("%s/../devops", os.Getenv("TF_ACTION_WORKING_DIR"))
-	///PackerDir := "../devops"
+	PackerDir := "../devops"
 	shellCommand := shell.Command{
 			//Command: fmt.Sprintf("/usr/bin/jq '.builders[].base_image_ocid |= \"%s\" | .builders[].image_name |= \"%s\"' %s/marketplace_image.json", ImageOCID, ImageName, PackerDir),
-			Command: fmt.Sprintf("ls ../devops"),
+			Command: fmt.Sprintf("ls ../devops \n %s %s %s", ImageOCID, ImageName, PackerDir),
 	}
 
 	shell.RunCommand(t, shellCommand)
