@@ -28,12 +28,12 @@ jobs:
         #go test -v $HOME/go/src/terratest/test/terraform-h2o-quickstart_test.go -timeout 20m
     - name: zip-and-upload-stack
       run: |
-        export FILENAME=echo $GITHUB_REPOSITORY |cut -d'/' -f 2
-        zip -r $FILENAME.$(date +"%Y%m%d_%H%M%S").zip ./
+        export FILENAME=$(echo $GITHUB_REPO |cut -d'/' -f 2).$(date +"%Y%m%d_%H%M%S")
+        zip -r $FILENAME.zip ./
     - uses: actions/upload-artifact@master
       with:
         name: stack-archive
-        path: ./$GITHUB_REPOSITORY.zip
+        path: $FILENAME.zip
     - name: create-marketplace-image
       if: success()
       #uses: actions/upload-artifact@v1
