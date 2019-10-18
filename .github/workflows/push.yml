@@ -40,6 +40,7 @@ jobs:
     - name: Create marketplace dummy image
       working-directory: devops
       run: |
+        env
         echo "Use Packer to create OCI image with cleanup-script"
         packer build marketplace_image.json
   submit-image-listing:
