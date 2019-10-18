@@ -28,8 +28,8 @@ jobs:
         #go test -v $HOME/go/src/terratest/test/terraform-h2o-quickstart_test.go -timeout 20m
     - name: zip-and-upload-stack
       run: |
-        env
-        zip -r $GITHUB_REPOSITORY.zip ./
+        export FILENAME=echo $GITHUB_REPOSITORY |cut -d'/' -f 2
+        zip -r $FILENAME.$(date +"%Y%m%d_%H%M%S").zip ./
     - uses: actions/upload-artifact@master
       with:
         name: stack-archive
