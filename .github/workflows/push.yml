@@ -16,17 +16,17 @@ jobs:
       TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
     steps:
     - uses: actions/checkout@master
-    - name: install-dependencies
+    - name: Install dependencies
       run: |
         sh devops/prepare-job.sh
-    - name: test-terraform-code
+    - name: Test terraform code
       working-directory: terraform
       run: |
         export TF_ACTION_WORKING_DIR=$PWD
         terraform init && terraform 0.12upgrade -yes
         echo "${{ secrets.TF_VAR_private_key }}" > /home/runner/oci.pem
         #go test -v $HOME/go/src/terratest/test/terraform-h2o-quickstart_test.go -timeout 20m
-    - name: zip-and-upload-stack
+    - name: Zip and upload stack artifact
       if: success()
       working-directory: terraform
       run: |
@@ -35,10 +35,11 @@ jobs:
         echo $FILENAME
         zip -r upload/$FILENAME.zip ./ -x ".terraform/*"
     - uses: actions/upload-artifact@master
+      working-directory: terraform
       with:
         name: stack-archive
         path: upload
-    - name: create-marketplace-image
+    - name: Create marketplace dummy image
       working-directory: devops
       run: |
         echo "Use Packer to create OCI image with cleanup-script"
