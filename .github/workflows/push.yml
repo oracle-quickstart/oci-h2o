@@ -33,7 +33,7 @@ jobs:
         mkdir -p ../upload
         export FILENAME=$(echo $GITHUB_REPOSITORY |cut -d'/' -f 2).$(date +"%Y%m%d_%H%M%S")
         echo $FILENAME
-        zip -r upload/$FILENAME.zip ./ -x ".terraform/*"
+        zip -r ../upload/$FILENAME.zip terraform/ -x ".terraform/*"
     - uses: actions/upload-artifact@master
       with:
         name: stack-archive
@@ -42,7 +42,7 @@ jobs:
       working-directory: devops
       run: |
         echo "Use Packer to create OCI image with cleanup-script"
-        packer build devops/marketplace_image.json
+        packer build marketplace_image.json
   submit-image-listing:
     if: success()
     name: submit-image
