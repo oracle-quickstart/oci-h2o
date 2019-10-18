@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo apt-get update
 #sudo apt-get -y upgrade
-sudo apt install -y build-essential unzip go-dep
+sudo apt install -y build-essential unzip zip go-dep
 
 #Installing go
 wget https://dl.google.com/go/go1.13.1.linux-amd64.tar.gz
