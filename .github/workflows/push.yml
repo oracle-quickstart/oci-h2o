@@ -29,12 +29,13 @@ jobs:
     - name: zip-and-upload-stack
       if: success()
       run: |
+        mkdir -p upload
         export FILENAME=$(echo $GITHUB_REPO |cut -d'/' -f 2).$(date +"%Y%m%d_%H%M%S")
-        zip -r $FILENAME.zip terraform/
+        zip -r upload/$FILENAME.zip terraform/
     - uses: actions/upload-artifact@master
       with:
         name: stack-archive
-        path: *.zip
+        path: upload
     - name: create-marketplace-image
       working-directory: devops
       run: |
