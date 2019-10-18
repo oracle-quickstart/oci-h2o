@@ -6,10 +6,13 @@
 	},
 	"builders":[
 {
-    "access_cfg_file": "/home/ubuntu/.oci/config",	
+    "user_ocid": "$TF_VAR_user_ocid",	
+	"tenancy_ocid": "$TF_VAR_tenancy_ocid",
+	"fingerprint": "$TF_VAR_fingerprint",
+	"key_file": "$TF_VAR_private_key_path",
+	"compartment_ocid": "$TF_VAR_compartment_ocid",
     "availability_domain": "IYfK:US-ASHBURN-AD-1",
     "base_image_ocid": "ocid1.image.oc1.iad.aaaaaaaavxqdkuyamlnrdo3q7qa7q3tsd6vnyrxjy3nmdbpv7fs7um53zh5q",
-    "compartment_ocid": "ocid1.compartment.oc1..aaaaaaaasnx6ugb4zut3shuodn4ykgxgua3foljiv6gwakoqjabrunorazaa",
     "image_name": "MarketplaceReadyImage",
     "shape": "VM.Standard2.1",
     "ssh_username": "opc",
