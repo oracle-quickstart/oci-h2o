@@ -27,20 +27,19 @@ jobs:
         echo "${{ secrets.TF_VAR_private_key }}" > /home/runner/oci.pem
         #go test -v $HOME/go/src/terratest/test/terraform-h2o-quickstart_test.go -timeout 20m
     - name: zip-and-upload-stack
+      if: success()
       run: |
         export FILENAME=$(echo $GITHUB_REPO |cut -d'/' -f 2).$(date +"%Y%m%d_%H%M%S")
-        zip -r $FILENAME.zip ./
+        zip -r $FILENAME.zip terraform/
     - uses: actions/upload-artifact@master
       with:
         name: stack-archive
-        path: $FILENAME.zip
+        path: *.zip
     - name: create-marketplace-image
-      if: success()
-      #uses: actions/upload-artifact@v1
+      working-directory: devops
       run: |
         echo "Use Packer to create OCI image with cleanup-script"
-        packer version
-        #packer build /home/runner/packer-template.json
+        packer build devops/marketplace_image.json
   submit-image-listing:
     if: success()
     name: submit-image
