@@ -28,14 +28,16 @@ jobs:
         #go test -v $HOME/go/src/terratest/test/terraform-h2o-quickstart_test.go -timeout 20m
     - name: zip-and-upload-stack
       if: success()
+      working-directory: terraform
       run: |
-        mkdir -p upload
-        export FILENAME=$(echo $GITHUB_REPO |cut -d'/' -f 2).$(date +"%Y%m%d_%H%M%S")
-        zip -r upload/$FILENAME.zip terraform/
+        mkdir -p ../upload
+        export FILENAME=$(echo $GITHUB_REPOSITORY |cut -d'/' -f 2).$(date +"%Y%m%d_%H%M%S")
+        echo $FILENAME
+        zip -r upload/$FILENAME.zip ./ -x ".terraform/*"
     - uses: actions/upload-artifact@master
       with:
         name: stack-archive
-        path: upload
+        path: ../upload
     - name: create-marketplace-image
       working-directory: devops
       run: |
