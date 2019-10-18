@@ -33,7 +33,7 @@ jobs:
         mkdir -p ../upload
         export FILENAME=$(echo $GITHUB_REPOSITORY |cut -d'/' -f 2).$(date +"%Y%m%d_%H%M%S")
         echo $FILENAME
-        zip -r ../upload/$FILENAME.zip terraform/ -x ".terraform/*"
+        zip -r ../upload/$FILENAME.zip ./ -x ".terraform/*"
     - uses: actions/upload-artifact@master
       with:
         name: stack-archive
