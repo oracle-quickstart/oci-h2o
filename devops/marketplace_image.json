@@ -1,8 +1,7 @@
 {
 
 	"variables": {
-		"var.user": "admin",
-		"var.password": "admin"
+
 	},
 	"builders":[
 {
@@ -16,8 +15,10 @@
     "image_name": "MarketplaceReadyImage",
     "shape": "VM.Standard2.1",
     "ssh_username": "opc",
-    "subnet_ocid": "ocid1.subnet.oc1.iad.aaaaaaaadyszurgvm3sg4ap5zskhtymtnzpkmzlqmp44wao6vjxzjvfexoeq",
+    "region": "us-ashburn-1",
+	"subnet_ocid": "ocid1.subnet.oc1.iad.aaaaaaaadyszurgvm3sg4ap5zskhtymtnzpkmzlqmp44wao6vjxzjvfexoeq",
     "type": "oracle-oci"
+	
 	
 }
 	],
