@@ -30,14 +30,14 @@ jobs:
       if: success()
       working-directory: terraform
       run: |
-        mkdir -p ../upload
+        mkdir -p $HOME/upload
         export FILENAME=$(echo $GITHUB_REPOSITORY |cut -d'/' -f 2).$(date +"%Y%m%d_%H%M%S")
         echo $FILENAME
-        zip -r ../upload/$FILENAME.zip ./ -x ".terraform/*"
+        zip -r $HOME/upload/$FILENAME.zip ./ -x ".terraform/*"
     - uses: actions/upload-artifact@master
       with:
         name: stack-archive
-        path: ../upload
+        path: $HOME/upload
     - name: create-marketplace-image
       working-directory: devops
       run: |
