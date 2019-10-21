@@ -5,7 +5,7 @@
 	},
 	"builders":[
 {
-    "user_ocid": "user_ocid_placeholder",	
+	"user_ocid": "user_ocid_placeholder",
 	"tenancy_ocid": "tenancy_ocid_placeholder",
 	"fingerprint": "fingerprint_placeholder",
 	"key_file": "key_file_placeholder",
@@ -31,5 +31,14 @@
 	]
 		
 		}
-	]
+	],
+	"post-processors": [
+		[
+		  {
+			"output": "manifest.json",
+			"strip_path": true,
+			"type": "manifest"
+		  }
+		]
+	  ]
 }
