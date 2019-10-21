@@ -42,7 +42,12 @@ jobs:
       run: |
         env
         echo "Use Packer to create OCI image with cleanup-script"
-        packer build marketplace_image.json
+        jq '.builders[].user_ocid |= "'$TF_VAR_user_ocid'" | 
+            .builders[].tenancy_ocid |= "'$TF_VAR_tenancy_ocid'" | 
+            .builders[].fingerprint |= "'$TF_VAR_fingerprint'" | 
+            .builders[].key_file |= "'$TF_VAR_private_key_path'" | 
+            .builders[].compartment_ocid |= "'$TF_VAR_compartment_ocid'"' marketplace_image.json > dummy_image.json
+        packer build dummy_image.json
   submit-image-listing:
     if: success()
     name: submit-image
