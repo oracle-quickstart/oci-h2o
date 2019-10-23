@@ -27,7 +27,7 @@ jobs:
         export TF_ACTION_WORKING_DIR=$PWD
         terraform init && terraform 0.12upgrade -yes
         echo "${{ secrets.TF_VAR_private_key }}" > /home/runner/oci.pem
-        go test -v devops/quickstart-terraform_test.go -timeout 20m
+        go test -v $HOME/go/src/terratest/test/quickstart-terraform_test.go -timeout 20m
     - name: Create stack archive
       if: success()
       working-directory: terraform

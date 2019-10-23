@@ -12,7 +12,7 @@ mkdir -p $HOME/go/src/terratest/test
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$GOROOT/bin:$GOPATH/bin:/usr/bin:$PATH
-mv ./devops/terraform-h2o-quickstart_test.go $HOME/go/src/terratest/test
+mv devops/quickstart-terraform_test.go $HOME/go/src/terratest/test
 ls -ltr $HOME/go/src/terratest/test
 cd $HOME/go/src/terratest/test
 
