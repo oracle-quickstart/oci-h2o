@@ -52,13 +52,13 @@ jobs:
       with:
         name: stack-archive
         path: /home/runner/upload
-  submit-image-listing:
+  submit-listing:
     if: success()
-    name: submit-image
+    name: submit-listing
     runs-on: ubuntu-latest
     needs: test-terraform-code
     steps:
-    - name: submit-image-to-publisher-portal
+    - name: submit-to-publisher-portal
       run: |
-        echo "This will submit the image to Publisher Portal"
+        echo "This will submit to Publisher Portal"
 
