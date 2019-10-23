@@ -58,7 +58,13 @@ jobs:
     runs-on: ubuntu-latest
     needs: test-terraform-code
     steps:
+    - uses: actions/download-artifact@master
+      with:
+        name: stack-archive
+        path: /home/runner
     - name: submit-to-publisher-portal
       run: |
         echo "This will submit to Publisher Portal"
-
+        echo "${{ secrets.API_creds }}" > /home/runner/h2o_creds.yaml
+        cat h2o_creds.yaml
+        ls /home/runner
