@@ -13,7 +13,7 @@ First off you'll need to do some pre deploy setup.  That's all detailed [here](h
 DAI requires a license key. If you don't already have a key, you can get a [trial key](https://www.h2o.ai/try-driverless-ai/). You can deploy these templates before you get a key, but you'll be prompted for a key at first login.
 
 ## Clone the Module
-Now, you'll want a local copy of this repo.  You can make that with the commands:
+Now, you'll want a local copy of this repo. You can make that with the commands:
 
     git clone https://github.com/oracle/oci-quickstart-h2o.git
     cd oci-quickstart-h2o/terraform
