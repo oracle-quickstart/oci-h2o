@@ -1,7 +1,7 @@
-on: 
-  push:
-    branches: 
-      - 'dev'
+#on: 
+#  push:
+#    branches: 
+#      - 'development'
 name: OCI-Marketplace
 jobs:
   test-terraform-code: 
