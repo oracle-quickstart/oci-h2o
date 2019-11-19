@@ -19,16 +19,16 @@ jobs:
       name: Checkout Quickstart Repo
       with:
               ref: development
-    - uses: "oci-quickstart/oci-quickstart/partners/actions/terraform-test@v0.91"
-      name: Test Terraform Code
-    - uses: "oci-quickstart/oci-quickstart/partners/actions/create-stack@v0.91"
-      name: Create Stack Archive
-      if: success()
+    #- uses: "oci-quickstart/oci-quickstart/partners/actions/terraform-test@v0.91"
+    #  name: Test Terraform Code
+    #- uses: "oci-quickstart/oci-quickstart/partners/actions/create-stack@v0.91"
+    #  name: Create Stack Archive
+    #  if: success()
     #- user: "oci-quickstart/oci-quickstart/partners/actions/create-dummy-image@v0.91"
     #  name: Create Dummy Image
-    - uses: "oci-quickstart/oci-quickstart/partners/actions/create-partner-image@v0.91"
-      name: Create Partner Marketplace-ready Image
-      with:
-        base-image: 'ocid1.image.oc1.iad.aaaaaaaavxqdkuyamlnrdo3q7qa7q3tsd6vnyrxjy3nmdbpv7fs7um53zh5q'
-    - uses: "oci-quickstart/oci-quickstart/partners/actions/update-listing@v0.93"
+    #- uses: "oci-quickstart/oci-quickstart/partners/actions/create-partner-image@v0.91"
+    #  name: Create Partner Marketplace-ready Image
+    #  with:
+    #    base-image: 'ocid1.image.oc1.iad.aaaaaaaavxqdkuyamlnrdo3q7qa7q3tsd6vnyrxjy3nmdbpv7fs7um53zh5q'
+    - uses: "oci-quickstart/oci-quickstart/partners/actions/update-listing@v0.94"
       name: Update Marketplace Listing
