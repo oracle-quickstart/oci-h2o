@@ -35,5 +35,5 @@ jobs:
       with:
           python-version: '3.6'
           architecture: x64
-    - uses: "oci-quickstart/oci-quickstart/partners/actions/update-listing@v0.945"
+    - uses: "oci-quickstart/oci-quickstart/partners/actions/update-listing@ca04585"
       name: Update Marketplace Listing
