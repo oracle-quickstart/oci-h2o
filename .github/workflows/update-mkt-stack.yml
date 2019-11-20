@@ -30,10 +30,5 @@ jobs:
       name: Create Partner Marketplace-ready Image
       with:
         base-image: 'ocid1.image.oc1.iad.aaaaaaaavxqdkuyamlnrdo3q7qa7q3tsd6vnyrxjy3nmdbpv7fs7um53zh5q'
-    - name: Setup python
-      uses: actions/setup-python@v1
-      with:
-          python-version: '3.6'
-          architecture: x64
-    - uses: "oci-quickstart/oci-quickstart/partners/actions/update-listing@ca04585"
+    - uses: "oci-quickstart/oci-quickstart/partners/actions/update-listing@v0.946"
       name: Update Marketplace Listing
