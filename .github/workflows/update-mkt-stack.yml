@@ -26,7 +26,7 @@ jobs:
       if: success()
     #- user: "oci-quickstart/oci-quickstart/partners/actions/create-dummy-image@v0.91"
     #  name: Create Dummy Image
-    - uses: "oci-quickstart/oci-quickstart/partners/actions/update-listing@d185f98"
+    - uses: "oci-quickstart/oci-quickstart/partners/actions/update-listing@ca7117a"
       name: Update Marketplace Listing
     - uses: "oci-quickstart/oci-quickstart/partners/actions/create-partner-image@v0.91"
       name: Create Partner Marketplace-ready Image
