@@ -31,7 +31,7 @@ jobs:
       name: Create Partner Marketplace-ready Image
       with:
         base-image: 'ocid1.image.oc1.iad.aaaaaaaavxqdkuyamlnrdo3q7qa7q3tsd6vnyrxjy3nmdbpv7fs7um53zh5q'
-    - uses: "oci-quickstart/oci-quickstart/partners/actions/update-listing@33b2b08"
+    - uses: "oci-quickstart/oci-quickstart/partners/actions/update-listing@794e99d"
       name: Update Marketplace Listing 
       
       
