@@ -1,0 +1,68 @@
+title: "Top Level Title"
+schemaVersion: 1.0.0
+version: "20190612"
+locale: "en"
+groupings:
+  - title: "Hidden General Configuration"
+    visible: true
+    variables:
+    - tenancy_ocid
+    - compartment_ocid
+    - region
+    # QS specific platform vars
+    - ad_number
+    - platform-images
+
+  - title: "H2O.ai DAI Configuration"
+    visible: true
+    variables:
+    - ad_name
+    - shape
+    - ssh_public_key
+    - disk_size_gb
+    - key
+    - user
+    - password
+
+variables:
+  ad_name:
+    description: "Availability Domain where DAI instance is deployed."
+    type: oci:identity:availabilitydomain:name
+    dependsOn:
+      compartmentId: ${compartment_ocid}
+    required: true
+    title: "Availability Domain"
+
+  shape:
+    descirption: "Shape for DAI instance. GPU shapes give higher performance."
+    type: oci:core:instanceshape:name
+    default: "BM.GPU2.2"
+    title: "Compute Shape"
+    required: true
+    dependsOn:
+      compartmentId: ${compartment_ocid}
+
+  disk_size_gb:
+    description: "Minimum size 50GB, smaller volumes will not be created"
+    type: integer
+    required: true
+    default: 0
+    title: "Block Volume Size"
+
+  user:
+    description: "Default user."
+    type: string
+    default: "admin"
+    required: true
+
+  password:
+    description: "Pssword for default user."
+    type: password
+    default: ""
+    required: true
+
+  ad_number:
+    description: "Shadowed TF value to ignore"
+    type: integer
+    required: true
+    default: -1
