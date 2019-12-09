@@ -97,3 +97,4 @@ You'll need to enter `yes` when prompted.  Once complete, you'll see something l
 
 ![](./images/10%20-%20terraform%20destroy.png)
 
+
