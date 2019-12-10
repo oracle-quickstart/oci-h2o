@@ -29,3 +29,4 @@ usageInformation: "<p>A license key is required for this deployment. You can obt
   \ Focus</a></li> \n <li><a href=\"https://h2oai.github.io/tutorials/machine-learning-interpretability-tutorial/\"\
   \ rel=\"nofollow\">Machine Learning Interpretability Tutorial</a></li> \n</ul> \n\
   <p>The DAI instance is running Oracle Linux with default user <em>opc</em>.</p>"
+version: updated version 1.2.345
