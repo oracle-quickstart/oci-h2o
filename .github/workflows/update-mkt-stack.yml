@@ -1,0 +1,37 @@
+on: 
+  push:
+    branches: 
+      - 'development'
+name: OCI-Marketplace
+jobs:
+  test-terraform-code: 
+    name: Update Marketplace Stack Listing
+    runs-on: ubuntu-latest
+    env:
+      TF_VAR_compartment_ocid: ${{ secrets.TF_VAR_compartment_ocid }}
+      TF_VAR_fingerprint: ${{ secrets.TF_VAR_fingerprint }}
+      TF_VAR_private_key: ${{ secrets.TF_VAR_private_key }}
+      TF_VAR_private_key_path: $GITHUB_WORKSPACE/oci.pem
+      TF_VAR_tenancy_ocid: ${{ secrets.TF_VAR_tenancy_ocid }}
+      TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
+      API_CREDS: ${{ secrets.API_CREDS }}
+    steps:
+    - uses: actions/checkout@master
+      name: Checkout Quickstart Repo
+      with:
+              ref: development
+    - uses: "oci-quickstart/oci-quickstart/partners/actions/terraform-test@v0.91"
+      name: Test Terraform Code
+    - uses: "oci-quickstart/oci-quickstart/partners/actions/create-stack@v0.91"
+      name: Create Stack Archive
+      if: success()
+    #- user: "oci-quickstart/oci-quickstart/partners/actions/create-dummy-image@v0.91"
+    #  name: Create Dummy Image
+    - uses: "oci-quickstart/oci-quickstart/partners/actions/create-partner-image@v0.91"
+      name: Create Partner Marketplace-ready Image
+      with:
+        base-image: 'ocid1.image.oc1.iad.aaaaaaaavxqdkuyamlnrdo3q7qa7q3tsd6vnyrxjy3nmdbpv7fs7um53zh5q'
+    - uses: "oci-quickstart/oci-quickstart/partners/actions/update-listing@0c8fbd1"
+      name: Update Marketplace Listing
+      
+      

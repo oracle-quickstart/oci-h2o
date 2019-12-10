@@ -67,6 +67,6 @@ resource "oci_core_volume_attachment" "h2o" {
   volume_id       = "${oci_core_volume.h2o.*.id[0]}"
 }
 
-output "Driverless AI URL" {
+output "Driverless_AI_URL" {
   value = "https://${data.oci_core_vnic.h2o_vnic.public_ip_address}:12345"
 }

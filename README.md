@@ -1,4 +1,7 @@
-# oci-h2o
+[![Actions Status](https://github.com/oci-quickstart/oci-h2o/workflows/OCI-Marketplace/badge.svg)](https://github.com/oci-quickstart/oci-h2o/actions)
+
+# oci-quickstart-h2o
+
 This is a Terraform module that deploys [H2O.ai Driverless AI](https://www.h2o.ai/products/) on [Oracle Cloud Infrastructure (OCI)](https://cloud.oracle.com/en_US/cloud-infrastructure).  It is developed jointly by Oracle and H2O.ai.
 
 Instructions on how to use it are below.  In addition, here's a video walkthrough:
@@ -11,7 +14,7 @@ First off you'll need to do some pre deploy setup.  That's all detailed [here](h
 DAI requires a license key. If you don't already have a key, you can get a [trial key](https://www.h2o.ai/try-driverless-ai/). You can deploy these templates before you get a key, but you'll be prompted for a key at first login.
 
 ## Clone the Module
-Now, you'll want a local copy of this repo.  You can make that with the commands:
+Now, you'll want a local copy of this repo. You can make that with the commands:
 
     git clone https://github.com/oracle/oci-quickstart-h2o.git
     cd oci-quickstart-h2o/terraform
@@ -94,3 +97,5 @@ When you no longer need the deployment, you can run this command to destroy it:
 You'll need to enter `yes` when prompted.  Once complete, you'll see something like this:
 
 ![](./images/10%20-%20terraform%20destroy.png)
+
+
