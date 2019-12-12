@@ -9,7 +9,7 @@ longDescription: "<p>H2O's Driverless AI is an artificial intelligence (AI) plat
   \ \n<p><strong>Hightlights:</strong></p> \n<ul> \n <li>Automatic Feature Engineering</li>\
   \ \n <li>Automatic Visualization</li> \n <li>Machine Learning Interpretability</li>\
   \ \n</ul>"
-name: NEW VERSION - Driverless AI
+name: NEWEST VERSION - Driverless AI
 shortDescription: H2O Driverless AI brings Automatic Machine Learning for the enterprise.
 systemRequirements: <p>This deployment allows both CPU and GPU OCI VM shapes. Performance
   is significantly higher on GPU shapes, VM.GPU2.1 or VM.GPU3.1 are recomended.</p>
@@ -29,4 +29,4 @@ usageInformation: "<p>A license key is required for this deployment. You can obt
   \ Focus</a></li> \n <li><a href=\"https://h2oai.github.io/tutorials/machine-learning-interpretability-tutorial/\"\
   \ rel=\"nofollow\">Machine Learning Interpretability Tutorial</a></li> \n</ul> \n\
   <p>The DAI instance is running Oracle Linux with default user <em>opc</em>.</p>"
-version: updated version 1.2.346
+version: updated version 1.2.347
