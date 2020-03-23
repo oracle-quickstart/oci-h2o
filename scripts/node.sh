@@ -13,8 +13,8 @@ chkconfig firewalld off
 #######################################################
 echo "Installing H2O Driverless AI..."
 cd ~opc
-curl -O https://s3.amazonaws.com/artifacts.h2o.ai/releases/ai/h2o/dai/rel-1.7.0-214/x86_64-centos7/dai-1.7.0-1.x86_64.rpm
-rpm -i dai-1.7.0-1.x86_64.rpm
+curl -O https://s3.amazonaws.com/artifacts.h2o.ai/releases/ai/h2o/dai/rel-1.8.5-64/x86_64-centos7/dai-1.8.5.1-1.x86_64.rpm
+rpm -i dai-1.8.5.1-1.x86_64.rpm
 
 echo 0 > /proc/sys/vm/overcommit_memory
 mkdir -p /opt/h2oai/dai/home/.driverlessai/
