@@ -5,16 +5,27 @@
 # ---------------------------------------------------------------------------------------------------------------------
 
 # Required by the OCI Provider
-variable "tenancy_ocid" {}
+variable "tenancy_ocid" {
+}
 
-variable "compartment_ocid" {}
-variable "user_ocid" {}
-variable "fingerprint" {}
-variable "private_key_path" {}
-variable "region" {}
+variable "compartment_ocid" {
+}
+
+variable "user_ocid" {
+}
+
+variable "fingerprint" {
+}
+
+variable "private_key_path" {
+}
+
+variable "region" {
+}
 
 # Key used to SSH to OCI VMs
-variable "ssh_public_key" {}
+variable "ssh_public_key" {
+}
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Optional variables
@@ -22,41 +33,39 @@ variable "ssh_public_key" {}
 # ---------------------------------------------------------------------------------------------------------------------
 
 variable "key" {
-  default = ""
+  default     = ""
   description = "Set to the value of your license key. If empty, you will be prompted to enter your key at first login. Get a trial key: https://www.h2o.ai/try-driverless-ai/"
 }
 
 variable "shape" {
-  default = "VM.GPU3.1"
+  default     = "VM.GPU3.1"
   description = "Instance shape to deploy."
 }
 
 variable "ad_number" {
-  default = 1
+  default     = 0
   description = "Which availability domain to deploy to depending on quota, zero based."
 }
 
 variable "disk_size_gb" {
-  default = 0
+  default     = 0
   description = "Size of block volume in GB for data, min 50. If set to 0 volume will not be created/mounted."
 }
 
 variable "user" {
-  default = "admin"
+  default     = "admin"
   description = "Default login user."
 }
 
 variable "password" {
-  default = "admin"
+  default     = "admin"
   description = "Password for default user."
 }
-
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Constants
 # You probably don't need to change these.
 # ---------------------------------------------------------------------------------------------------------------------
-
 
 # Not used for normal terraform apply, added for ORM deployments.
 variable "ad_name" {
@@ -69,7 +78,6 @@ variable "mp_listing_resource_id" {
   default = ""
 }
 
-
 # Both GPU and non-GPU platform images
 #
 # https://docs.cloud.oracle.com/iaas/images/image/0693e672-c5b9-43ce-821e-dfd918366be9/
@@ -78,7 +86,7 @@ variable "mp_listing_resource_id" {
 # Oracle-Linux-7.6-2019.03.22-1
 
 variable "platform-images" {
-  type = "map"
+  type = map(string)
 
   default = {
     ca-toronto-1-gpu   = "ocid1.image.oc1.ca-toronto-1.aaaaaaaa2qu5d42l6wubijavqic26kspjyvi6kn25oiop4di633kcd6e4oeq"
