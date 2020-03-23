@@ -4,14 +4,17 @@ version: "20190612"
 locale: "en"
 groupings:
   - title: "Hidden General Configuration"
-    visible: true
+    visible: false
     variables:
     - tenancy_ocid
     - compartment_ocid
     - region
-    # QS specific platform vars
+    - mp_listing_id
+    - mp_listing_resource_id
+    - mp_listing_resource_version
+    - use_marketplace_image
+    # QS specific vars
     - ad_number
-    - platform-images
 
   - title: "H2O.ai DAI Configuration"
     visible: true
@@ -36,18 +39,30 @@ variables:
   shape:
     descirption: "Shape for DAI instance. GPU shapes give higher performance."
     type: oci:core:instanceshape:name
-    default: "BM.GPU2.2"
+    default: "VM.GPU3.1"
     title: "Compute Shape"
     required: true
     dependsOn:
       compartmentId: ${compartment_ocid}
+      imageId: ${mp_listing_resource_id}
+
+  ssh_public_key:
+    description: "SSH public key for DAI instance."
+    type: string
+    required: true
 
   disk_size_gb:
-    description: "Minimum size 50GB, smaller volumes will not be created"
+    description: "Minimum size 50GB, <50GB volumes will not be created"
     type: integer
     required: true
-    default: 0
-    title: "Block Volume Size"
+    default: 100
+    title: "Block Volume Size (GB)"
+
+  key:
+    title: "License Key"
+    description: "Set to the value of your license key. Get a trial key: https://www.h2o.ai/try-driverless-ai/"
+    type: string
+    required: true
 
   user:
     description: "Default user."
@@ -56,7 +71,7 @@ variables:
     required: true
 
   password:
-    description: "Pssword for default user."
+    description: "Password for default user."
     type: password
     default: ""
     required: true
@@ -66,3 +81,20 @@ variables:
     type: integer
     required: true
     default: -1
+
+  mp_listing_id:
+    type: string
+    required: true
+    description: "Marketplace Listing ID"
+
+  mp_listing_resource_id:
+    type: oci:core:image:id
+    required: true
+    description: "Marketplace Image OCID"
+    dependsOn:
+      compartmentId: ${compartment_ocid}
+
+  mp_listing_resource_version:
+    type: string
+    required: true
+    description: "Marketplace Listing package version"

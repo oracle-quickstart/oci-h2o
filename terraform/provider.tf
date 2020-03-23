@@ -6,3 +6,14 @@ provider "oci" {
   region           = var.region
 }
 
+# Variables required by the OCI Provider only when running Terraform CLI with standard user based Authentication
+# File needs to be excluded from the .zip when deploying via ORM
+
+variable "user_ocid" {
+}
+
+variable "fingerprint" {
+}
+
+variable "private_key_path" {
+}

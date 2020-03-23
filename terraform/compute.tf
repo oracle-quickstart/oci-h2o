@@ -1,17 +1,10 @@
 locals {
-  # Used locally to determine the correct platform image. Shape names always
-  # start with either 'VM.'/'BM.' and all GPU shapes have 'GPU' as the next characters
-  shape_type = lower(substr(var.shape, 3, 3))
-
   # If ad_number is non-negative use it for AD lookup, else use ad_name.
   # Allows for use of ad_number in TF deploys, and ad_name in ORM.
   # Use of max() prevents out of index lookup call.
   ad = var.ad_number >= 0 ? data.oci_identity_availability_domains.availability_domains.availability_domains[max(0, var.ad_number)]["name"] : var.ad_name
 
-  # Logic to choose platform or mkpl image based on
-  # var.marketplace_image being empty or not
-  platform_image = local.shape_type == "gpu" ? var.platform-images["${var.region}-gpu"] : var.platform-images[var.region]
-  image          = var.mp_listing_resource_id == "" ? local.platform_image : var.mp_listing_resource_id
+  image          = var.mp_listing_resource_id
 }
 
 resource "oci_core_instance" "h2o" {
@@ -74,4 +67,3 @@ resource "oci_core_volume_attachment" "h2o" {
 output "Driverless_AI_URL" {
   value = "https://${data.oci_core_vnic.h2o_vnic.public_ip_address}:12345"
 }
-
