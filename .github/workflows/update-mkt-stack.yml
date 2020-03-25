@@ -15,12 +15,13 @@ jobs:
       TF_VAR_tenancy_ocid: ${{ secrets.TF_VAR_tenancy_ocid }}
       TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
       API_CREDS: ${{ secrets.API_CREDS }}
+      BUILD_SCRIPT: build_mkpl.sh
     steps:
     - uses: actions/checkout@master
       name: Checkout Quickstart Repo
-    - uses: "oci-quickstart/oci-quickstart/partners/actions/terraform-test@v0.91"
+    - uses: "oci-quickstart/oci-quickstart/partners/actions/terraform-test@24a7078"
       name: Test Terraform Code
-    - uses: "oci-quickstart/oci-quickstart/partners/actions/create-stack@v0.91"
+    - uses: "oci-quickstart/oci-quickstart/partners/actions/create-stack@24a7078"
       name: Create Stack Archive
       if: success()
     - uses: "oci-quickstart/oci-quickstart/partners/actions/update-listing@f92e406"
