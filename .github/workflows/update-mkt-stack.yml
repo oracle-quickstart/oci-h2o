@@ -20,7 +20,7 @@ jobs:
     - uses: actions/checkout@master
       name: Checkout Quickstart Repo
     #- uses: "oci-quickstart/oci-quickstart/partners/actions/terraform-test@24a7078"
-    #  name: Test Terraform Code
+    #  name: Test Terraform Code 
     - uses: "oci-quickstart/oci-quickstart/partners/actions/create-stack@b79baf6"
       name: Create Stack Archive
       if: success()
