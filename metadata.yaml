@@ -1,3 +1,8 @@
+listingId: 59502906
+versionDetails:
+  versionNumber: 1234.5.6 on OL 7.4
+  releaseDate: '2018-07-10T00:00:00.000Z'
+name: Driverless AI
 longDescription: "<p>H2O's Driverless AI is an artificial intelligence (AI) platform\
   \ that automates some of the most difficult data science and machine learning workflows\
   \ such as feature engineering, model validation, model tuning, model selection,\
@@ -9,7 +14,6 @@ longDescription: "<p>H2O's Driverless AI is an artificial intelligence (AI) plat
   \ \n<p><strong>Hightlights:</strong></p> \n<ul> \n <li>Automatic Feature Engineering</li>\
   \ \n <li>Automatic Visualization</li> \n <li>Machine Learning Interpretability</li>\
   \ \n</ul>"
-name: Some new VERSION - Driverless AI
 shortDescription: H2O Driverless AI brings Automatic Machine Learning for the enterprise.
 systemRequirements: <p>This deployment allows both CPU and GPU OCI VM shapes. Performance
   is significantly higher on GPU shapes, VM.GPU2.1 or VM.GPU3.1 are recomended.</p>
@@ -29,4 +33,36 @@ usageInformation: "<p>A license key is required for this deployment. You can obt
   \ Focus</a></li> \n <li><a href=\"https://h2oai.github.io/tutorials/machine-learning-interpretability-tutorial/\"\
   \ rel=\"nofollow\">Machine Learning Interpretability Tutorial</a></li> \n</ul> \n\
   <p>The DAI instance is running Oracle Linux with default user <em>opc</em>.</p>"
-version: 1.0.3 (DAI v1.8.5)
+availableInAllRegions: true
+deviceType:
+  code: DESKTOP
+  name: Desktop
+isPrivate: false
+languages:
+- code: en_US
+  name: English
+listingContentLanguage:
+  code: en_US
+  name: English
+pricing:
+  description: BYOL
+  name: Paid
+  ociListing: false
+  pricingRate: null
+  pricingStrategy: null
+  type: null
+products:
+- categories:
+  - code: BIG_DATA
+    name: Big Data
+  code: oci
+  name: Oracle Cloud Infrastructure
+support:
+  contacts: null
+  links:
+  - name: Community Support
+    url: https://www.h2o.ai/community/driverless-ai-community/
+  - name: Enterprise Support
+    url: https://www.h2o.ai/enterprise-support/
+  - name: Enterprise Support Portal
+    url: https://support.h2o.ai/support/login
