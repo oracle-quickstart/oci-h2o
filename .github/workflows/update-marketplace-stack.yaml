@@ -2,10 +2,10 @@ on:
   push:
     branches:
       - 'master'
-name:                          OCI-Marketplace
+name:                          Marketplace
 jobs:
   test-terraform-code:
-    name:                      Update Marketplace Stack Listing
+    name:                      Update Marketplace Listing
     runs-on:                   ubuntu-latest
     env:
       TF_VAR_compartment_ocid: ${{ secrets.TF_VAR_compartment_ocid }}
