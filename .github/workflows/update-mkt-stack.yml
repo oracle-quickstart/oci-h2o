@@ -15,7 +15,7 @@ jobs:
       TF_VAR_tenancy_ocid: ${{ secrets.TF_VAR_tenancy_ocid }}
       TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
       API_CREDS: ${{ secrets.API_CREDS }}
-      BUILD_SCRIPT: build_mkpl.sh
+      BUILD_SCRIPT: build.sh
     steps:
     - uses: actions/checkout@master
       name: Checkout Quickstart Repo
