@@ -20,13 +20,13 @@ jobs:
     - name:                    Checkout
       uses:                    actions/checkout@master
     - name:                    Test Plan
-      uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-test@f845450"
+      uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-test"
     - name:                    Test Apply
-      uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-test@f845450"
+      uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-test"
     - name:                    Test Destroy
-      uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-test@f845450"
+      uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-test"
     - name:                    Build ORM Zip
-      uses:                    "oci-quickstart/oci-quickstart/partners/actions/create-stack@f845450"
+      uses:                    "oci-quickstart/oci-quickstart/partners/actions/create-stack"
       if:                      success()
     - name:                    Update Marketplace Listing
-      uses:                    "oci-quickstart/oci-quickstart/partners/actions/update-listing@d7b1794"
+      uses:                    "oci-quickstart/oci-quickstart/partners/actions/update-listing"
