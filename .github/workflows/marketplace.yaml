@@ -4,7 +4,7 @@ on:
       - 'master'
 name:                          Marketplace
 jobs:
-  test-terraform-code:
+  update-stack-listing:
     name:                      Update Stack Listing
     runs-on:                   ubuntu-latest
     env:
