@@ -16,8 +16,8 @@ DAI requires a license key. If you don't already have a key, you can get a [tria
 ## Clone the Module
 Now, you'll want a local copy of this repo. You can make that with the commands:
 
-    git clone https://github.com/oracle/oci-quickstart-h2o.git
-    cd oci-quickstart-h2o/terraform
+    git clone https://github.com/oracle-quickstart/oci-h2o.git
+    cd oci-h2o
     ls
 
 That should give you this:
