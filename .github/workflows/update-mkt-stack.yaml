@@ -17,12 +17,16 @@ jobs:
       API_CREDS:               ${{ secrets.API_CREDS }}
       BUILD_SCRIPT:            build.sh
     steps:
-    - uses:                    actions/checkout@master
-      name:                    Checkout Quickstart Repo
-    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-test@f845450"
-      name:                    Test Terraform Code
-    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/create-stack@f845450"
-      name:                    Create Stack Archive
+    - name:                    Checkout
+      uses:                    actions/checkout@master
+    - name:                    Test Plan
+      uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-test@f845450"
+    - name:                    Test Apply
+      uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-test@f845450"
+    - name:                    Test Destroy
+      uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-test@f845450"
+    - name:                    Build ORM Zip
+      uses:                    "oci-quickstart/oci-quickstart/partners/actions/create-stack@f845450"
       if:                      success()
-    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/update-listing@d7b1794"
-      name:                    Update Marketplace Listing
+    - name:                    Update Marketplace Listing
+      uses:                    "oci-quickstart/oci-quickstart/partners/actions/update-listing@d7b1794"
