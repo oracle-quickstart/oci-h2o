@@ -1,7 +1,7 @@
 listingId: 0
 versionDetails:
-  versionNumber: 1234.5.6 on OL 7.4.2
-  releaseDate: '2018-07-10T00:00:00.000Z'
+  versionNumber: DAI v1.8.5 (TF 1.0.4)
+  releaseDate: '2020-04-14T00:00:00.000Z'
 name: Driverless AI
 longDescription: "<p>H2O's Driverless AI is an artificial intelligence (AI) platform\
   \ that automates some of the most difficult data science and machine learning workflows\
