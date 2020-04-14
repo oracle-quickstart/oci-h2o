@@ -97,4 +97,3 @@ When you no longer need the deployment, you can run this command to destroy it:
 You'll need to enter `yes` when prompted.  Once complete, you'll see something like this:
 
 ![](./images/10%20-%20terraform%20destroy.png)
-as
