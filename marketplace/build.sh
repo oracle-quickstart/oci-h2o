@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Builds mkpl .zip for ORM. Uses local copy of existing TF.
+# Builds marketplace.zip for ORM. Uses local copy of existing TF.
 # Output: $out_file
 
 out_file="marketplace.zip"
@@ -13,12 +13,11 @@ echo "Creating tmp dir...."
 mkdir ./tmp_package
 
 echo "Copying .tf files to tmp dir...."
-cp -v ../terraform/*.tf ./tmp_package
+cp -v ../*.tf ./tmp_package
 echo "Copying schema.yaml to tmp dir...."
-cp -v ../terraform/schema.yaml ./tmp_package
+cp -v ./schema.yaml ./tmp_package
 echo "Copying script directory to tmp dir...."
-cp -rv ./scripts ./tmp_package
-
+cp -rv ../scripts ./tmp_package
 
 echo "Removing provider.tf...."
 rm ./tmp_package/provider.tf

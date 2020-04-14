@@ -1,5 +1,5 @@
-#Local variables pointing to the Marketplace catalog resource
-#Eg. Modify accordingly to your Application/Listing
+# Local variables pointing to the Marketplace catalog resource
+#  Eg. Modify accordingly to your Application/Listing
 locals {
   enabled                  = var.use_marketplace_image ? 1 : 0
   listing_id               = var.mp_listing_id
@@ -7,7 +7,7 @@ locals {
   listing_resource_version = var.mp_listing_resource_version
 }
 
-#Get Image Agreement
+# Get Image Agreement
 resource "oci_core_app_catalog_listing_resource_version_agreement" "mp_image_agreement" {
   count = local.enabled
 
@@ -15,7 +15,7 @@ resource "oci_core_app_catalog_listing_resource_version_agreement" "mp_image_agr
   listing_resource_version = local.listing_resource_version
 }
 
-#Accept Terms and Subscribe to the image, placing the image in a particular compartment
+# Accept Terms and Subscribe to the image, placing the image in a particular compartment
 resource "oci_core_app_catalog_subscription" "mp_image_subscription" {
   count = local.enabled
 

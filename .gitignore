@@ -3,8 +3,4 @@ terraform.tfstate
 terraform.tfstate.backup
 .terraform.tfstate.lock.info
 
-*scratch*
-
-*.DS_Store
-util/tmp*
-util/*.zip
+marketplace/marketplace.zip
