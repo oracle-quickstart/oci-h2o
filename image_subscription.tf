@@ -1,5 +1,5 @@
 # Local variables pointing to the Marketplace catalog resource
-#  Eg. Modify accordingly to your Application/Listing
+# Eg. Modify accordingly to your Application/Listing
 locals {
   enabled                  = var.use_marketplace_image ? 1 : 0
   listing_id               = var.mp_listing_id
