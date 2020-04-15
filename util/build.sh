@@ -3,7 +3,7 @@
 # Builds mkpl .zip for ORM. Uses local copy of existing TF.
 # Output: $out_file
 
-out_file="marketplace.zip"
+out_file="mkpl.zip"
 
 echo "TEST cleanup"
 rm -rf ./tmp_package
