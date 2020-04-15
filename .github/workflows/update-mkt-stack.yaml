@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - 'master'
+      - 'dougdev_stack'
 name:                          OCI-Marketplace
 jobs:
   test-terraform-code:
@@ -19,10 +19,12 @@ jobs:
     steps:
     - uses:                    actions/checkout@master
       name:                    Checkout Quickstart Repo
-    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-test@f845450"
+      with:
+        ref: dougdev_stack
+    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-test@25a2fca"
       name:                    Test Terraform Code
-    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/create-stack@f845450"
+    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/create-stack@25a2fca"
       name:                    Create Stack Archive
       if:                      success()
-    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/update-listing@d7b1794"
+    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/update-listing@25a2fca"
       name:                    Update Marketplace Listing
