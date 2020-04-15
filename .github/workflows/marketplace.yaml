@@ -18,8 +18,8 @@ jobs:
     steps:
     - name:                    Checkout
       uses:                    actions/checkout@master
-    - name:                    Terraform Apply
-      uses:                    "oci-quickstart/oci-quickstart/actions/terraform-apply@master"
+#    - name:                    Terraform Apply
+#      uses:                    "oci-quickstart/oci-quickstart/actions/terraform-apply@master"
     - name:                    Build ORM Zip
       uses:                    "oci-quickstart/oci-quickstart/actions/build-orm-zip@master"
       if:                      success()
