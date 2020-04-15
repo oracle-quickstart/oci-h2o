@@ -19,8 +19,12 @@ jobs:
     steps:
     - name:                    Checkout
       uses:                    actions/checkout@master
-    - name:                    Run Terratest
-      uses:                    "oci-quickstart/oci-quickstart/partners/actions/run-terratest@master"
+    - name:                    Terraform Plan
+      uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-plan@master"
+    - name:                    Terraform Apply
+      uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-apply@master"
+    - name:                    Terraform Destroy
+      uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-destroy@master"
     - name:                    Build ORM Zip
       uses:                    "oci-quickstart/oci-quickstart/partners/actions/build-orm-zip@master"
       if:                      success()
