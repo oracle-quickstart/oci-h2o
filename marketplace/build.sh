@@ -6,6 +6,9 @@ echo "Cleaning up...."
 rm -rf ./tmp_package
 rm ${out_file}
 
+# set after cleanup, since failure of that rm is ok
+set -euo
+
 echo "Creating tmp dir...."
 mkdir ./tmp_package
 
