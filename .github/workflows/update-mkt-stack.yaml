@@ -26,5 +26,5 @@ jobs:
     - uses:                    "oci-quickstart/oci-quickstart/partners/actions/create-stack@25a2fca"
       name:                    Create Stack Archive
       if:                      success()
-    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/update-listing@25a2fca"
+    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/update-listing@2f3df4d"
       name:                    Update Marketplace Listing
