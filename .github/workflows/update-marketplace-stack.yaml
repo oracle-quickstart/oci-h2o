@@ -18,15 +18,15 @@ jobs:
       BUILD_SCRIPT:            build.sh
     steps:
     - name:                    Checkout
-      uses:                    actions/checkout
-    - name:                    Terraform Plan
-      uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-plan"
-    - name:                    Terraform Apply
-      uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-apply"
-    - name:                    Terraform Destroy
-      uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-destroy"
+      uses:                    actions/checkout@master
+    - name:                    Test Plan
+      uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-test"
+    - name:                    Test Apply
+      uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-test"
+    - name:                    Test Destroy
+      uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-test"
     - name:                    Build ORM Zip
-      uses:                    "oci-quickstart/oci-quickstart/partners/actions/build-orm-zip"
+      uses:                    "oci-quickstart/oci-quickstart/partners/actions/create-stack"
       if:                      success()
     - name:                    Update Marketplace Listing
-      uses:                    "oci-quickstart/oci-quickstart/partners/actions/update-marketplace-listing"
+      uses:                    "oci-quickstart/oci-quickstart/partners/actions/update-listing"
