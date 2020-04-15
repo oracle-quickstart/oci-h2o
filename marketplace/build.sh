@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Builds a marketplace.zip for ORM.  This uses a local copy of existing TF.
+
 out_file="marketplace.zip"
 
 echo "Cleaning up...."
