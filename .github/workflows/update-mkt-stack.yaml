@@ -21,7 +21,7 @@ jobs:
       name:                    Checkout Quickstart Repo
       with:
         ref: dougdev_stack
-    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-test@25a2fca"
+    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-test@cf7c442"
       name:                    Test Terraform Code
     - uses:                    "oci-quickstart/oci-quickstart/partners/actions/create-stack@25a2fca"
       name:                    Create Stack Archive
