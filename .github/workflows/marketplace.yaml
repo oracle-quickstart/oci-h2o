@@ -5,7 +5,7 @@ on:
 name:                          Marketplace
 jobs:
   test-terraform-code:
-    name:                      Update Stack Listing
+    name:                      Update Listing
     runs-on:                   ubuntu-latest
     env:
       TF_VAR_compartment_ocid: ${{ secrets.TF_VAR_compartment_ocid }}
@@ -24,5 +24,5 @@ jobs:
     - name:                    Build ORM Zip
       uses:                    "oci-quickstart/oci-quickstart/actions/build-orm-zip@master"
       if:                      success()
-    - name:                    Update Listing
+    - name:                    Update Marketplace Listing
       uses:                    "oci-quickstart/oci-quickstart/actions/update-listing@master"
