@@ -2,8 +2,9 @@ locals {
   # If ad_number is non-negative use it for AD lookup, else use ad_name.
   # Allows for use of ad_number in TF deploys, and ad_name in ORM.
   # Use of max() prevents out of index lookup call.
-  ad    = var.ad_number >= 0 ? data.oci_identity_availability_domains.availability_domains.availability_domains[max(0, var.ad_number)]["name"] : var.ad_name
-  image = var.mp_listing_resource_id
+  ad = var.ad_number >= 0 ? data.oci_identity_availability_domains.availability_domains.availability_domains[max(0, var.ad_number)]["name"] : var.ad_name
+
+  image          = var.mp_listing_resource_id
 }
 
 resource "oci_core_instance" "h2o" {

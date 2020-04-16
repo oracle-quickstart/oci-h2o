@@ -1,10 +1,10 @@
 [![Actions Status](https://github.com/oci-quickstart/oci-h2o/workflows/OCI-Marketplace/badge.svg)](https://github.com/oci-quickstart/oci-h2o/actions)
 
-# oci-h2o
+# oci-quickstart-h2o
 
-This is a Terraform module that deploys [H2O.ai Driverless AI](https://www.h2o.ai/products/) on [Oracle Cloud Infrastructure (OCI)](https://cloud.oracle.com/en_US/cloud-infrastructure).  It is developed jointly by Oracle and H2O.ai.  
+This is a Terraform module that deploys [H2O.ai Driverless AI](https://www.h2o.ai/products/) on [Oracle Cloud Infrastructure (OCI)](https://cloud.oracle.com/en_US/cloud-infrastructure).  It is developed jointly by Oracle and H2O.ai.
 
-While you can use the instructions below, there's also a Marketplace listing [here](https://cloudmarketplace.oracle.com/marketplace/en_US/listing/59502906).  In addition, here's a video walkthrough:
+Instructions on how to use it are below.  In addition, here's a video walkthrough:
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/wFhR3gip4ko/0.jpg)](https://www.youtube.com/watch?v=wFhR3gip4ko)
 
@@ -16,8 +16,8 @@ DAI requires a license key. If you don't already have a key, you can get a [tria
 ## Clone the Module
 Now, you'll want a local copy of this repo. You can make that with the commands:
 
-    git clone https://github.com/oracle-quickstart/oci-h2o.git
-    cd oci-h2o
+    git clone https://github.com/oracle/oci-quickstart-h2o.git
+    cd oci-quickstart-h2o/terraform
     ls
 
 That should give you this:
@@ -98,4 +98,4 @@ You'll need to enter `yes` when prompted.  Once complete, you'll see something l
 
 ![](./images/10%20-%20terraform%20destroy.png)
 
-asd
+

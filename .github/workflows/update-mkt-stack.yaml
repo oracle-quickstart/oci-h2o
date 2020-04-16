@@ -1,0 +1,31 @@
+on:
+  push:
+    branches:
+      - 'dougdev_stack'
+name:                          OCI-Marketplace
+jobs:
+  test-terraform-code:
+    name:                      Update Marketplace Stack Listing
+    runs-on:                   ubuntu-latest
+    env:
+      TF_VAR_compartment_ocid: ${{ secrets.TF_VAR_compartment_ocid }}
+      TF_VAR_fingerprint:      ${{ secrets.TF_VAR_fingerprint }}
+      TF_VAR_private_key:      ${{ secrets.TF_VAR_private_key }}
+      TF_VAR_private_key_path: $GITHUB_WORKSPACE/oci.pem
+      TF_VAR_tenancy_ocid:     ${{ secrets.TF_VAR_tenancy_ocid }}
+      TF_VAR_user_ocid:        ${{ secrets.TF_VAR_user_ocid }}
+      API_CREDS:               ${{ secrets.API_CREDS }}
+      BUILD_SCRIPT:            build.sh
+    steps:
+    - uses:                    actions/checkout@master
+      name:                    Checkout Quickstart Repo
+      with:
+        ref: dougdev_stack
+    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-test@2059c89"
+      name:                    Test Terraform Code
+    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/create-stack@2059c89"
+      name:                    Create Stack Archive
+      if:                      success()
+    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/update-listing@2059c89"
+      name:                    Update Marketplace Listing
+      if:                      success()
