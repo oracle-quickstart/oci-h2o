@@ -19,11 +19,11 @@ jobs:
     steps:
     - uses:                    actions/checkout@master
       name:                    Checkout Quickstart Repo
-    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-test@6e09f16"
+    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-test@8cbae6d"
       name:                    Test Terraform Code
-    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/create-stack@6e09f16"
+    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/create-stack@8cbae6d"
       name:                    Create Stack Archive
       if:                      success()
-    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/update-listing@6e09f16"
+    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/update-listing@8cbae6d"
       name:                    Update Marketplace Listing
       if:                      success()
