@@ -18,7 +18,6 @@ rpm -i dai-1.8.5.1-1.x86_64.rpm
 
 echo 0 > /proc/sys/vm/overcommit_memory
 mkdir -p /opt/h2oai/dai/home/.driverlessai/
-# remove key check when removing var
 if [ -z "$KEY" ]
 then
       echo "KEY is empty, not writing file"

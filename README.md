@@ -1,15 +1,15 @@
 [![Actions Status](https://github.com/oci-quickstart/oci-h2o/workflows/OCI-Marketplace/badge.svg)](https://github.com/oci-quickstart/oci-h2o/actions)
 
-# oci-quickstart-h2o
+# oci-h2o
 
-This is a Terraform module that deploys [H2O.ai Driverless AI](https://www.h2o.ai/products/) on [Oracle Cloud Infrastructure (OCI)](https://cloud.oracle.com/en_US/cloud-infrastructure).  It is developed jointly by Oracle and H2O.ai.
+This is a Terraform module that deploys [H2O.ai Driverless AI](https://www.h2o.ai/products/) on [Oracle Cloud Infrastructure (OCI)](https://cloud.oracle.com/en_US/cloud-infrastructure).  It is developed jointly by Oracle and H2O.ai.  
 
-Instructions on how to use it are below.  In addition, here's a video walkthrough:
+While you can use the instructions below, there's also a Marketplace listing [here](https://cloudmarketplace.oracle.com/marketplace/en_US/listing/59502906).  In addition, here's a video walkthrough:
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/wFhR3gip4ko/0.jpg)](https://www.youtube.com/watch?v=wFhR3gip4ko)
 
 ## Prerequisites
-First off you'll need to do some pre deploy setup.  That's all detailed [here](https://github.com/oracle-quickstart/oci-prerequisites).
+First off you'll need to do some pre deploy setup.  That's all detailed [here](https://github.com/oracle/oci-quickstart-prerequisites).
 
 DAI requires a license key. If you don't already have a key, you can get a [trial key](https://www.h2o.ai/try-driverless-ai/). You can deploy these templates before you get a key, but you'll be prompted for a key at first login.
 
