@@ -1,7 +1,7 @@
 listingId: 59502906
 versionDetails:
-  versionNumber: 1234.5.6 on OL 7.4.2
-  releaseDate: '2018-07-10T00:00:00.000Z'
+  versionNumber: DAI v1.8.5 (TF 1.0.3)
+  releaseDate: '2020-04-14T00:00:00.000Z'
 name: Driverless AI
 longDescription: "<p>H2O's Driverless AI is an artificial intelligence (AI) platform\
   \ that automates some of the most difficult data science and machine learning workflows\
@@ -13,7 +13,7 @@ longDescription: "<p>H2O's Driverless AI is an artificial intelligence (AI) plat
   \ and explanation are just as important as predictive performance.</p> \n<p>&nbsp;</p>\
   \ \n<p><strong>Hightlights:</strong></p> \n<ul> \n <li>Automatic Feature Engineering</li>\
   \ \n <li>Automatic Visualization</li> \n <li>Machine Learning Interpretability</li>\
-  \ \n</ul> "
+  \ \n</ul>"
 shortDescription: H2O Driverless AI brings Automatic Machine Learning for the enterprise.
 systemRequirements: <p>This deployment allows both CPU and GPU OCI VM shapes. Performance
   is significantly higher on GPU shapes, VM.GPU2.1 or VM.GPU3.1 are recomended.</p>

@@ -68,4 +68,3 @@ resource "oci_core_subnet" "subnet" {
   dhcp_options_id     = oci_core_virtual_network.virtual_network.default_dhcp_options_id
   dns_label           = "h2o"
 }
-

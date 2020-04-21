@@ -2,10 +2,10 @@ on:
   push:
     branches:
       - 'master'
-name:                          OCI-Marketplace
+name:                          Marketplace
 jobs:
   test-terraform-code:
-    name:                      Update Marketplace Stack Listing
+    name:                      Update Stack Listing
     runs-on:                   ubuntu-latest
     env:
       TF_VAR_compartment_ocid: ${{ secrets.TF_VAR_compartment_ocid }}
@@ -17,13 +17,13 @@ jobs:
       API_CREDS:               ${{ secrets.API_CREDS }}
       BUILD_SCRIPT:            build.sh
     steps:
-    - uses:                    actions/checkout@master
-      name:                    Checkout Quickstart Repo
-    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/terraform-test@master"
-      name:                    Test Terraform Code
-    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/create-stack@master"
-      name:                    Create Stack Archive
+    - name:                    Checkout
+      uses:                    actions/checkout@master
+    - name:                    Terraform Apply
+      uses:                    "oci-quickstart/oci-quickstart/actions/terraform-apply@master"
+    - name:                    Build ORM Zip 
+      uses:                    "oci-quickstart/oci-quickstart/actions/build-orm-zip@master"
       if:                      success()
-    - uses:                    "oci-quickstart/oci-quickstart/partners/actions/update-listing@master"
-      name:                    Update Marketplace Listing
+    - name:                    Update Listing
+      uses:                    "oci-quickstart/oci-quickstart/actions/update-listing@master"
       if:                      success()

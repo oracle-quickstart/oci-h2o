@@ -13,7 +13,7 @@ groupings:
     - mp_listing_resource_id
     - mp_listing_resource_version
     - use_marketplace_image
-    # QS specific vars
+    # Quick Start specific variables
     - ad_number
 
   - title: "H2O.ai DAI Configuration"
