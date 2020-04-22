@@ -8,3 +8,5 @@ terraform.tfstate.backup
 *.DS_Store
 util/tmp*
 util/*.zip
+
+marketplace/*.zip
