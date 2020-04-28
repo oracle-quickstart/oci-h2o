@@ -1,7 +1,9 @@
 on:
   push:
-    branches:
-      - 'master'
+    paths:
+      - '**.tf'
+      - 'marketplace/**'
+      - '!packer/**'
 name:                          Marketplace
 jobs:
   test-terraform-code:
