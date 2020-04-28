@@ -20,7 +20,7 @@ Now, you'll want a local copy of this repo. You can make that with the commands:
     cd oci-h2o
     ls
 
-That should give you this:
+That should give you this: 
 
 ![](./images/01%20-%20git%20clone.png)
 
