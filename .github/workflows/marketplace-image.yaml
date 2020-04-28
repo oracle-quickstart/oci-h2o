@@ -1,7 +1,7 @@
 on: 
   push:
     paths: 
-    - 'packer/*'
+    - 'packer/**'
 name: OCI-Marketplace
 jobs:
   test-terraform-code: 
