@@ -5,7 +5,7 @@ on:
 name: OCI-Marketplace
 jobs:
   test-terraform-code: 
-    name: Update Marketplace Image Listing
+    name: Update Marketplace Image Listing 
     runs-on: ubuntu-latest
     env:
       TF_VAR_compartment_ocid: ${{ secrets.TF_VAR_compartment_ocid }}
