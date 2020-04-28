@@ -1,8 +1,8 @@
 on:
   push:
     paths:
-      - '*.tf'
-      - 'marketplace/*'
+    - '*.tf'
+    - 'marketplace/*'
 name:                          Marketplace
 jobs:
   test-terraform-code:
