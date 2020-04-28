@@ -7,7 +7,7 @@ on:
 name:                          Marketplace
 jobs:
   test-terraform-code:
-    name:                      Update Stack Listing
+    name:                      Update Stack Listing 
     runs-on:                   ubuntu-latest
     env:
       TF_VAR_compartment_ocid: ${{ secrets.TF_VAR_compartment_ocid }}
