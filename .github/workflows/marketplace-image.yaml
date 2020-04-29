@@ -1,7 +1,9 @@
 on: 
   push:
     paths: 
-    - 'packer/**'
+    - 'images/driverless ai/**'
+    branches:
+      - 'multilisting_support'
 name: OCI-Marketplace
 jobs:
   test-terraform-code: 
@@ -18,6 +20,8 @@ jobs:
     steps:
     - name: Checkout Quickstart Repo
       uses: actions/checkout@master
+      with:
+        ref:                   multilisting_support
     - name: Create Partner Marketplace-ready Image
       uses: "oci-quickstart/oci-quickstart/actions/create-image@master"
       with:

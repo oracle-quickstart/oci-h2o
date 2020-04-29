@@ -1,8 +1,10 @@
 on:
   push:
     paths:
-    - '*.tf'
-    - 'marketplace/*'
+    - 'stacks/driverless ai/*.tf'
+    - 'stacks/driverless ai/marketplace/*'
+    branches:
+    - 'multilisting_support'
 name:                          Marketplace
 jobs:
   test-terraform-code:
@@ -17,14 +19,17 @@ jobs:
       TF_VAR_user_ocid:        ${{ secrets.TF_VAR_user_ocid }}
       API_CREDS:               ${{ secrets.API_CREDS }}
       BUILD_SCRIPT:            build.sh
+      STACK_DIR:               'driverless ai'
     steps:
     - name:                    Checkout
       uses:                    actions/checkout@master
+      with:
+        ref:                   multilisting_support
     - name:                    Terraform Apply
-      uses:                    "oci-quickstart/oci-quickstart/actions/terraform-apply@master"
+      uses:                    "oci-quickstart/oci-quickstart/actions/terraform-apply@multilisting_support"
     - name:                    Build ORM Zip 
-      uses:                    "oci-quickstart/oci-quickstart/actions/build-orm-zip@master"
+      uses:                    "oci-quickstart/oci-quickstart/actions/build-orm-zip@multilisting_support"
       if:                      success()
     - name:                    Update Listing
-      uses:                    "oci-quickstart/oci-quickstart/actions/update-listing@master"
+      uses:                    "oci-quickstart/oci-quickstart/actions/update-listing@multilisting_support"
       if:                      success()
