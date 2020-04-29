@@ -24,10 +24,10 @@ jobs:
       with:
         ref:                   multilisting_support
     - name: Create Partner Marketplace-ready Image
-      uses: "oci-quickstart/oci-quickstart/actions/create-image@master"
+      uses: "oci-quickstart/oci-quickstart/actions/create-image@multilisting_support"
       with:
         base-image: 'ocid1.image.oc1.iad.aaaaaaaavxqdkuyamlnrdo3q7qa7q3tsd6vnyrxjy3nmdbpv7fs7um53zh5q'
     - name: Update Marketplace Listing
-      uses: "oci-quickstart/oci-quickstart/actions/update-listing@master"
+      uses: "oci-quickstart/oci-quickstart/actions/update-listing@multilisting_support"
       
       
