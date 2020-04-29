@@ -17,6 +17,7 @@ jobs:
       TF_VAR_tenancy_ocid: ${{ secrets.TF_VAR_tenancy_ocid }}
       TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
       API_CREDS: ${{ secrets.API_CREDS }}
+      LISTING_DIR: 'driverless ai'
     steps:
     - name: Checkout Quickstart Repo
       uses: actions/checkout@master
