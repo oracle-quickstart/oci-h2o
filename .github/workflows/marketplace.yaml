@@ -25,8 +25,8 @@ jobs:
       uses:                    actions/checkout@master
       with:
         ref:                   multilisting_support
-    #- name:                    Terraform Apply
-    #  uses:                    "oci-quickstart/oci-quickstart/actions/terraform-apply@multilisting_support"
+    - name:                    Terraform Apply
+      uses:                    "oci-quickstart/oci-quickstart/actions/terraform-apply@multilisting_support"
     - name:                    Build ORM Zip 
       uses:                    "oci-quickstart/oci-quickstart/actions/build-orm-zip@multilisting_support"
       if:                      success()
