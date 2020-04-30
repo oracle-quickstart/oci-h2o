@@ -24,6 +24,7 @@ jobs:
       uses: actions/checkout@master
       with:
         ref: multilisting_support
+        persist-credentials: false
     - name: Create Partner Marketplace-ready Image
       uses: "oci-quickstart/oci-quickstart/actions/create-image@multilisting_support"
       with:
