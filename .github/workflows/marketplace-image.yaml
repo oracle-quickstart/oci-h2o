@@ -17,11 +17,12 @@ jobs:
       TF_VAR_tenancy_ocid: ${{ secrets.TF_VAR_tenancy_ocid }}
       TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
       API_CREDS: ${{ secrets.API_CREDS }}
+      PAT: ${{ secrets.PAT }}
       LISTING_DIR: 'images/driverless ai'
       STACK_VARS_FILE: 'stacks/driverless ai/variables.tf'
     steps:
     - name: Checkout Quickstart Repo
-      uses: actions/checkout@master
+      uses: actions/checkout@v2
       with:
         ref: multilisting_support
         persist-credentials: false
@@ -31,14 +32,6 @@ jobs:
         base-image: 'ocid1.image.oc1.iad.aaaaaaaavxqdkuyamlnrdo3q7qa7q3tsd6vnyrxjy3nmdbpv7fs7um53zh5q'
     - name: Update Marketplace Listing
       uses: "oci-quickstart/oci-quickstart/actions/update-listing@multilisting_support"
-    - name: prepare git deploy key
-      env:
-        SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-      run: |
-        mkdir -p ~/.ssh
-        ssh-keyscan github.com >> ~/.ssh/known_hosts
-        ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-        ssh-add - <<< "${{ secrets.Deploy_private_key }}"
     - name: Push new image ocid to stack listing
       uses: "oci-quickstart/oci-quickstart/actions/update-stack-vars@multilisting_support"
 
