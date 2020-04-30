@@ -17,7 +17,6 @@ jobs:
       TF_VAR_tenancy_ocid: ${{ secrets.TF_VAR_tenancy_ocid }}
       TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
       API_CREDS: ${{ secrets.API_CREDS }}
-      SSH_PRIVATE_KEY: ${{ secrets.GH_private_key }}
       LISTING_DIR: 'images/driverless ai'
       STACK_VARS_FILE: 'stacks/driverless ai/variables.tf'
     steps:
@@ -25,10 +24,10 @@ jobs:
       uses: actions/checkout@master
       with:
         ref: multilisting_support
-    - name: Create Partner Marketplace-ready Image
-      uses: "oci-quickstart/oci-quickstart/actions/create-image@multilisting_support"
-      with:
-        base-image: 'ocid1.image.oc1.iad.aaaaaaaavxqdkuyamlnrdo3q7qa7q3tsd6vnyrxjy3nmdbpv7fs7um53zh5q'
+    #- name: Create Partner Marketplace-ready Image
+    #  uses: "oci-quickstart/oci-quickstart/actions/create-image@multilisting_support"
+    #  with:
+    #    base-image: 'ocid1.image.oc1.iad.aaaaaaaavxqdkuyamlnrdo3q7qa7q3tsd6vnyrxjy3nmdbpv7fs7um53zh5q'
     - name: Update Marketplace Listing
       uses: "oci-quickstart/oci-quickstart/actions/update-listing@multilisting_support"
     - name: prepare git deploy key
@@ -38,7 +37,7 @@ jobs:
         mkdir -p ~/.ssh
         ssh-keyscan github.com >> ~/.ssh/known_hosts
         ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-        ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
+        ssh-add - <<< "${{ secrets.Deploy_private_key }}"
     - name: Push new image ocid to stack listing
       uses: "oci-quickstart/oci-quickstart/actions/update-stack-vars@multilisting_support"
 
