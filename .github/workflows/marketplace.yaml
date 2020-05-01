@@ -3,8 +3,6 @@ on:
     paths:
     - 'stacks/driverless ai/*.tf'
     - 'stacks/driverless ai/marketplace/*'
-    branches:
-    - 'multilisting_support'
 name:                          Marketplace
 jobs:
   test-terraform-code:
@@ -26,10 +24,10 @@ jobs:
       with:
         ref:                   multilisting_support
     - name:                    Terraform Apply
-      uses:                    "oci-quickstart/oci-quickstart/actions/terraform-apply@multilisting_support"
+      uses:                    "oci-quickstart/oci-quickstart/actions/terraform-apply@master"
     - name:                    Build ORM Zip 
-      uses:                    "oci-quickstart/oci-quickstart/actions/build-orm-zip@multilisting_support"
+      uses:                    "oci-quickstart/oci-quickstart/actions/build-orm-zip@master"
       if:                      success()
     - name:                    Update Listing
-      uses:                    "oci-quickstart/oci-quickstart/actions/update-listing@multilisting_support"
+      uses:                    "oci-quickstart/oci-quickstart/actions/update-listing@master"
       if:                      success()

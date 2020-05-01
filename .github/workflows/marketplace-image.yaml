@@ -2,8 +2,6 @@ on:
   push:
     paths: 
     - 'images/driverless ai/**'
-    branches:
-      - 'multilisting_support'
 name: OCI-Marketplace
 jobs:
   test-terraform-code: 
@@ -18,22 +16,21 @@ jobs:
       TF_VAR_user_ocid: ${{ secrets.TF_VAR_user_ocid }}
       API_CREDS: ${{ secrets.API_CREDS }}
       PAT: ${{ secrets.PAT }}
-      BRANCH: 'multilisting_support'
+      BRANCH: 'master'
       LISTING_DIR: 'images/driverless ai'
       STACK_VARS_FILE: 'stacks/driverless ai/variables.tf'
     steps:
     - name: Checkout Quickstart Repo
       uses: actions/checkout@v2
       with:
-        ref: multilisting_support
         persist-credentials: false
     - name: Create Partner Marketplace-ready Image
-      uses: "oci-quickstart/oci-quickstart/actions/create-image@multilisting_support"
+      uses: "oci-quickstart/oci-quickstart/actions/create-image@master"
       with:
         base-image: 'ocid1.image.oc1.iad.aaaaaaaavxqdkuyamlnrdo3q7qa7q3tsd6vnyrxjy3nmdbpv7fs7um53zh5q'
     - name: Update Marketplace Listing
-      uses: "oci-quickstart/oci-quickstart/actions/update-listing@multilisting_support"
+      uses: "oci-quickstart/oci-quickstart/actions/update-listing@master"
     - name: Push new image ocid to stack listing
-      uses: "oci-quickstart/oci-quickstart/actions/update-stack-vars@multilisting_support"
+      uses: "oci-quickstart/oci-quickstart/actions/update-stack-vars@master"
 
 
