@@ -1,6 +1,6 @@
 # ---------------------------------------------------------------------------------------------------------------------
 # Environmental variables
-# You probably want to define these as environmental variables.
+# You probably want to define these as environmental variables. 
 # Instructions on that are here: https://github.com/cloud-partners/oci-prerequisites
 # ---------------------------------------------------------------------------------------------------------------------
 
@@ -68,7 +68,7 @@ variable "mp_listing_id" {
 }
 
 variable "mp_listing_resource_id" {
-  default = "ocid1.image.oc1..aaaaaaaatkwy3262nt2wxvmdnkecwwswvpqi6keewzjwvsjyogxuhnlqjxea"
+  default = "ocid1.image.oc1.iad.aaaaaaaa3nw7aaahc2uhsizbtmrkhtnwiptcwi734jawhlalypoum73lbtlq"
 }
 
 variable "mp_listing_resource_version" {
