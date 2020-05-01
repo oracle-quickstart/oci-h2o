@@ -21,8 +21,6 @@ jobs:
     steps:
     - name:                    Checkout
       uses:                    actions/checkout@master
-      with:
-        ref:                   multilisting_support
     - name:                    Terraform Apply
       uses:                    "oci-quickstart/oci-quickstart/actions/terraform-apply@master"
     - name:                    Build ORM Zip 
