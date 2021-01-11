@@ -97,4 +97,4 @@ variables:
   mp_listing_resource_version:
     type: string
     required: true
-    description: "Marketplace Listing package version"
+    description: "Marketplace Listing package version."
