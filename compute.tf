@@ -69,5 +69,5 @@ resource "oci_core_volume_attachment" "h2o" {
 }
 
 output "Driverless_AI_URL" {
-  value = "https://${oci_core_instance.h2o.[0].public_ip}:12345"
+  value = "https://${oci_core_instance.h2o[0].public_ip}:12345"
 }
