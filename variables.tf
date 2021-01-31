@@ -1,7 +1,7 @@
 # ---------------------------------------------------------------------------------------------------------------------
 # Environmental variables
-# You probably want to define these as environmental variables. 
-# Instructions on that are here: https://github.com/cloud-partners/oci-prerequisites
+# You probably want to define these as environmental variables.
+# Instructions on that are here: https://github.com/oracle-quickstart/oci-prerequisites
 # ---------------------------------------------------------------------------------------------------------------------
 
 # Required by the OCI Provider
