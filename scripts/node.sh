@@ -17,15 +17,6 @@ curl -O https://s3.amazonaws.com/artifacts.h2o.ai/releases/ai/h2o/dai/rel-1.9.0-
 rpm -i dai*.rpm
 
 echo 0 > /proc/sys/vm/overcommit_memory
-mkdir -p /opt/h2oai/dai/home/.driverlessai/
-if [ -z "$KEY" ]
-then
-      echo "KEY is empty, not writing file"
-else
-      echo "Writing KEY to license.sig"
-      echo $KEY > /opt/h2oai/dai/home/.driverlessai/license.sig
-fi
-chown -R dai:dai /opt/h2oai/dai/home/.driverlessai
 
 #######################################################
 ################### Gather metadata ###################

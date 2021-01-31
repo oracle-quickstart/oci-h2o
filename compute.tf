@@ -25,7 +25,6 @@ resource "oci_core_instance" "h2o" {
         "\n",
         [
           "#!/usr/bin/env bash",
-          "KEY=${var.key}",
           "DEFAULT_USER=\"${var.user}\"",
           "DEFAULT_PW=\"${var.password}\"",
           "DISK_COUNT=\"${var.disk_size_gb >= 50 ? 1 : 0}\"",

@@ -23,13 +23,8 @@ variable "ssh_public_key" {
 # The defaults here will give you an instance of H2O DAI.  You can also modify these.
 # ---------------------------------------------------------------------------------------------------------------------
 
-variable "key" {
-  default     = ""
-  description = "Set to the value of your license key. If empty, you will be prompted to enter your key at first login. Get a trial key: https://www.h2o.ai/try-driverless-ai/"
-}
-
 variable "shape" {
-  default     = "VM.GPU3.1"
+  default     = "VM.Standard2.2"
   description = "Instance shape to deploy."
 }
 
