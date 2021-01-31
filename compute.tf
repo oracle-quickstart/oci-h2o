@@ -11,11 +11,17 @@ resource "oci_core_instance" "h2o" {
   compartment_id      = var.compartment_ocid
   availability_domain = local.ad
   shape               = var.shape
-  subnet_id           = oci_core_subnet.subnet.id
 
   source_details {
     source_id   = local.image
     source_type = "image"
+  }
+
+  create_vnic_details {
+    subnet_id        = oci_core_subnet.subnet.id
+    hostname_label   = "h2o"
+    display_name     = "h2o"
+    assign_public_ip = true
   }
 
   metadata = {
@@ -63,5 +69,5 @@ resource "oci_core_volume_attachment" "h2o" {
 }
 
 output "Driverless_AI_URL" {
-  value = "https://${data.oci_core_vnic.h2o_vnic.public_ip_address}:12345"
+  value = "https://${oci_core_instance.h2o.*.public_ip}:12345"
 }
