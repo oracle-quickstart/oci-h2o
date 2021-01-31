@@ -6,7 +6,8 @@ This is a Terraform module that deploys [H2O.ai Driverless AI](https://www.h2o.a
 
 ## Ways to Deploy
 * Marketplace - There's a listing [here](https://cloudmarketplace.oracle.com/marketplace/en_US/listing/59502906) that deploys the same code that is in this Quick Start.  It's kept in sync using our [CI/CD](https://blogs.oracle.com/cloud-infrastructure/better-marketplace-listings-with-cicd).
-* Resource Manager - [OCI Resource Manager](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm) is our Terraform as a service.  You can click the magic button to deploy: [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://console.us-ashburn-1.oraclecloud.com/resourcemanager/stacks/create?region=home&zipUrl=https://github.com/oracle-quickstart/oci-h2o/archive/master.zip)
+* Resource Manager - [OCI Resource Manager](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm) is our Terraform as a service.  You can click the magic button to deploy:
+[![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://console.us-ashburn-1.oraclecloud.com/resourcemanager/stacks/create?region=home&zipUrl=https://github.com/oracle-quickstart/oci-h2o/archive/master.zip)
 * Command Line - The instructions below walk through how to deploy on the command line.  That can be helpful if you're looking to fork and modify the code in this repo.
 
 ## Video of Command Line Deploy
