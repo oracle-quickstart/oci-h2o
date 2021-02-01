@@ -62,8 +62,9 @@ variable "mp_listing_id" {
   default = "ocid1.appcataloglisting.oc1..aaaaaaaaqvaab7wp7j32a7npi2fz5zrfub5izsd6xtfi5pp4wbsg4y7uktja"
 }
 
+# This is a normal OL 8 image.  Not sure what's going on with this VAR.  CI/CD interaction I suppose....
 variable "mp_listing_resource_id" {
-  default = "ocid1.image.oc1.iad.aaaaaaaauitscop5dhasbqkegaju56brylkckgi2wfecct2cuvn4xk33d2wq"
+  default = "ocid1.image.oc1.phx.aaaaaaaatgj6aodlwvyrwlmd6pjrfk3ccr4fv23mw56l3gwsy6cnze56d4ja"
 }
 
 variable "mp_listing_resource_version" {
