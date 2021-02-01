@@ -63,7 +63,7 @@ variable "mp_listing_id" {
 }
 
 variable "mp_listing_resource_id" {
-  default = "ocid1.image.oc1.iad.aaaaaaaaalat4ulnbmprft3kbggr6ha2elqavlj3yzhpj7yfaao4w4g46c5q"
+  default = "ocid1.image.oc1.iad.aaaaaaaaotuwjbuugak3446kunaxoxyzqlntudpa6yeheda67puel5yt7gjq"
 }
 
 variable "mp_listing_resource_version" {
