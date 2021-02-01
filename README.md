@@ -80,9 +80,9 @@ The documentation [here](http://docs.h2o.ai/driverless-ai/latest-stable/docs/use
 ![](./images/07%20-%20experiment.png)
 
 ## SSH to the Instance
-This machine is using Oracle Linux (OL).  The default login is ubuntu.  You can SSH into the machine with a command like this:
+This machine is using Oracle Linux (OL).  The default login is opc.  You can SSH into the machine with a command like this:
 
-    ssh -i ~/.ssh/oci ubuntu@<Public IP Address>
+    ssh -i ~/.ssh/oci opc@<Public IP Address>
 
 ![](./images/08%20-%20ssh.png)
 
