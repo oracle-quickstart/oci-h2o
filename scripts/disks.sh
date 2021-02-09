@@ -30,7 +30,7 @@ else
   echo "Zero block volumes, not calling iscsiadm, diskCount: $diskCount"
 fi
 
-# not matter what we're mounting, we're placing data at the same path
+# no matter what we're mounting, we're placing data at the same path
 logDirs="/data"
 mkdir -p $logDirs
 
