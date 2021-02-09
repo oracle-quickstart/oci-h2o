@@ -58,8 +58,8 @@ fi
 ############### Disk setup ############################
 #######################################################
 
-# Currently always 0 or 1
-diskCount=$DISK_COUNT
+# Currently always 1
+diskCount=1
 
 # iscsiadm discovery/login
 # loop over various ip's but needs to only attempt disks that actually
