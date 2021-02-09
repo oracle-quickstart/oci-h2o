@@ -49,6 +49,10 @@ variable "password" {
 # You probably don't need to change these.
 # ---------------------------------------------------------------------------------------------------------------------
 
+# Not used for normal terraform apply, added for ORM deployments.
+variable "ad_name" {
+  default = ""
+}
 
 # This is a normal OL 7 image.  It should be the Marketplace image.
 variable "image" {
