@@ -54,7 +54,10 @@ variable "ad_name" {
   default = ""
 }
 
-# This is a normal OL 7 image.  It should be the Marketplace image.
+# This is a platform image.
+# Oracle Linux 8 GPU
+# https://docs.oracle.com/en-us/iaas/images/image/aa3d2c46-0636-4bd4-b5e0-0966751a33e7/
+# It should be a Marketplace image and would then work with non GPU shapes in all regions.
 variable "image" {
-  default = "ocid1.image.oc1.iad.aaaaaaaaqdc7jslbtue7abhwvxaq3ihvazfvihhs2rwk2mvciv36v7ux5sda"
+  default = "ocid1.image.oc1.iad.aaaaaaaadly6hoipurnavvailrrizvq3sdxlkquw6mmzm7mc2jjburlzrfqa"
 }
