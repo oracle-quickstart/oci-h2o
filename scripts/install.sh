@@ -17,41 +17,44 @@ echo 0 > /proc/sys/vm/overcommit_memory
 #######################################################
 json=$(curl -sSL http://169.254.169.254/opc/v1/instance/)
 shape=$(echo $json | jq -r .shape)
+echo "I'm running on a $shape."
 
 #######################################################
 ################### GPU Configuration #################
 #######################################################
+
 if [[ $shape == *"GPU"* ]]; then
-  echo "Running on GPU shape, calling nvidia setup..."
-  nvidia-persistenced --user dai
-  nvidia-smi -pm 1
+  echo "Running on a GPU shape, doing NVIDIA setup..."
 
-  echo "Creating nvidia-persistenced-dai.service in /usr/lib/systemd/system"
-  cat << EOF > /usr/lib/systemd/system/nvidia-persistenced-dai.service
-[Unit]
-Description=NVIDIA Persistence Daemon as user dai
-Wants=syslog.target
+  # Starting NVIDIA Persistence Mode
+  nvidia-persistenced --persistence-mode
 
-[Service]
-Type=forking
-PIDFile=/var/run/nvidia-persistenced/nvidia-persistenced-dai.pid
-Restart=always
-ExecStart=/usr/bin/nvidia-persistenced --verbose --user dai
-ExecStopPost=/bin/rm -rf /var/run/nvidia-persistenced
+  ### need to do more of this...
+  # http://docs.h2o.ai/driverless-ai/latest-stable/docs/userguide/install/linux-rpm.html
+  
+  # Installing OpenCL
+  ### to do
+  #sudo yum -y clean all
+  #sudo yum -y makecache
+  #sudo yum -y update
+  #wget http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/c/clinfo-2.1.17.02.09-1.el7.x86_64.rpm
+  #wget http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/o/ocl-icd-2.2.12-1.el7.x86_64.rpm
+  #sudo rpm -if ocl-icd-2.2.12-1.el7.x86_64.rpm
+  #sudo rpm -if clinfo-2.1.17.02.09-1.el7.x86_64.rpm
+  #clinfo
+  #mkdir -p /etc/OpenCL/vendors && \
+  #    echo "libnvidia-opencl.so.1" > /etc/OpenCL/vendors/nvidia.icd
 
-[Install]
-WantedBy=multi-user.target
-EOF
-  echo "Enabling nvidia-persistenced-dai.service"
-  systemctl enable nvidia-persistenced-dai.service
+  # Installing cuDNN
+  #sudo yum install libcudnn7-devel
+
 else
-  echo "Running on non-GPU shape, no nvidia gpu setup"
+  echo "Running on a non-GPU shape, no NVIDIA GPU setup needed."
 fi
 
 #######################################################
 ############### Config H2O Driverless AI ##############
 #######################################################
-file="/etc/dai/config.toml"
 
 echo "Setup htpasswd file"
 yum install -y httpd-tools
@@ -70,6 +73,7 @@ chmod 600 /etc/dai/{cert.pem,private_key.pem}
 mkdir -p $dataDir/dai
 chown dai:dai $dataDir/dai
 
+file="/etc/dai/config.toml"
 echo "Change $file"
 cp $file $file.bak
 sed -i -e "s/#authentication_method = \"unvalidated\"/authentication_method = \"local\"/g" $file

@@ -30,10 +30,6 @@ else
   echo "Zero block volumes, not calling iscsiadm, diskCount: $diskCount"
 fi
 
-# no matter what we're mounting, we're placing data at the same path
-logDirs="/data"
-mkdir -p $logDirs
-
 # choose between sdb or md0, $device unused if 0 disks
 if [ $diskCount -gt 1 ] ;
 then
@@ -52,13 +48,16 @@ else
   device="/dev/sdb"
 fi
 
+dataDir="/data"
+mkdir -p $dataDir
+
 if [ $diskCount -gt 0 ] ;
 then
   echo "Creating filesystem and mounting on /data..."
   mke2fs -F -t ext4 -b 4096 -E lazy_itable_init=1 -O sparse_super,dir_index,extent,has_journal,uninit_bg -m1 $device
-  mount -t ext4 -o noatime $device $logDirs
+  mount -t ext4 -o noatime $device $dataDir
   UUID=$(lsblk -no UUID $device)
-  echo "UUID=$UUID   $logDirs    ext4   defaults,noatime,_netdev,nofail,discard,barrier=0 0 1" | sudo tee -a /etc/fstab
+  echo "UUID=$UUID   $dataDir    ext4   defaults,noatime,_netdev,nofail,discard,barrier=0 0 1" | sudo tee -a /etc/fstab
 else
   echo "No filesystem to create, skipping"
 fi
