@@ -30,8 +30,8 @@ resource "oci_core_instance" "h2o" {
         "\n",
         [
           "#!/usr/bin/env bash",
-          "DEFAULT_USER=\"${var.user}\"",
-          "DEFAULT_PW=\"${var.password}\"",
+          "USER=\"${var.user}\"",
+          "PASSWORD=\"${var.password}\"",
           file("./scripts/disks.sh"),
           file("./scripts/firewall.sh"),
           file("./scripts/install.sh"),

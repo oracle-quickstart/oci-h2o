@@ -31,7 +31,7 @@ if [[ $shape == *"GPU"* ]]; then
 
   ### need to do more of this...
   # http://docs.h2o.ai/driverless-ai/latest-stable/docs/userguide/install/linux-rpm.html
-  
+
   # Installing OpenCL
   ### to do
   #sudo yum -y clean all
@@ -58,7 +58,7 @@ fi
 
 echo "Setup htpasswd file"
 yum install -y httpd-tools
-htpasswd -bcB /etc/dai/htpasswd $DEFAULT_USER $DEFAULT_PW
+htpasswd -bcB /etc/dai/htpasswd $USER $PASSWORD
 chown dai:dai /etc/dai/htpasswd
 chmod 600 /etc/dai/htpasswd
 
