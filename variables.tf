@@ -1,10 +1,7 @@
 # ---------------------------------------------------------------------------------------------------------------------
 # Environmental variables
-# You probably want to define these as environmental variables.
-# Instructions on that are here: https://github.com/oracle-quickstart/oci-prerequisites
 # ---------------------------------------------------------------------------------------------------------------------
 
-# Required by the OCI Provider
 variable "tenancy_ocid" {
 }
 
@@ -14,7 +11,6 @@ variable "compartment_ocid" {
 variable "region" {
 }
 
-# Key used to SSH to OCI VMs
 variable "ssh_public_key" {
 }
 
@@ -35,7 +31,7 @@ variable "ad_number" {
 
 variable "disk_size_gb" {
   default     = 1000
-  description = "Size of block volume in GB for data, min 50. If set to 0 volume will not be created/mounted."
+  description = "Size of block volume in GB for data."
 }
 
 variable "user" {
@@ -53,12 +49,8 @@ variable "password" {
 # You probably don't need to change these.
 # ---------------------------------------------------------------------------------------------------------------------
 
-# Not used for normal terraform apply, added for ORM deployments.
-variable "ad_name" {
-  default = ""
-}
 
-# This is a normal OL 7 image.  Not sure what's going on with this VAR.  CI/CD interaction I suppose....
-variable "mp_listing_resource_id" {
+# This is a normal OL 7 image.  It should be the Marketplace image.
+variable "image" {
   default = "ocid1.image.oc1.iad.aaaaaaaaqdc7jslbtue7abhwvxaq3ihvazfvihhs2rwk2mvciv36v7ux5sda"
 }
