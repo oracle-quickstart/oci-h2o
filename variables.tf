@@ -24,17 +24,17 @@ variable "ssh_public_key" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 variable "shape" {
-  default     = "BM.Standard.E3.128"
+  default     = "VM.GPU3.4"
   description = "Instance shape to deploy."
 }
 
 variable "ad_number" {
-  default     = 0
+  default     = 2
   description = "Which availability domain to deploy to depending on quota, zero based."
 }
 
 variable "disk_size_gb" {
-  default     = 0
+  default     = 1000
   description = "Size of block volume in GB for data, min 50. If set to 0 volume will not be created/mounted."
 }
 
@@ -58,19 +58,7 @@ variable "ad_name" {
   default = ""
 }
 
-variable "mp_listing_id" {
-  default = "ocid1.appcataloglisting.oc1..aaaaaaaaqvaab7wp7j32a7npi2fz5zrfub5izsd6xtfi5pp4wbsg4y7uktja"
-}
-
 # This is a normal OL 7 image.  Not sure what's going on with this VAR.  CI/CD interaction I suppose....
 variable "mp_listing_resource_id" {
   default = "ocid1.image.oc1.iad.aaaaaaaaqdc7jslbtue7abhwvxaq3ihvazfvihhs2rwk2mvciv36v7ux5sda"
-}
-
-variable "mp_listing_resource_version" {
-  default = "1.1"
-}
-
-variable "use_marketplace_image" {
-  default = true
 }

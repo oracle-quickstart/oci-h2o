@@ -1,10 +1,10 @@
 # Local variables pointing to the Marketplace catalog resource
 # Eg. Modify accordingly to your Application/Listing
 locals {
-  enabled                  = var.use_marketplace_image ? 1 : 0
-  listing_id               = var.mp_listing_id
+  enabled                  = 1
+  listing_id               = "ocid1.appcataloglisting.oc1..aaaaaaaaqvaab7wp7j32a7npi2fz5zrfub5izsd6xtfi5pp4wbsg4y7uktja"
   listing_resource_id      = var.mp_listing_resource_id
-  listing_resource_version = var.mp_listing_resource_version
+  listing_resource_version = "1.1"
 }
 
 # Get Image Agreement
