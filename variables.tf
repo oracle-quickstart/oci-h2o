@@ -24,7 +24,7 @@ variable "ssh_public_key" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 variable "shape" {
-  default     = "VM.Standard2.2"
+  default     = "BM.Standard.E3.128"
   description = "Instance shape to deploy."
 }
 
