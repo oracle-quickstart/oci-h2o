@@ -70,6 +70,7 @@ openssl req -x509 -newkey rsa:4096 \
 chown dai:dai /etc/dai/{cert.pem,private_key.pem}
 chmod 600 /etc/dai/{cert.pem,private_key.pem}
 
+dataDir="/data"
 mkdir -p $dataDir/dai
 chown dai:dai $dataDir/dai
 

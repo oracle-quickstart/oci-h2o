@@ -20,12 +20,12 @@ variable "ssh_public_key" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 variable "shape" {
-  default     = "VM.GPU3.4"
+  default     = "BM.Standard.E3.128"
   description = "Instance shape to deploy."
 }
 
 variable "ad_number" {
-  default     = 2
+  default     = 0
   description = "Which availability domain to deploy to depending on quota, zero based."
 }
 
@@ -55,9 +55,8 @@ variable "ad_name" {
 }
 
 # This is a platform image.
-# Oracle Linux 8 GPU
-# https://docs.oracle.com/en-us/iaas/images/image/aa3d2c46-0636-4bd4-b5e0-0966751a33e7/
-# It should be a Marketplace image and would then work with non GPU shapes in all regions.
+# Oracle Linux 7
+# It should be a Marketplace image.
 variable "image" {
-  default = "ocid1.image.oc1.iad.aaaaaaaadly6hoipurnavvailrrizvq3sdxlkquw6mmzm7mc2jjburlzrfqa"
+  default = "ocid1.image.oc1.iad.aaaaaaaaikmjwo533nlmn2c4yabihw2a3wruqkml6xv5fhavaiuz5dh57b5q"
 }
