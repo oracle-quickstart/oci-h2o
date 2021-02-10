@@ -55,8 +55,8 @@ variable "ad_name" {
 }
 
 # This is a platform image.
-# Oracle Linux 7
+# CentOS 7
 # It should be a Marketplace image.
 variable "image" {
-  default = "ocid1.image.oc1.iad.aaaaaaaaikmjwo533nlmn2c4yabihw2a3wruqkml6xv5fhavaiuz5dh57b5q"
+  default = "ocid1.image.oc1.iad.aaaaaaaapfxnrize4t6khi7zf6g42texxhe2fog2wkn3givz3664g7uodxbq"
 }
