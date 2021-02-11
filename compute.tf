@@ -11,8 +11,12 @@ resource "oci_core_instance" "h2o" {
   availability_domain = local.ad
   shape               = var.shape
 
+  # This is a platform image.
+  # OL 8 GPU
+  # It should be a Marketplace image.
+
   source_details {
-    source_id   = var.image
+    source_id   = "ocid1.image.oc1.iad.aaaaaaaadly6hoipurnavvailrrizvq3sdxlkquw6mmzm7mc2jjburlzrfqa"
     source_type = "image"
     boot_volume_size_in_gbs = 1000
   }
