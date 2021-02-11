@@ -25,7 +25,7 @@ variable "shape" {
 }
 
 variable "ad_number" {
-  default     = 0
+  default     = 2
   description = "Which availability domain to deploy to depending on quota, zero based."
 }
 
