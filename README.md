@@ -22,7 +22,7 @@ That will direct you over to ORM.  Once there, walk through the wizard.  When th
 
 ## Connect to DAI
 
-The `apply` prints the URL of H2O Driverless AI when it completes.  The deployment creates a self-signed certificate, so you'll need to confirm the exception.
+The apply prints the URL of H2O Driverless AI when it completes.  The deployment creates a self-signed certificate, so you'll need to confirm the exception.
 
 Logging into that we see:
 
