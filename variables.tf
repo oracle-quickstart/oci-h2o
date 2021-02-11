@@ -20,18 +20,13 @@ variable "ssh_public_key" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 variable "shape" {
-  default     = "BM.Standard.E3.128"
+  default     = "VM.GPU3.4"
   description = "Instance shape to deploy."
 }
 
 variable "ad_number" {
   default     = 0
   description = "Which availability domain to deploy to depending on quota, zero based."
-}
-
-variable "disk_size_gb" {
-  default     = 1000
-  description = "Size of block volume in GB for data."
 }
 
 variable "user" {
@@ -55,8 +50,8 @@ variable "ad_name" {
 }
 
 # This is a platform image.
-# CentOS 7
+# OL 8 GPU
 # It should be a Marketplace image.
 variable "image" {
-  default = "ocid1.image.oc1.iad.aaaaaaaapfxnrize4t6khi7zf6g42texxhe2fog2wkn3givz3664g7uodxbq"
+  default = "ocid1.image.oc1.iad.aaaaaaaadly6hoipurnavvailrrizvq3sdxlkquw6mmzm7mc2jjburlzrfqa"
 }

@@ -14,6 +14,7 @@ resource "oci_core_instance" "h2o" {
   source_details {
     source_id   = var.image
     source_type = "image"
+    boot_volume_size_in_gbs = 1000
   }
 
   create_vnic_details {
@@ -32,9 +33,8 @@ resource "oci_core_instance" "h2o" {
           "#!/usr/bin/env bash",
           "USER=\"${var.user}\"",
           "PASSWORD=\"${var.password}\"",
-          file("./scripts/disks.sh"),
-          file("./scripts/firewall.sh"),
-          file("./scripts/install.sh"),
+#          file("./scripts/firewall.sh"),
+#          file("./scripts/install.sh"),
         ],
       ),
     )
@@ -49,19 +49,6 @@ data "oci_core_vnic_attachments" "h2o_vnic_attachments" {
 
 data "oci_core_vnic" "h2o_vnic" {
   vnic_id = data.oci_core_vnic_attachments.h2o_vnic_attachments.vnic_attachments[0]["vnic_id"]
-}
-
-resource "oci_core_volume" "h2o" {
-  availability_domain = local.ad
-  compartment_id      = var.compartment_ocid
-  display_name        = "h2o"
-  size_in_gbs         = var.disk_size_gb
-}
-
-resource "oci_core_volume_attachment" "h2o" {
-  attachment_type = "iscsi"
-  instance_id     = oci_core_instance.h2o.id
-  volume_id       = oci_core_volume.h2o.id
 }
 
 output "Driverless_AI_URL" {
