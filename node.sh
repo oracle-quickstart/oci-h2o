@@ -1,6 +1,13 @@
 #!/bin/bash
 
-echo "Running install.sh..."
+echo "Running node.sh..."
+
+#######################################################
+################# Turn off the Firewall ###############
+#######################################################
+echo "Turning off the Firewall..."
+service firewalld stop
+chkconfig firewalld off
 
 #######################################################
 ############### Install H2O Driverless AI #############
