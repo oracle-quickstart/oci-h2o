@@ -83,10 +83,6 @@ openssl req -x509 -newkey rsa:4096 \
 chown dai:dai /etc/dai/{cert.pem,private_key.pem}
 chmod 600 /etc/dai/{cert.pem,private_key.pem}
 
-dataDir="/data"
-mkdir -p $dataDir/dai
-chown dai:dai $dataDir/dai
-
 file="/etc/dai/config.toml"
 echo "Change $file"
 cp $file $file.bak
@@ -95,8 +91,6 @@ sed -i -e "s/#local_htpasswd_file = \"\"/local_htpasswd_file = \"\/etc\/dai\/htp
 sed -i -e "s/#enable_https = false/enable_https = true/g" $file
 sed -i -e "s/#ssl_key_file = \"\/etc\/dai\/private_key.pem\"/ssl_key_file = \"\/etc\/dai\/private_key.pem\"/g" $file
 sed -i -e "s/#ssl_crt_file = \"\/etc\/dai\/cert.pem\"/ssl_crt_file = \"\/etc\/dai\/cert.pem\"/g" $file
-# use ~ as regex delimiter to avoid escaping / in $dataDir
-sed -i -e "s~#data_directory = \"./tmp\"~data_directory = \"$dataDir/dai\"~g" $file
 
 #######################################################
 ################ Start H2O Driverless AI ##############

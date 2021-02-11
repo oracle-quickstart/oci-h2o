@@ -12,11 +12,11 @@ resource "oci_core_instance" "h2o" {
   shape               = var.shape
 
   # This is a platform image.
-  # OL 8 GPU
+  # OL 7 GPU
   # It should be a Marketplace image.
 
   source_details {
-    source_id   = "ocid1.image.oc1.iad.aaaaaaaadly6hoipurnavvailrrizvq3sdxlkquw6mmzm7mc2jjburlzrfqa"
+    source_id   = "ocid1.image.oc1.iad.aaaaaaaax6antvrwkhgmzxncixdxllhsell3vwui3fy6iw2boowxkwiz5xwq"
     source_type = "image"
     boot_volume_size_in_gbs = 1000
   }
@@ -37,7 +37,7 @@ resource "oci_core_instance" "h2o" {
           "#!/usr/bin/env bash",
           "USER=\"${var.user}\"",
           "PASSWORD=\"${var.password}\"",
-#          file("./scripts/node.sh"),
+          file("./scripts/node.sh"),
         ],
       ),
     )
