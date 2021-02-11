@@ -39,27 +39,18 @@ echo "I'm running on a $shape."
 if [[ $shape == *"GPU"* ]]; then
   echo "Running on a GPU shape, doing NVIDIA setup..."
 
-  # Starting NVIDIA Persistence Mode
-  nvidia-persistenced --persistence-mode
-
-  ### need to do more of this...
+  ### The doc is here...
   # http://docs.h2o.ai/driverless-ai/latest-stable/docs/userguide/install/linux-rpm.html
 
-  # Installing OpenCL
-  ### to do
-  #sudo yum -y clean all
-  #sudo yum -y makecache
-  #sudo yum -y update
-  #wget http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/c/clinfo-2.1.17.02.09-1.el7.x86_64.rpm
-  #wget http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/o/ocl-icd-2.2.12-1.el7.x86_64.rpm
-  #sudo rpm -if ocl-icd-2.2.12-1.el7.x86_64.rpm
-  #sudo rpm -if clinfo-2.1.17.02.09-1.el7.x86_64.rpm
-  #clinfo
-  #mkdir -p /etc/OpenCL/vendors && \
-  #    echo "libnvidia-opencl.so.1" > /etc/OpenCL/vendors/nvidia.icd
+  nvidia-persistenced --persistence-mode
 
-  # Installing cuDNN
-  #sudo yum install libcudnn7-devel
+  # Installing OpenCL
+  #wget http://developer.download.nvidia.com/compute/DevZone/OpenCL/Projects/oclMultiThreads.tar.gz
+  #tar -xvf oclMultiThreads.tar.gz
+  #cd "NVIDIA GPU Computing SDK/OpenCL"
+  #### The make file doesn't seem to have the right targets.  This is weird...
+  #make
+  #make install
 
 else
   echo "Running on a non-GPU shape, no NVIDIA GPU setup needed."
