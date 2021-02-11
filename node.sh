@@ -44,7 +44,7 @@ if [[ $shape == *"GPU"* ]]; then
 
   nvidia-persistenced --persistence-mode
 
-  # Installing OpenCL
+  # Install OpenCL
   #wget http://developer.download.nvidia.com/compute/DevZone/OpenCL/Projects/oclMultiThreads.tar.gz
   #tar -xvf oclMultiThreads.tar.gz
   #cd "NVIDIA GPU Computing SDK/OpenCL"
