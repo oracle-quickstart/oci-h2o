@@ -37,7 +37,7 @@ resource "oci_core_instance" "h2o" {
           "#!/usr/bin/env bash",
           "USER=\"${var.user}\"",
           "PASSWORD=\"${var.password}\"",
-          file("./scripts/node.sh"),
+          file("./node.sh"),
         ],
       ),
     )
