@@ -20,7 +20,7 @@ variable "ssh_public_key" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 variable "shape" {
-  default     = "VM.GPU3.2"
+  default     = "VM.GPU3.1"
   description = "Instance shape to deploy."
 }
 
