@@ -23,7 +23,11 @@ cd ~opc
 curl -O https://s3.amazonaws.com/artifacts.h2o.ai/releases/ai/h2o/dai/rel-1.9.1-53/x86_64-centos7/dai-1.9.1-1.x86_64.rpm
 rpm -i dai*.rpm
 
-echo 0 > /proc/sys/vm/overcommit_memory
+# WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+echo 1 > /proc/sys/vm/overcommit_memory
+
+# WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+echo never > /sys/kernel/mm/transparent_hugepage/enabled
 
 #######################################################
 ################### Gather metadata ###################
